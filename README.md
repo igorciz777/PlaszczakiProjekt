@@ -1,2 +1,2 @@
-# PlaszczakiProjekt
-Projekt na przedmiot Algorytmy i Struktury Danych 2
+# Płaszczaki Projekt
+## Projekt na przedmiot Algorytmy i Struktury Danych 2
