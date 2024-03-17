@@ -2,7 +2,7 @@
  * 
  * 
  * 
- * Biblioteka do implementacji algorytmow i struktor danych
+ * Biblioteka do implementacji algorytmow i struktur danych
  * 
  * 
  * 
