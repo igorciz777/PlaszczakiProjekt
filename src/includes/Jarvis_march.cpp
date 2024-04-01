@@ -1,4 +1,8 @@
+
+//TODO: przeniesc do plikow geometria.h i geometria.cpp, bardziej uniwersalnie, calosc w postaci klasy np
+
 #include <iostream>
+#include <vector>
 using namespace std;
 
 #define MAX 10000
@@ -21,7 +25,7 @@ void stworzOtoczke(Punkt punkty[], int n){
         cout << "musza byc minimum 3 punkty!" << endl;
     }
 
-    int nastPunkt[n];
+    std::vector<int> nastPunkt(n);
     for(int i = 0; i < n; i++){
         nastPunkt[i] = -1;
     }

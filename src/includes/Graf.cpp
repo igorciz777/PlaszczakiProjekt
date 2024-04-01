@@ -1,13 +1,11 @@
 /**
+ * @file Graf.cpp
+ * @brief Plik źródłowy dla implementacji stuktur i algorytmów grafowych
  * 
- * 
- * 
- * Biblioteka do implementacji algorytmow i struktur danych
- * 
- * 
- * 
+ * Zawiera definicje metod dla struktur Wierzcholek, Krawedz, klasy Graf oraz SiecPrzeplywowa
 */
-#include "aisd_lib.h"
+
+#include "Graf.h"
 
 Wierzcholek::Wierzcholek(int wartosc){
     this->wartosc = wartosc;
@@ -41,9 +39,16 @@ void Graf::dodajKrawedz(Wierzcholek *wierzcholek1, Wierzcholek *wierzcholek2, in
 void Graf::dodajKrawedz(Krawedz krawedz){
     this->krawedzie.push_back(krawedz);
 }
-void Graf::getMacierzSasiedztwa(){
+/**
+ * @brief Metoda zwracająca macierz sąsiedztwa
+ * 
+ * Metoda tworzy macierz sąsiedztwa na podstawie wektora krawędzi
+ * 
+*/
+std::vector<std::vector<int>> Graf::getMacierzSasiedztwa(){
     this->macierzSasiedztwa = std::vector<std::vector<int>>(this->liczbaWierzcholkow, std::vector<int>(this->liczbaWierzcholkow, 0));
     for(int i = 0; i < this->liczbaKrawedzi; i++){
         this->macierzSasiedztwa[this->krawedzie[i].wierzcholek1->wartosc - 'A'][this->krawedzie[i].wierzcholek2->wartosc - 'A'] = this->krawedzie[i].waga;
     }
+    return this->macierzSasiedztwa;
 }
