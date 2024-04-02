@@ -6,7 +6,9 @@
 */
 
 #include <vector>
+#include <queue>
 
+#define INF 1000000
 
 /**
  * @brief Struktura reprezentująca wierzchołek grafu
@@ -48,18 +50,24 @@ struct Krawedz{
  * @param krawedzie Wektor krawędzi
 */
 class Graf{
-    int liczbaWierzcholkow;
-    int liczbaKrawedzi;
-    std::vector<std::vector<int>> macierzSasiedztwa;
-    std::vector<struct Wierzcholek> wierzcholki;
-    std::vector<struct Krawedz> krawedzie;
-    Graf();
-    Graf(int liczbaWierzcholkow, int liczbaKrawedzi);
-    void dodajWierzcholek(int wartosc);
-    void dodajWiezcholek(struct Wierzcholek wierzcholek);
-    void dodajKrawedz(struct Wierzcholek *wierzcholek1, struct Wierzcholek *wierzcholek2, int waga);
-    void dodajKrawedz(struct Krawedz krawedz);
-    std::vector<std::vector<int>> getMacierzSasiedztwa();
+    private:
+        int liczbaWierzcholkow;
+        int liczbaKrawedzi;
+        std::vector<std::vector<int>> macierzSasiedztwa;
+        std::vector<struct Wierzcholek> wierzcholki;
+        std::vector<struct Krawedz> krawedzie;
+    public:
+        Graf();
+        Graf(int liczbaWierzcholkow, int liczbaKrawedzi);
+        void dodajWierzcholek(int wartosc);
+        void dodajWiezcholek(struct Wierzcholek wierzcholek);
+        void dodajKrawedz(struct Wierzcholek *wierzcholek1, struct Wierzcholek *wierzcholek2, int waga);
+        void dodajKrawedz(struct Krawedz krawedz);
+        std::vector<std::vector<int>> getMacierzSasiedztwa();
+        std::vector<struct Wierzcholek> getWierzcholki();
+        std::vector<struct Krawedz> getKrawedzie();
+        int getLiczbaWierzcholkow();
+        int getLiczbaKrawedzi();
 };
 
 /**
@@ -71,7 +79,14 @@ class Graf{
  * @param ujscie Wskaźnik na wierzchołek ujściowy
 */
 class SiecPrzeplywowa : Graf{
-    struct Wierzcholek *zrodlo; // S
-    struct Wierzcholek *ujscie; // T
-    SiecPrzeplywowa();
+    private:
+        struct Wierzcholek *zrodlo; // S
+        struct Wierzcholek *ujscie; // T
+        std::vector<std::vector<int>> przeplyw;
+    public:
+        int bfs(int zrodlo, int ujscie, std::vector<int> &poprzednik);
+        int maxPrzeplyw(int zrodlo, int ujscie);
+        SiecPrzeplywowa();
+        std::vector<std::vector<int>> getPrzeplyw();
 };
+

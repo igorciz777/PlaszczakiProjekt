@@ -30,6 +30,18 @@ Macierz3x3::Macierz3x3(double a11, double a12, double a13, double a21, double a2
     this->a33 = a33;
 }
 
+Macierz3x3::Macierz3x3(Punkt3 k1, Punkt3 k2, Punkt3 k3){
+    this->a11 = k1.x;
+    this->a21 = k1.y;
+    this->a31 = k1.z;
+    this->a12 = k2.x;
+    this->a22 = k2.y;
+    this->a32 = k2.z;
+    this->a13 = k3.x;
+    this->a23 = k3.y;
+    this->a33 = k3.z;
+}
+
 void Macierz3x3::setKolumna1(Punkt3 p){
     this->a11 = p.x;
     this->a21 = p.y;

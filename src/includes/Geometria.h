@@ -24,6 +24,7 @@ struct Macierz3x3{
     double a31, a32, a33;
     Macierz3x3();
     Macierz3x3(double a11, double a12, double a13, double a21, double a22, double a23, double a31, double a32, double a33);
+    Macierz3x3(Punkt3 k1, Punkt3 k2, Punkt3 k3);
     void setKolumna1(Punkt3 p);
     void setKolumna2(Punkt3 p);
     void setKolumna3(Punkt3 p);
