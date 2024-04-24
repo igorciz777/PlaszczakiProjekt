@@ -1,4 +1,7 @@
 #include <iostream>
+#include <cmath>
+#include <limits>
+#include <vector>
 #define MAX 10000
 using namespace std;
 
@@ -11,6 +14,42 @@ struct Punkt{
     int x;
     int y;
 };
+
+struct Krawedz{
+    int cel;
+    double przepustowosc;
+    double przeplyw;
+};
+
+//funkcja obliczajaca odleglosc miedzy punktami, odleglosc ta bedzie stanowic przepustowowsc
+
+int obliczOdleglosc(Punkt a, Punkt b){
+    return sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y));
+}
+
+// Funkcja do tworzenia grafu na podstawie podanych punktów
+vector<vector<Krawedz>> stworzGraf(Punkt punkty[], int n) {
+    vector<vector<Krawedz>> graf(n); // Tworzymy wektor wektorów reprezentujących krawędzie
+
+    // Iterujemy po wszystkich punktach
+    for (int i = 0; i < n; ++i) {
+        // Dla każdej pary punktów, sprawdzamy odległość między nimi
+        // i tworzymy krawędź między nimi w grafie
+        for (int j = 0; j < n; ++j) {
+            if (i != j) { // Ignorujemy ten sam punkt
+                double odleglosc = obliczOdleglosc(punkty[i], punkty[j]);
+                // Dodajemy krawędź z punktu i do punktu j z odpowiednią pojemnością (przepustowością)
+                Krawedz krawedz;
+                krawedz.cel = j;
+                krawedz.przepustowosc = odleglosc; // Pojemność krawędzi to odległość między punktami
+                krawedz.przeplyw = 0; // Na początku przepływ jest zerowy
+                graf[i].push_back(krawedz);
+            }
+        }
+    }
+
+    return graf;
+}
 
 long orientacja(Punkt a, Punkt b, Punkt c){
     long det = (b.y - a.y) * (c.x - b.x) - (b.x - a.x) * (c.y - b.y);
@@ -68,16 +107,38 @@ int main()
         return 0;
     }
     Punkt tablicaPunktow[n];
+    // for(int i = 0; i < n; i++){
+    //     cout << "Punkt " << i+1 << "x: ";
+    //     cin >> tablicaPunktow[i].x;
+    //     cout <<"Punkt " << i+1 << "y: ";
+    //     cin >> tablicaPunktow[i].y;
+    //     cout << endl;
+    // }
+    Punkt fabryka;
     for(int i = 0; i < n; i++){
-        cout << "Punkt " << i+1 << "x: ";
         cin >> tablicaPunktow[i].x;
-        cout <<"Punkt " << i+1 << "y: ";
         cin >> tablicaPunktow[i].y;
-        cout << endl;
+
+        
     }
+    fabryka.x = tablicaPunktow[0].x;
+    fabryka.y = tablicaPunktow[0].y; //fabryka to pierwszy podany przez uzytkownika punkt
+
+    
     
 
     stworzOtoczke(tablicaPunktow, n);
+    vector<vector<Krawedz>> v = stworzGraf(tablicaPunktow, n);
+    // Iteracja po wszystkich wierzchołkach grafu
+    for(int i = 0; i < v.size(); i++){
+        cout << "Krawedzie wychodzace z wierzcholka " << i << ":\n";
+
+    // Iteracja po wszystkich krawędziach wychodzących z danego wierzchołka
+        for(int j = 0; j < v[i].size(); j++) {
+            cout << "Cel: " << v[i][j].cel << ", Przepustowosc: " << v[i][j].przepustowosc << ", Przeplyw: " << v[i][j].przeplyw << "\n";
+        }
+        cout << "\n";
+    }
 
 
 
