@@ -1,15 +1,19 @@
 #include <iostream>
+#define MAX 10000
 using namespace std;
 
-#define MAX 10000
+struct Tragarz{//#TODO zrobic tragarzy
+    int wiek; // grupa wiekowa 18 - 30 lub 30+; do wspolpracy potrzeba tragarzy z tego samego przedzialu wiekowego;
+    int rece; //jesli rece = 0 to rece z przodu, jesli 1 to rece z tylu; 
+};
 
 struct Punkt{
     int x;
     int y;
 };
 
-int orientacja(Punkt a, Punkt b, Punkt c){
-    int det = (b.y - a.y) * (c.x - b.x) - (b.x - a.x) * (c.y - b.y);
+long orientacja(Punkt a, Punkt b, Punkt c){
+    long det = (b.y - a.y) * (c.x - b.x) - (b.x - a.x) * (c.y - b.y);
     if(det == 0){
         return 0; //liniowe
     }
@@ -17,6 +21,7 @@ int orientacja(Punkt a, Punkt b, Punkt c){
 }
 
 void stworzOtoczke(Punkt punkty[], int n){
+
     int nastPunkt[n];
     for(int i = 0; i < n; i++){
         nastPunkt[i] = -1;
@@ -55,12 +60,26 @@ void stworzOtoczke(Punkt punkty[], int n){
 
 int main()
 {
-    Punkt punkty[] = {{0, 3}, {2, 2}, {1,1}, {2, 1}, {3, 0}, {0, 0}, {3, 3}};
-    cout << "Punkty: ";
-    int n = sizeof(punkty) / sizeof(punkty[0]);
+    int n;
+    cout << "Okresl ile puntow orientacyjnych zawiera kraina : ";
+    cin >> n;
     if(n < 3){
         cout << "musza byc minimum 3 punkty!" << endl;
+        return 0;
     }
-    stworzOtoczke(punkty, n);
+    Punkt tablicaPunktow[n];
+    for(int i = 0; i < n; i++){
+        cout << "Punkt " << i+1 << "x: ";
+        cin >> tablicaPunktow[i].x;
+        cout <<"Punkt " << i+1 << "y: ";
+        cin >> tablicaPunktow[i].y;
+        cout << endl;
+    }
+    
+
+    stworzOtoczke(tablicaPunktow, n);
+
+
+
     return 0;
 }
