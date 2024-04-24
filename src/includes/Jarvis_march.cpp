@@ -17,10 +17,6 @@ int orientacja(Punkt a, Punkt b, Punkt c){
 }
 
 void stworzOtoczke(Punkt punkty[], int n){
-    if(n < 3){
-        cout << "musza byc minimum 3 punkty!" << endl;
-    }
-
     int nastPunkt[n];
     for(int i = 0; i < n; i++){
         nastPunkt[i] = -1;
@@ -62,6 +58,9 @@ int main()
     Punkt punkty[] = {{0, 3}, {2, 2}, {1,1}, {2, 1}, {3, 0}, {0, 0}, {3, 3}};
     cout << "Punkty: ";
     int n = sizeof(punkty) / sizeof(punkty[0]);
+    if(n < 3){
+        cout << "musza byc minimum 3 punkty!" << endl;
+    }
     stworzOtoczke(punkty, n);
     return 0;
 }
