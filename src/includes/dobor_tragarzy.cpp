@@ -17,14 +17,21 @@ int main(){
         siec.dodajWierzcholek(i);        
     }
 
-    cout << "Polacz tragarzy wspopracujacych ze soba, ile par chcesz utworzyc? " << endl;
-    int l, x, y ;
+    cout << "Polacz tragarzy wspopracujacych ze soba, ile par chcesz utworzyc?" << endl;
+    int l, x, y, przepustowosc;
     cin >> l;
     for(int i = 0; i < l; i++){
-        cin >> x >> y;
-        siec.dodajKrawedz(x, y, 0);
+        cin >> x >> y >> przepustowosc;
+        siec.dodajKrawedz(x, y, przepustowosc);
     }
     
+    cout << "Podaj fabryke i zrodlo:";
+    int m, n;
+    cin >> m, n;
+    cout << siec.maxPrzeplyw(m, n);
+    
+
+
 
 
     
