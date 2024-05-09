@@ -11,19 +11,6 @@
 #define INF 1000000
 
 /**
- * @brief Struktura reprezentująca wierzchołek grafu
- * 
- * Struktura przechowuje wartość wierzchołka //TODO: wieksza uniwersalnosc, np char, string zamiast int
- * 
- * @param wartosc Wartość wierzchołka
-*/
-struct Wierzcholek{
-    int wartosc;
-    Wierzcholek();
-    Wierzcholek(int wartosc);
-};
-
-/**
  * @brief Struktura reprezentująca krawędź grafu
  * 
  * Struktura przechowuje wskaźniki na wierzchołki, które łączy krawędź oraz wagę krawędzi
@@ -33,11 +20,11 @@ struct Wierzcholek{
  * @param waga Waga krawędzi
 */
 struct Krawedz{
-    struct Wierzcholek *wierzcholek1;
-    struct Wierzcholek *wierzcholek2;
+    int wierzcholek1;
+    int wierzcholek2;
     int waga;
     Krawedz();
-    Krawedz(struct Wierzcholek *wierzcholek1, struct Wierzcholek *wierzcholek2, int waga);
+    Krawedz(int wierzcholek1, int wierzcholek2, int waga);
 };
 
 /**
@@ -56,20 +43,20 @@ class Graf{
         int liczbaWierzcholkow;
         int liczbaKrawedzi;
         std::vector<std::vector<int>> macierzSasiedztwa;
-        std::vector<struct Wierzcholek> wierzcholki;
+        std::vector<int> wierzcholki;
         std::vector<struct Krawedz> krawedzie;
     public:
         Graf();
         Graf(int liczbaWierzcholkow, int liczbaKrawedzi);
         void dodajWierzcholek(int wartosc);
-        void dodajWiezcholek(struct Wierzcholek wierzcholek);
-        void dodajKrawedz(struct Wierzcholek *wierzcholek1, struct Wierzcholek *wierzcholek2, int waga);
+        void dodajKrawedz(int wierzcholek1, int wierzcholek2, int waga);
         void dodajKrawedz(struct Krawedz krawedz);
         std::vector<std::vector<int>> getMacierzSasiedztwa();
-        std::vector<struct Wierzcholek> getWierzcholki();
+        std::vector<int> getWierzcholki();
         std::vector<struct Krawedz> getKrawedzie();
         int getLiczbaWierzcholkow();
         int getLiczbaKrawedzi();
+        bool wierzcholekIstnieje(int wierzcholek);
 };
 
 /**
@@ -82,8 +69,8 @@ class Graf{
 */
 class SiecPrzeplywowa : Graf{
     private:
-        struct Wierzcholek *zrodlo; // S
-        struct Wierzcholek *ujscie; // T
+        int zrodlo; // S
+        int ujscie; // T
         std::vector<std::vector<int>> przeplyw;
     public:
         int bfs(int zrodlo, int ujscie, std::vector<int> &poprzednik);

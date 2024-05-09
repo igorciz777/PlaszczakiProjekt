@@ -7,22 +7,13 @@
 
 #include "Graf.h"
 
-Wierzcholek::Wierzcholek()
-{
-    this->wartosc = 0;
-}
-
-Wierzcholek::Wierzcholek(int wartosc)
-{
-    this->wartosc = wartosc;
-}
 Krawedz::Krawedz()
 {
-    this->wierzcholek1 = nullptr;
-    this->wierzcholek2 = nullptr;
+    this->wierzcholek1 = 0;
+    this->wierzcholek2 = 0;
     this->waga = 0;
 }
-Krawedz::Krawedz(Wierzcholek *wierzcholek1, Wierzcholek *wierzcholek2, int waga)
+Krawedz::Krawedz(int wierzcholek1, int wierzcholek2, int waga)
 {
     this->wierzcholek1 = wierzcholek1;
     this->wierzcholek2 = wierzcholek2;
@@ -38,18 +29,14 @@ Graf::Graf(int liczbaWierzcholkow, int liczbaKrawedzi)
 {
     this->liczbaWierzcholkow = liczbaWierzcholkow;
     this->liczbaKrawedzi = liczbaKrawedzi;
-    this->wierzcholki = std::vector<Wierzcholek>(liczbaWierzcholkow);
+    this->wierzcholki = std::vector<int>(liczbaWierzcholkow, 0);
     this->krawedzie = std::vector<Krawedz>(liczbaKrawedzi);
 }
 void Graf::dodajWierzcholek(int wartosc)
 {
-    this->wierzcholki.push_back(Wierzcholek(wartosc));
+    this->wierzcholki[wartosc] = 1;
 }
-void Graf::dodajWiezcholek(Wierzcholek wierzcholek)
-{
-    this->wierzcholki.push_back(wierzcholek);
-}
-void Graf::dodajKrawedz(Wierzcholek *wierzcholek1, Wierzcholek *wierzcholek2, int waga)
+void Graf::dodajKrawedz(int wierzcholek1, int wierzcholek2, int waga)
 {
     this->krawedzie.push_back(Krawedz(wierzcholek1, wierzcholek2, waga));
 }
@@ -65,13 +52,17 @@ int Graf::getLiczbaKrawedzi()
 {
     return this->liczbaKrawedzi;
 }
-std::vector<Wierzcholek> Graf::getWierzcholki()
+std::vector<int> Graf::getWierzcholki()
 {
     return this->wierzcholki;
 }
 std::vector<Krawedz> Graf::getKrawedzie()
 {
     return this->krawedzie;
+}
+bool Graf::wierzcholekIstnieje(int wierzcholek)
+{
+    return this->wierzcholki[wierzcholek];
 }
 /**
  * @brief Metoda zwracająca macierz sąsiedztwa
@@ -84,7 +75,7 @@ std::vector<std::vector<int>> Graf::getMacierzSasiedztwa()
     this->macierzSasiedztwa = std::vector<std::vector<int>>(this->liczbaWierzcholkow, std::vector<int>(this->liczbaWierzcholkow, 0));
     for (int i = 0; i < this->liczbaKrawedzi; i++)
     {
-        this->macierzSasiedztwa[this->krawedzie[i].wierzcholek1->wartosc - 'A'][this->krawedzie[i].wierzcholek2->wartosc - 'A'] = this->krawedzie[i].waga;
+        this->macierzSasiedztwa[this->krawedzie[i].wierzcholek1][this->krawedzie[i].wierzcholek2] = this->krawedzie[i].waga;
     }
     return this->macierzSasiedztwa;
 }
