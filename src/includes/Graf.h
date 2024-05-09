@@ -76,6 +76,15 @@ class SiecPrzeplywowa : Graf{
         int maxPrzeplyw(int zrodlo, int ujscie);
         SiecPrzeplywowa();
         SiecPrzeplywowa(int liczbaWierzcholkow);
+        void dodajWierzcholek(int wartosc);
+        void dodajKrawedz(int wierzcholek1, int wierzcholek2, int waga);
+        void dodajKrawedz(struct Krawedz krawedz);
+        std::vector<std::vector<int>> getMacierzSasiedztwa();
+        std::vector<int> getWierzcholki();
+        std::vector<struct Krawedz> getKrawedzie();
+        int getLiczbaWierzcholkow();
+        int getLiczbaKrawedzi();
+        bool wierzcholekIstnieje(int wierzcholek);
         std::vector<std::vector<int>> getPrzeplyw();
 };
 
