@@ -41,13 +41,12 @@ struct Krawedz{
 class Graf{
     private:
         int liczbaWierzcholkow;
-        int liczbaKrawedzi;
         std::vector<std::vector<int>> macierzSasiedztwa;
         std::vector<int> wierzcholki;
         std::vector<struct Krawedz> krawedzie;
     public:
         Graf();
-        Graf(int liczbaWierzcholkow, int liczbaKrawedzi);
+        Graf(int liczbaWierzcholkow);
         void dodajWierzcholek(int wartosc);
         void dodajKrawedz(int wierzcholek1, int wierzcholek2, int waga);
         void dodajKrawedz(struct Krawedz krawedz);
@@ -76,6 +75,7 @@ class SiecPrzeplywowa : Graf{
         int bfs(int zrodlo, int ujscie, std::vector<int> &poprzednik);
         int maxPrzeplyw(int zrodlo, int ujscie);
         SiecPrzeplywowa();
+        SiecPrzeplywowa(int liczbaWierzcholkow);
         std::vector<std::vector<int>> getPrzeplyw();
 };
 

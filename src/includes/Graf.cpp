@@ -23,14 +23,12 @@ Krawedz::Krawedz(int wierzcholek1, int wierzcholek2, int waga)
 Graf::Graf()
 {
     this->liczbaWierzcholkow = 0;
-    this->liczbaKrawedzi = 0;
 }
-Graf::Graf(int liczbaWierzcholkow, int liczbaKrawedzi)
+Graf::Graf(int liczbaWierzcholkow)
 {
     this->liczbaWierzcholkow = liczbaWierzcholkow;
-    this->liczbaKrawedzi = liczbaKrawedzi;
     this->wierzcholki = std::vector<int>(liczbaWierzcholkow, 0);
-    this->krawedzie = std::vector<Krawedz>(liczbaKrawedzi);
+    this->krawedzie = std::vector<Krawedz>(0);
 }
 void Graf::dodajWierzcholek(int wartosc)
 {
@@ -50,7 +48,7 @@ int Graf::getLiczbaWierzcholkow()
 }
 int Graf::getLiczbaKrawedzi()
 {
-    return this->liczbaKrawedzi;
+    return this->krawedzie.size();
 }
 std::vector<int> Graf::getWierzcholki()
 {
@@ -73,7 +71,7 @@ bool Graf::wierzcholekIstnieje(int wierzcholek)
 std::vector<std::vector<int>> Graf::getMacierzSasiedztwa()
 {
     this->macierzSasiedztwa = std::vector<std::vector<int>>(this->liczbaWierzcholkow, std::vector<int>(this->liczbaWierzcholkow, 0));
-    for (int i = 0; i < this->liczbaKrawedzi; i++)
+    for (int i = 0; i < this->getLiczbaKrawedzi(); i++)
     {
         this->macierzSasiedztwa[this->krawedzie[i].wierzcholek1][this->krawedzie[i].wierzcholek2] = this->krawedzie[i].waga;
     }
@@ -132,4 +130,17 @@ int SiecPrzeplywowa::maxPrzeplyw(int zrodlo, int ujscie){
         }
     }
     return przeplyw;
+}
+
+SiecPrzeplywowa::SiecPrzeplywowa() : Graf()
+{
+    this->zrodlo = 0;
+    this->ujscie = 0;
+}
+
+SiecPrzeplywowa::SiecPrzeplywowa(int liczbaWierzcholkow) : Graf(liczbaWierzcholkow)
+{
+    this->zrodlo = 0;
+    this->ujscie = 0;
+    this->przeplyw = std::vector<std::vector<int>>(liczbaWierzcholkow, std::vector<int>(liczbaWierzcholkow, 0));
 }
