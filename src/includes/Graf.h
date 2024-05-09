@@ -19,6 +19,7 @@
 */
 struct Wierzcholek{
     int wartosc;
+    Wierzcholek();
     Wierzcholek(int wartosc);
 };
 
@@ -35,6 +36,7 @@ struct Krawedz{
     struct Wierzcholek *wierzcholek1;
     struct Wierzcholek *wierzcholek2;
     int waga;
+    Krawedz();
     Krawedz(struct Wierzcholek *wierzcholek1, struct Wierzcholek *wierzcholek2, int waga);
 };
 

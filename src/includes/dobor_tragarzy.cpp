@@ -9,7 +9,7 @@ int main(){
     int iloscTragarzy;
 
     cout << "Podaj ilosc tragazy: "; cin >> iloscTragarzy; cout << endl;
-    int tablicaTragarzy[iloscTragarzy];
+    std::vector<int> tablicaTragarzy(iloscTragarzy);
 
     cout << "Nazwij ich (liczba calkowita): " << endl;
     for(int i = 0; i < iloscTragarzy; i++){

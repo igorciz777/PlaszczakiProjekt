@@ -7,11 +7,21 @@
 
 #include "Graf.h"
 
+Wierzcholek::Wierzcholek()
+{
+    this->wartosc = 0;
+}
+
 Wierzcholek::Wierzcholek(int wartosc)
 {
     this->wartosc = wartosc;
 }
-
+Krawedz::Krawedz()
+{
+    this->wierzcholek1 = nullptr;
+    this->wierzcholek2 = nullptr;
+    this->waga = 0;
+}
 Krawedz::Krawedz(Wierzcholek *wierzcholek1, Wierzcholek *wierzcholek2, int waga)
 {
     this->wierzcholek1 = wierzcholek1;
@@ -79,6 +89,11 @@ std::vector<std::vector<int>> Graf::getMacierzSasiedztwa()
     return this->macierzSasiedztwa;
 }
 
+std::vector<std::vector<int>> SiecPrzeplywowa::getPrzeplyw()
+{
+    return this->przeplyw;
+}
+
 int SiecPrzeplywowa::bfs(int zrodlo, int ujscie, std::vector<int> &poprzednik)
 {
     std::vector<std::vector<int>> adj = this->getMacierzSasiedztwa();
@@ -106,6 +121,8 @@ int SiecPrzeplywowa::bfs(int zrodlo, int ujscie, std::vector<int> &poprzednik)
             }
         }
     }
+
+    return 0;
 }
 
 int SiecPrzeplywowa::maxPrzeplyw(int zrodlo, int ujscie){
