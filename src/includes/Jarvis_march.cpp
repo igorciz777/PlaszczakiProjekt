@@ -28,7 +28,7 @@ int obliczOdleglosc(Punkt a, Punkt b){
 }
 
 // Funkcja do tworzenia grafu na podstawie podanych punktów
-vector<vector<Krawedz>> stworzGraf(Punkt punkty[], int n) {
+vector<vector<Krawedz>> stworzGraf(vector<Punkt> punkty, int n) {
     vector<vector<Krawedz>> graf(n); // Tworzymy wektor wektorów reprezentujących krawędzie
 
     // Iterujemy po wszystkich punktach
@@ -59,9 +59,10 @@ long orientacja(Punkt a, Punkt b, Punkt c){
     return (det > 0) ? 1 : 2; //1 jeśli pasuje i 2 jeśli nie pasuje
 }
 
-void stworzOtoczke(Punkt punkty[], int n){
+void stworzOtoczke(vector<Punkt> punkty, int n){
 
-    int nastPunkt[n];
+    //int nastPunkt[n];
+    vector<int> nastPunkt(n);
     for(int i = 0; i < n; i++){
         nastPunkt[i] = -1;
     }
@@ -106,7 +107,11 @@ int main()
         cout << "musza byc minimum 3 punkty!" << endl;
         return 0;
     }
-    Punkt tablicaPunktow[n];
+
+    //Punkt tablicaPunktow[n];
+    //Jak dynamicznie przydzielamy tablice zmienna n to vectorem albo pointerem
+    
+    vector<Punkt> tablicaPunktow(n);
     // for(int i = 0; i < n; i++){
     //     cout << "Punkt " << i+1 << "x: ";
     //     cin >> tablicaPunktow[i].x;
