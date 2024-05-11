@@ -79,6 +79,16 @@ class SiecPrzeplywowa{
          * 
          * @return maksymalny przepływ w grafie
         */
+       void grafWspolpracyTragarzy( /*conts?*/ std::vector<int>& tragarzePrzod, /*const?*/ std::vector<int>& tragarzeTyl, int przepustowosc){
+        for(int i = 0; i < tragarzePrzod.size(); i++){
+            for(int j = 0; j < tragarzeTyl.size(); j++){
+                dodajKrawedz(tragarzePrzod[i], tragarzeTyl[j], przepustowosc);
+                dodajKrawedz(tragarzeTyl[j], tragarzePrzod[i], przepustowosc); // dwukierunkowa wspolpraca
+                
+            }
+        }
+
+       }
         int edmondsKarp(int s, int t, std::vector<std::vector<int>> &sciezki_out);
     private:
         int n;

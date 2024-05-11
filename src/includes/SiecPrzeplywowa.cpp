@@ -90,50 +90,50 @@ int SiecPrzeplywowa::bfs(int s, int t){
 Przykład użycia sieci przepływowej z zapisywaniem ścieżek
 */
 #include <iostream>
-int main(){
+// int main(){
 
-    using namespace std;
+//     using namespace std;
 
-    int F = 1; //liczba fabryk
-    int T = 4; //liczba tragarzy
-    int M = 1; //liczba miejsc budowy
+//     int F = 1; //liczba fabryk
+//     int T = 4; //liczba tragarzy
+//     int M = 1; //liczba miejsc budowy
 
-    /*
-    TODO:   gdy jest wiecęj niż 1 fabryka,
-            trzeba dodać +1 do ilosci wierzchołków i stworzyc fabrykę pośrednią.
+//     /*
+//     TODO:   gdy jest wiecęj niż 1 fabryka,
+//             trzeba dodać +1 do ilosci wierzchołków i stworzyc fabrykę pośrednią.
 
-            tak samo z miejscem budowy
-    */
-    SiecPrzeplywowa siec = SiecPrzeplywowa(F + T + M);
+//             tak samo z miejscem budowy
+//     */
+//     SiecPrzeplywowa siec = SiecPrzeplywowa(F + T + M);
 
     
-    siec.dodajKrawedz(0, 1, 3); 
-    siec.dodajKrawedz(0, 2, 2); 
-    siec.dodajKrawedz(1, 2, 1); 
-    siec.dodajKrawedz(1, 3, 2);
-    siec.dodajKrawedz(2, 4, 2);
-    siec.dodajKrawedz(3, 4, 3);
-    siec.dodajKrawedz(3, 5, 2);
-    siec.dodajKrawedz(4, 5, 3);
+//     siec.dodajKrawedz(0, 1, 3); 
+//     siec.dodajKrawedz(0, 2, 2); 
+//     siec.dodajKrawedz(1, 2, 1); 
+//     siec.dodajKrawedz(1, 3, 2);
+//     siec.dodajKrawedz(2, 4, 2);
+//     siec.dodajKrawedz(3, 4, 3);
+//     siec.dodajKrawedz(3, 5, 2);
+//     siec.dodajKrawedz(4, 5, 3);
 
-    int s = 0;
-    int t = 5;
+//     int s = 0;
+//     int t = 5;
 
-    //sciezki to wektor wektorów, w którym zapisane są wszystkie ścieżki
-    //3-ci argument edmondsKarp to referencja do wektora sciezek - w nim zostaną zapisane wszystkie ścieżki
-    vector<vector<int>> sciezki;
+//     //sciezki to wektor wektorów, w którym zapisane są wszystkie ścieżki
+//     //3-ci argument edmondsKarp to referencja do wektora sciezek - w nim zostaną zapisane wszystkie ścieżki
+//     vector<vector<int>> sciezki;
 
-    int maxPrzeplyw = siec.edmondsKarp(s, t, sciezki);
+//     int maxPrzeplyw = siec.edmondsKarp(s, t, sciezki);
 
-    cout << "Maksymalny przeplyw: " << maxPrzeplyw << endl;
+//     cout << "Maksymalny przeplyw: " << maxPrzeplyw << endl;
 
-    for(int i = 0; i < sciezki.size(); i++){
-        cout << "Sciezka " << i << ": ";
-        for(int j = 0; j < sciezki[i].size(); j++){
-            if (j != 0) cout << " -> ";
-            cout << sciezki[i][j];
-        }
-        cout << endl;
-    }
+//     for(int i = 0; i < sciezki.size(); i++){
+//         cout << "Sciezka " << i << ": ";
+//         for(int j = 0; j < sciezki[i].size(); j++){
+//             if (j != 0) cout << " -> ";
+//             cout << sciezki[i][j];
+//         }
+//         cout << endl;
+//     }
 
-}
+// }
