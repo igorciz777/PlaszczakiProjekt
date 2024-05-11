@@ -35,7 +35,7 @@ int main(){
     cout << "Podaj ilu tragarzy bedzie budowac plot: ";
     cin >> iloscTragarzy;
 
-    cout << "Ilu z nich ma rece z przodu?";
+    cout << "Ilu z nich ma rece z przodu? ";
     cin >> recePrzod;
     // if(iloscTragarzy <= recePrzod){//TODO obsluga bledow!!
     //     cout << "zbyt";
@@ -43,7 +43,7 @@ int main(){
     for(int i = 0; i < recePrzod; i++){
         tragarzePrzod.push_back(i); //dodajemy tragarzy z rekoma w przod do vectora
     }
-    cout << "Ilu z nich ma rece z tylu>";
+    cout << "Ilu z nich ma rece z tylu? ";
     cin >> receTyl;
     for(int i = 0; i < receTyl; i++){
         tragarzeTyl.push_back(i + recePrzod); // Dodajemy i + recePrzod, aby indeksy były kontynuacją
@@ -51,40 +51,44 @@ int main(){
      tragarzePrzodTyl.insert(tragarzePrzodTyl.end(), tragarzePrzod.begin(), tragarzePrzod.end());
     tragarzePrzodTyl.insert(tragarzePrzodTyl.end(), tragarzeTyl.begin(), tragarzeTyl.end());
 
-    // for (int i : tragarzePrzod) {
-    //     cout << i << " ";
+    cout << endl;
+    cout << "Tragarze z rekoma z przodu: " << endl;
+    for (int i : tragarzePrzod) {
+        cout << i << " ";
+    } 
+    cout << endl;
+    cout << endl;
+    cout << "Tragarze z rekoma z tylu: " << endl;
+    for (int i : tragarzeTyl) {
+        cout << i << " ";
+    }
+    cout << endl;
+    cout << endl;
+    cout << "Lista wszystkich tragarzy: " << endl;
+    for (int i : tragarzePrzodTyl) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    
+    
+    
+
+    // cout << "tragarzePrzod:" << endl;
+    // for (int i = 0; i < recePrzod; i++){
+    //     cout << tragarzePrzod[i];
     // } 
     // cout << endl;
-
-    // for (int i : tragarzeTyl) {
-    //     cout << i << " ";
+    // cout << "tragarzeTyl:" << endl;
+    // for (int i = 0; i < receTyl; i++){
+    //     cout << tragarzeTyl[i];
     // }
     // cout << endl;
-
-    // for (int i : tragarzePrzodTyl) {
-    //     cout << i << " ";
+    // cout << "tragarzePrzodTyl:" << endl;
+    // for (int i = 0; i < iloscTragarzy; i++){
+    //     cout << tragarzePrzodTyl[i];
     // }
     // cout << endl;
-
-    
-
-    // for(int i = 0; i < recePrzod; i++){
-    //     tragarzePrzodTyl.push_back(tragarzePrzod[i]);
-    // }
-    // for(int i = recePrzod; i < iloscTragarzy; i++){
-    //     tragarzePrzodTyl.push_back(tragarzeTyl[i]);
-    // }
-
-    
-    for (int i = 0; i < recePrzod; i++){
-        cout << tragarzePrzod[i];
-    } 
-    for (int i = 0; i < receTyl; i++){
-        cout << tragarzeTyl[i];
-    }
-    for (int i = 0; i < iloscTragarzy; i++){
-        cout << tragarzePrzodTyl[i];
-    }
 
 
 
