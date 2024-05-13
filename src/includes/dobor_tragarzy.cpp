@@ -8,9 +8,10 @@ using namespace std;
 
 int main(){
     
-    int recePrzod, receTyl;
+    int recePrzod, receTyl, tragarz1, tragarz2, iloscPar;
     vector<int> tragarzePrzod, tragarzeTyl, tragarzePrzodTyl; //ostatni gdyby trzeba bylo miec ich razemm i po kolei
-    
+    vector<pair<int, int>> wspolpracaTragarzy;
+
 
     cout << "Podaj liczbe tragarzy z rekoma z przodu: ";
     cin >> recePrzod;
@@ -27,6 +28,14 @@ int main(){
     }
      tragarzePrzodTyl.insert(tragarzePrzodTyl.end(), tragarzePrzod.begin(), tragarzePrzod.end());
     tragarzePrzodTyl.insert(tragarzePrzodTyl.end(), tragarzeTyl.begin(), tragarzeTyl.end());
+
+    cout << "Ile par moze ze soba wspolpracowac? "; 
+    cin >> iloscPar;
+    for(int i = 0; i < iloscPar; i++){
+        cin >> tragarz1 >> tragarz2;
+        wspolpracaTragarzy.push_back(make_pair(tragarz1, tragarz2));
+    }
+
 
     cout << endl;
     cout << "Tragarze z rekoma z przodu: " << endl;
@@ -46,6 +55,13 @@ int main(){
         cout << i << " ";
     }
     cout << endl;
+    cout << endl;
+    for(auto& para : wspolpracaTragarzy){
+        cout << para.first << " wspolpracuje z " << para.second << endl;
+    }
+    
+
+    
 
    return 0;
 }
