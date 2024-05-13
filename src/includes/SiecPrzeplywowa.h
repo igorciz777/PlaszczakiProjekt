@@ -79,7 +79,6 @@ class SiecPrzeplywowa{
          * 
          * @return maksymalny przepływ w grafie
         */
-       void grafWspolpracyTragarzy( /*conts?*/ std::vector<int>& tragarzePrzod, /*const?*/ std::vector<int>& tragarzeTyl, int przepustowosc);
 
         int edmondsKarp(int s, int t, std::vector<std::vector<int>> &sciezki_out);
     private:
