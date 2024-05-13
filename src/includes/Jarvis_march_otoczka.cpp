@@ -60,8 +60,6 @@ void stworzOtoczke(Punkt punkty[], int n, double &odleglosc){
         a = b;
 		
     }while(a != l);
-    //ostateczna dlugosc otoczki
-	odleglosc += obliczOdleglosc(punkty[c], punkty[a]);
     //wypisz wynik
     for(int i = 0; i < n; i++){
         if(nastPunkt[i] != -1){
