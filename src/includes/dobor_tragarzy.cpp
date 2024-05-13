@@ -80,7 +80,13 @@ int main(){
     cout << "Ktory jest ujsciem? ";
     cin >> n;
     ujscie = tragarzePrzodTyl[n];
+    vector<vector<int>> sciezki;
     
+
+    int maksymalnyPrzeplyw = siec1.edmondsKarp(zrodlo, ujscie, sciezki);
+
+    cout << "Maksymalny przeplyw to: " << maksymalnyPrzeplyw << endl;
+   
 
 
 
