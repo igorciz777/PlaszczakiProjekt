@@ -18,7 +18,7 @@ struct Krawedz{
     double przeplyw;
 };
 
-int obliczOdleglosc(Punkt a, Punkt b){
+double obliczOdleglosc(Punkt a, Punkt b){
     return sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y));
 }
 
@@ -30,7 +30,7 @@ long orientacja(Punkt a, Punkt b, Punkt c){
     return (det > 0) ? 1 : 2; //1 jeśli pasuje i 2 jeśli nie pasuje
 }
 
-void stworzOtoczke(Punkt punkty[], int n){
+void stworzOtoczke(Punkt punkty[], int n, double &odleglosc){
 
     int nastPunkt[n];
     for(int i = 0; i < n; i++){
@@ -45,8 +45,8 @@ void stworzOtoczke(Punkt punkty[], int n){
         }
     }
     //zaczynamy od punktu najbardziej po lewej, zgodnie ze wskazówkami zegara aż dojdziemy do startowego
-
-    int a = l, b;
+	
+    int a = l, b, c = 1;
     do{
         //szukamy punktu b którego kąt(a, i, b) jest <180
         b = (a + 1) % n;
@@ -56,16 +56,19 @@ void stworzOtoczke(Punkt punkty[], int n){
             }
         }
         nastPunkt[a] = b;
+        odleglosc += obliczOdleglosc(punkty[a], punkty[b]);
         a = b;
-
+		
     }while(a != l);
-
+    //ostateczna dlugosc otoczki
+	odleglosc += obliczOdleglosc(punkty[c], punkty[a]);
     //wypisz wynik
     for(int i = 0; i < n; i++){
         if(nastPunkt[i] != -1){
             cout << "(" << punkty[i].x << ", " << punkty[i].y << ")\n";
         }
     }
+
 }
 
 int main()
@@ -73,6 +76,7 @@ int main()
     int n;
     cout << "Okresl ile puntow orientacyjnych zawiera kraina : ";
     cin >> n;
+    double odleglosc;
     if(n < 3){
         cout << "musza byc minimum 3 punkty!" << endl;
         return 0;
@@ -87,7 +91,8 @@ int main()
     
     
 
-    stworzOtoczke(tablicaPunktow, n);
+    stworzOtoczke(tablicaPunktow, n, odleglosc);
+    cout<<"Dlugosc otoczki: "<<odleglosc<<endl;
     
     return 0;
 }
