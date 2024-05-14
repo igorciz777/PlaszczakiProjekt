@@ -53,27 +53,3 @@ std::vector<int> KMP::kmpSzukaj(const std::string& tekst, const std::string& wzo
 
     return indices;
 }
-
-int main() {
-    /*
-    Testowanie algorytmu KMP
-
-    Wyszukiwanie wzorca "poli" w tekście "bolipolibolibolirolirolicoliwolipolibolimoli"
-    */
-    std::string tekst = "bolipolibolibolirolirolicoliwolipolibolimoli";
-    std::string wzorzec = "poli";
-    
-    std::vector<int> indices = KMP::kmpSzukaj(tekst, wzorzec);
-
-    if (indices.empty()) {
-        std::cout << "wzorzec not found in the tekst." << std::endl;
-    } else {
-        std::cout << "wzorzec found at indices: ";
-        for (int index : indices) {
-            std::cout << index << " ";
-        }
-        std::cout << std::endl;
-    }
-
-    return 0;
-}
