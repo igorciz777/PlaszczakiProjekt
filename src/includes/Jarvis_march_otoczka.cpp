@@ -92,5 +92,6 @@ int main()
     stworzOtoczke(tablicaPunktow, n, odleglosc);
     cout<<"Dlugosc otoczki: "<<odleglosc<<endl;
     
+    
     return 0;
 }

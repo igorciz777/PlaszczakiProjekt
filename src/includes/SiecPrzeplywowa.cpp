@@ -1,3 +1,4 @@
+#include <iostream>
 #include "SiecPrzeplywowa.h"
 
 SiecPrzeplywowa::SiecPrzeplywowa(int n){
@@ -90,7 +91,7 @@ int SiecPrzeplywowa::bfs(int s, int t){
 /*
 Przykład użycia sieci przepływowej z zapisywaniem ścieżek
 */
-#include <iostream>
+
 // int main(){
 
 //     using namespace std;
