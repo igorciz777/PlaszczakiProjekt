@@ -112,7 +112,7 @@ int main(){
    
 //tragarze w grafie dwudzielnym
 //maksymalna liczba par to maksymalne skojarzenie
-//przzepustowosci 1
+//przepustowosci 1
 //
 
 

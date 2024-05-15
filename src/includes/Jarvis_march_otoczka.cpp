@@ -2,6 +2,7 @@
 #include <cmath>
 #include <limits>
 #include <vector>
+#include "SiecPrzeplywowa.cpp"
 #define MAX 10000
 using namespace std;
 
@@ -90,8 +91,12 @@ int main()
     
 
     stworzOtoczke(tablicaPunktow, n, odleglosc);
-    cout<<"Dlugosc otoczki: "<<odleglosc<<endl;
+    SiecPrzeplywowa siecBudowy = SiecPrzeplywowa(n);
     
+
+
+    cout<<"Dlugosc otoczki: "<<odleglosc<<endl;
+
     
     return 0;
 }
