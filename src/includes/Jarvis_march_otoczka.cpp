@@ -4,10 +4,15 @@
 #include <vector>
 #include <map>
 #include <cmath>
+#include <climits>
+#include <cstring>
 #include "SiecPrzeplywowa.cpp"
+#include "DoborTragarzy.cpp"
 #define MAX 10000
 using namespace std;
-
+const int MAKS = 1000;  // Maksymalna liczba pracowników w każdej grupie
+int skojarzeniaZPrzodu[MAKS], skojarzeniaZTylu[MAKS], odleglosc[MAKS];
+vector<int> listaSasiedztwa[MAKS];
 
 
 struct Punkt{
@@ -66,8 +71,67 @@ void stworzOtoczke(Punkt punkty[], int n, double &odleglosc){
 
 }
 
+bool wyszukiwanieWszerz() {
+    queue<int> kolejka;
+    for (int u = 0; u < MAKS; ++u) {
+        if (skojarzeniaZPrzodu[u] == -1) {
+            odleglosc[u] = 0;
+            kolejka.push(u);
+        } else {
+            odleglosc[u] = INT_MAX;
+        }
+    }
+    odleglosc[-1] = INT_MAX;
+    while (!kolejka.empty()) {
+        int u = kolejka.front();
+        kolejka.pop();
+        if (odleglosc[u] < odleglosc[-1]) {
+            for (int v : listaSasiedztwa[u]) {
+                if (odleglosc[skojarzeniaZTylu[v]] == INT_MAX) {
+                    odleglosc[skojarzeniaZTylu[v]] = odleglosc[u] + 1;
+                    kolejka.push(skojarzeniaZTylu[v]);
+                }
+            }
+        }
+    }
+    return (odleglosc[-1] != INT_MAX);
+}
+
+bool wyszukiwanieWGleb( int u ) {
+    if (u != -1) {
+        for (int v : listaSasiedztwa[u]) {
+            if (odleglosc[skojarzeniaZTylu[v]] == odleglosc[u] + 1) {
+                if (wyszukiwanieWGleb(skojarzeniaZTylu[v])) {
+                    skojarzeniaZTylu[v] = u;
+                    skojarzeniaZPrzodu[u] = v;
+                    return true;
+                }
+            }
+        }
+        odleglosc[u] = INT_MAX;
+        return false;
+    }
+    return true;
+}
+
+int algorytmHopcroftaKarpa() {
+    memset(skojarzeniaZPrzodu, -1, sizeof(skojarzeniaZPrzodu));
+    memset(skojarzeniaZTylu, -1, sizeof(skojarzeniaZTylu));
+    int skojarzenia = 0;
+    while (wyszukiwanieWszerz()) {
+        for (int u = 0; u < MAKS; ++u) {
+            if (skojarzeniaZPrzodu[u] == -1 && wyszukiwanieWGleb(u)) {
+                skojarzenia++;
+            }
+        }
+    }
+    return skojarzenia;
+}
+
+
 int main()
 {
+    
     int n;
     cout << "Okresl ile puntow orientacyjnych zawiera kraina : ";
     cin >> n;
@@ -89,12 +153,39 @@ int main()
         cout << "Punkt " << nazwyPunktow[i] << ": (" << tablicaPunktow[i].x << ", " << tablicaPunktow[i].y << ")" << endl;
     }
     
-    
-    
-
+   
 
 
     stworzOtoczke(tablicaPunktow, n, odleglosc);
+    int liczbaPracownikowZPrzodu, liczbaPracownikowZTylu, liczbaPolaczen;
+    cout << "Podaj liczbe pracownikow z rekoma z przodu: ";
+    cin >> liczbaPracownikowZPrzodu;
+    cout << "Podaj liczbe pracownikow z rekoma z tylu: ";
+    cin >> liczbaPracownikowZTylu;
+
+     cout << "Pracownicy z rekoma z przodu (indeksy 0 do " << liczbaPracownikowZPrzodu - 1 << "):" << endl;
+    for (int i = 0; i < liczbaPracownikowZPrzodu; i++) {
+        cout << "Pracownik z przodu [" << i << "]" << endl;
+    }
+
+    cout << "Pracownicy z rekoma z tylu (indeksy 0 do " << liczbaPracownikowZTylu - 1 << "):" << endl;
+    for (int j = 0; j < liczbaPracownikowZTylu; j++) {
+        cout << "Pracownik z tylu [" << j << "]" << endl;
+    }
+    
+    cout << "Podaj liczbe polaczen miedzy pracownikami: ";
+    cin >> liczbaPolaczen;
+
+    for (int i = 0; i < liczbaPolaczen; ++i) {
+        int zPrzodu, zTylu;
+        cout << "Podaj pare pracownikow (z przodu i z tylu), ktorzy wspolpracuja: ";
+        cin >> zPrzodu >> zTylu;
+        listaSasiedztwa[zPrzodu].push_back(zTylu);
+    }
+
+    int maksymalneSkojarzenie = algorytmHopcroftaKarpa();
+    cout << "Maksymalne skojarzenie: " << algorytmHopcroftaKarpa() << endl;
+
     SiecPrzeplywowa siecBudowy = SiecPrzeplywowa(n);
     for(int i = 0; i < n; i++){
         siecBudowy.dodajWierzcholek(nazwyPunktow[i]);
@@ -110,7 +201,7 @@ int main()
         int cel;
         cout << i + 1 << "Punkt: ";
         cin >> cel;
-        siecBudowy.dodajKrawedz(fabryka, cel, 8); //TODO przepustowosc na sztywno, to musi byc maks skojarzenie
+        siecBudowy.dodajKrawedz(fabryka, cel, maksymalneSkojarzenie); 
     }
     cout << "ile punktow chcesz polaczyc z punktami na otoczce? ";
     int ilosc_polaczen_punkt_otoczka;
@@ -120,7 +211,7 @@ int main()
         int zrodlo, cel;
         cout << "Jakie dwa punkty chcesz polaczyc (1 nie z otoczki, 2 z otoczki): ";
         cin >> zrodlo >> cel; cout << endl;
-        siecBudowy.dodajKrawedz(nazwyPunktow[zrodlo], nazwyPunktow[cel], 8); //TODO przepustowosc na sztywno, to musi byc maks skojarzenie
+        siecBudowy.dodajKrawedz(nazwyPunktow[zrodlo], nazwyPunktow[cel], 8); 
     }
 
 
