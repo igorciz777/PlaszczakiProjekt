@@ -133,20 +133,3 @@ void AhoCorasick::szukaj(std::string s)
         }
     }
 }
-
-int main()
-{
-    //test dzialania algorytmu
-
-    //algorytm opiera sie na sufiksach,
-    //podane indeksy sa ostatnim indeksem wzorca w tekscie
-
-    //TODO: zamiana tekstu wedlug wzorca
-    //TODO: sprawdzic obsluge unicode (polskie znaki, etc.)
-
-    std::string tekst = "polibolibolipolibolipolipoliboli";
-    std::vector<std::string> wzorce = {"poli", "boli"};
-    AhoCorasick ac(wzorce);
-    ac.szukaj(tekst);
-    return 0;
-}
