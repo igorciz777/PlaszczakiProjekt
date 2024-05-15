@@ -26,7 +26,7 @@ int main(){
     for(int i = 0; i < receTyl; i++){
         tragarzeTyl.push_back(i + recePrzod); // Dodajemy i + recePrzod, aby indeksy były kontynuacją
     }
-     tragarzePrzodTyl.insert(tragarzePrzodTyl.end(), tragarzePrzod.begin(), tragarzePrzod.end());
+    tragarzePrzodTyl.insert(tragarzePrzodTyl.end(), tragarzePrzod.begin(), tragarzePrzod.end());
     tragarzePrzodTyl.insert(tragarzePrzodTyl.end(), tragarzeTyl.begin(), tragarzeTyl.end());
 
     
@@ -51,6 +51,29 @@ int main(){
     }
     cout << endl;
     cout << endl;
+
+    //do wykorzystania lub nie:
+
+
+    // cout << "Podaj liczbe par tragarzy, ktorzy moga wspolpracowac: ";
+    // cin >> iloscPar;
+    // for (int i = 0; i < iloscPar; i++) {
+    //     cout << "Podaj pare tragarzy (indeks z przodu i indeks z tylu): ";
+    //     cin >> tragarz1 >> tragarz2;
+    //     wspolpracaTragarzy.push_back(make_pair(tragarz1, tragarz2 + recePrzod)); // Dodajemy recePrzod, aby dostosować indeksy
+    // }
+
+
+    // Teraz mamy graf dwudzielny z tragarzami i ich możliwymi współpracami
+    // Wypiszmy współprace:
+    // cout << "Mozliwe wspolprace:\n";
+    // for (const auto& para : wspolpracaTragarzy) {
+    //     cout << "Tragarz z przodu " << para.first << " moze wspolpracowac z tragarzem z tylu " << para.second << endl;
+    // }
+
+
+    
+    
     cout << "Ile par moze ze soba wspolpracowac? "; 
     cin >> iloscPar;
     for(int i = 0; i < iloscPar; i++){
@@ -87,7 +110,10 @@ int main(){
 
     cout << "Maksymalny przeplyw to: " << maksymalnyPrzeplyw << endl;
    
-
+//tragarze w grafie dwudzielnym
+//maksymalna liczba par to maksymalne skojarzenie
+//przzepustowosci 1
+//
 
 
     
