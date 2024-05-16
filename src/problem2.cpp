@@ -19,6 +19,7 @@
 #include "includes/Kmp.cpp"
 #include "includes/Huffman.cpp"
 #include "includes/Tekst.cpp"
+#include <sstream>
 
 int main(){
     std::string opowiesc_melodia;
@@ -31,20 +32,38 @@ int main(){
     char c;
     std::cin >> c;
     if(c == 't'){
-        std::vector<std::string> fragmenty;
-        std::cout << "Podaj fragmenty, które niepokoją Heretyka i Informatyka (po jednym w linii, zakończ pustą linią):" << std::endl;
         std::string fragment;
-        while(std::getline(std::cin, fragment) && !fragment.empty()){
-            fragmenty.push_back(fragment);
+        std::cout << "Podaj fragmenty, które niepokoją Heretyka i Informatyka (format: fragment zamiana (oddzielone spacja) na jedna linie, zakończ pustą linią):" << std::endl;
+        
+        std::cin.ignore();
+        while(std::getline(std::cin, fragment)){
+            if(fragment.empty()){
+                break;
+            }
+            std::stringstream ss(fragment);
+            std::string f1, f2;
+            ss >> f1 >> f2;
+            zamiany.push_back({f1, f2});
         }
-        //AhoCorasick aho_corasick;
-        //aho_corasick.zamienFragmenty(opowiesc_melodia, fragmenty, zamiany);
+
+        std::vector<std::string> wzorce;
+        for(auto i : zamiany){
+            wzorce.push_back(i.first);
+        }
+        AhoCorasick ahoCorasick(wzorce);
+        std::vector<std::pair<int,int> > idx = ahoCorasick.szukaj(opowiesc_melodia);
+        for(auto i : idx){
+            Tekst::zamienFragment(opowiesc_melodia,i.first - zamiany[i.second].first.size() + 1, zamiany[i.second]);
+        }
     }else{
-        //KMP kmp;
-        //kmp.zamienFragment(opowiesc_melodia, zamiany);
+        std::vector<int> idx = KMP::kmpSzukaj(opowiesc_melodia, zamiany[0].first);
+        for(int i : idx){
+            Tekst::zamienFragment(opowiesc_melodia,i,zamiany[0].second);
+        }
     }
     Huffman huffman;
-    huffman.koduj(opowiesc_melodia);
-
+    std::string zakodowana_melodia = huffman.koduj(opowiesc_melodia);
+    std::cout << "Melodia po zmianach: " << opowiesc_melodia << std::endl;
+    std::cout << "Zakodowana melodia: " << zakodowana_melodia << std::endl;
     return 0;
 }

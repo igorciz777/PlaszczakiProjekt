@@ -21,8 +21,10 @@ class Tekst{
          * @param start Indeks początku fragmentu
          * @param fragment Nowy fragment
          * 
+         * 
         */
         static void zamienFragment(std::string &tekst, int start, std::string fragment);
+        static void zamienFragment(std::string &tekst, int start, std::pair<std::string, std::string> fragment_zamiana);
         /**
          * @brief Zamienia tekst ASCII na binarny
          * 

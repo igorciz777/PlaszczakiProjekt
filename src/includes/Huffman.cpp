@@ -12,18 +12,18 @@ int operator<(const WezelHuffmana& a, const WezelHuffmana& b) {
     return a.czestotliwosc > b.czestotliwosc;
 }
 
-void Huffman::koduj(const std::string& tekst) {
+std::string Huffman::koduj(const std::string& tekst) {
     zbudujDrzewo(tekst);
     zbudujKody(korzen, "");
     std::string zakodowany_tekst = "";
     for (char znak : tekst) {
         zakodowany_tekst += kody[znak];
     }
-    std::cout << "Zakodowany tekst: " << zakodowany_tekst << std::endl;
-    dekoduj(zakodowany_tekst);
+    
+    return zakodowany_tekst;
 }
 
-void Huffman::dekoduj(const std::string& tekst) {
+std::string Huffman::dekoduj(const std::string& tekst) {
     std::string odkodowany_tekst = "";
     WezelHuffmana* aktualny = korzen;
     for (char znak : tekst) {
@@ -38,9 +38,8 @@ void Huffman::dekoduj(const std::string& tekst) {
             aktualny = korzen;
         }
     }
-    wypiszKod(korzen, "");
-    std::cout << "Odkodowany tekst: " << odkodowany_tekst << std::endl;
     usunDrzewo(korzen);
+    return odkodowany_tekst;
 }
 
 void Huffman::zbudujDrzewo(const std::string& tekst) {

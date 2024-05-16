@@ -121,15 +121,17 @@ Wezel* AhoCorasick::sufiks(Wezel* x, char c)
     return x;
 }
 
-void AhoCorasick::szukaj(std::string s)
+std::vector<std::pair<int,int> > AhoCorasick::szukaj(std::string s)
 {
     Wezel* x = trie;
+    std::vector<std::pair<int,int> > wynik;
     for (int i = 0; i < s.size(); i++)
     {
         x = sufiks(x, s[i]);
         for (int j = 0; j < x->wzorce.size(); j++)
         {
-            std::cout << "Znaleziono wzorzec " << x->wzorce[j] << " na pozycji " << i << std::endl;
+            wynik.push_back({i, x->wzorce[j]});
         }
     }
+    return wynik;
 }

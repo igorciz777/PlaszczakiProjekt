@@ -85,6 +85,7 @@ class AhoCorasick{
          * Szuka wszystkich wzorców z drzewa w podanym tekście.
          * 
          * @param s Tekst
+         * @return Wektor par (pozycja wzorca, identyfikator wzorca)
          */
-        void szukaj(std::string s);
+        std::vector<std::pair<int,int> > szukaj(std::string s);
 };

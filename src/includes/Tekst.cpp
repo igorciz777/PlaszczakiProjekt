@@ -11,6 +11,10 @@ void Tekst::zamienFragment(std::string &tekst, int start, std::string fragment){
     tekst = tekst.substr(0, start) + fragment + tekst.substr(start + fragment.size());
 }
 
+void Tekst::zamienFragment(std::string &tekst, int start, std::pair<std::string, std::string> fragment_zamiana){
+    tekst = tekst.substr(0, start) + fragment_zamiana.second + tekst.substr(start + fragment_zamiana.first.size());
+}
+
 std::string Tekst::ASCIItoBIN(std::string tekst){
     std::string wynik;
     for(char c : tekst){

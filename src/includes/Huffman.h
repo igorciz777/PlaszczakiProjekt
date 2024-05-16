@@ -19,8 +19,9 @@ int operator<(const WezelHuffmana& a, const WezelHuffmana& b);
 
 class Huffman {
     public:
-        void koduj(const std::string& tekst);
-        void dekoduj(const std::string& tekst);
+        std::string koduj(const std::string& tekst);
+        std::string dekoduj(const std::string& tekst);
+        WezelHuffmana* getKorzen() { return korzen; }
     private:
         void wypiszKod(WezelHuffmana* korzen, const std::string& kod);
         void zbudujDrzewo(const std::string& tekst);
