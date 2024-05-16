@@ -12,7 +12,7 @@ int operator<(const WezelHuffmana& a, const WezelHuffmana& b) {
     return a.czestotliwosc > b.czestotliwosc;
 }
 
-void Huffman::kompresuj(const std::string& tekst) {
+void Huffman::koduj(const std::string& tekst) {
     zbudujDrzewo(tekst);
     zbudujKody(korzen, "");
     std::string zakodowany_tekst = "";
@@ -20,10 +20,10 @@ void Huffman::kompresuj(const std::string& tekst) {
         zakodowany_tekst += kody[znak];
     }
     std::cout << "Zakodowany tekst: " << zakodowany_tekst << std::endl;
-    dekompresuj(zakodowany_tekst);
+    dekoduj(zakodowany_tekst);
 }
 
-void Huffman::dekompresuj(const std::string& tekst) {
+void Huffman::dekoduj(const std::string& tekst) {
     std::string odkodowany_tekst = "";
     WezelHuffmana* aktualny = korzen;
     for (char znak : tekst) {

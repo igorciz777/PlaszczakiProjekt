@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <string>
+#include <queue>
 #include <unordered_map>
 
 struct WezelHuffmana {
@@ -18,8 +19,8 @@ int operator<(const WezelHuffmana& a, const WezelHuffmana& b);
 
 class Huffman {
     public:
-        void kompresuj(const std::string& tekst);
-        void dekompresuj(const std::string& tekst);
+        void koduj(const std::string& tekst);
+        void dekoduj(const std::string& tekst);
     private:
         void wypiszKod(WezelHuffmana* korzen, const std::string& kod);
         void zbudujDrzewo(const std::string& tekst);
