@@ -43,8 +43,8 @@ int main(){
         //KMP kmp;
         //kmp.zamienFragment(opowiesc_melodia, zamiany);
     }
-    //Huffman huffman;
-    //huffman.kompresuj(opowiesc_melodia);
+    Huffman huffman;
+    huffman.kompresuj(opowiesc_melodia);
 
     return 0;
 }
