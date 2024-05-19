@@ -25,15 +25,15 @@ int main(){
     std::string opowiesc_melodia;
     std::vector<std::pair<std::string, std::string>> zamiany = {{"poli", "boli"}};
     
-    std::cout << "Podaj opowieść-melodię: ";
+    std::cout << "Podaj opowiesc-melodie: ";
     std::getline(std::cin, opowiesc_melodia);
 
-    std::cout << "Czy są fragmenty, które niepokoją Heretyka i Informatyka? (t/n): ";
+    std::cout << "Czy sa fragmenty, ktore niepokoja Heretyka i Informatyka? (t/n): ";
     char c;
     std::cin >> c;
     if(c == 't'){
         std::string fragment;
-        std::cout << "Podaj fragmenty, które niepokoją Heretyka i Informatyka (format: fragment zamiana (oddzielone spacja) na jedna linie, zakończ pustą linią):" << std::endl;
+        std::cout << "Podaj fragmenty, ktore niepokoja Heretyka i Informatyka (format: fragment zamiana (oddzielone spacja) na jedna linie, zakoncz pusta linia):" << std::endl;
         
         std::cin.ignore();
         while(std::getline(std::cin, fragment)){
@@ -52,8 +52,10 @@ int main(){
         }
         AhoCorasick ahoCorasick(wzorce);
         std::vector<std::pair<int,int> > idx = ahoCorasick.szukaj(opowiesc_melodia);
-        for(auto i : idx){
-            Tekst::zamienFragment(opowiesc_melodia,i.first - zamiany[i.second].first.size() + 1, zamiany[i.second]);
+
+        for(auto it = idx.rbegin(); it != idx.rend(); it++){
+            int start = it->first - zamiany[it->second].first.size() + 1;
+            Tekst::zamienFragment(opowiesc_melodia, start, zamiany[it->second]);
         }
     }else{
         std::vector<int> idx = KMP::kmpSzukaj(opowiesc_melodia, zamiany[0].first);
