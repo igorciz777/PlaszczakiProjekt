@@ -7,6 +7,7 @@
 #include <string>
 #include <queue>
 #include <unordered_map>
+#include <sstream>
 
 struct WezelHuffmana {
     char znak;
@@ -22,8 +23,8 @@ class Huffman {
         std::string koduj(const std::string& tekst);
         std::string dekoduj(const std::string& tekst);
         WezelHuffmana* getKorzen() { return korzen; }
+        void wypiszKod(WezelHuffmana* korzen, const std::string& kod, std::stringstream& out);
     private:
-        void wypiszKod(WezelHuffmana* korzen, const std::string& kod);
         void zbudujDrzewo(const std::string& tekst);
         void zbudujKody(WezelHuffmana* korzen, const std::string& kod);
         void usunDrzewo(WezelHuffmana* korzen);

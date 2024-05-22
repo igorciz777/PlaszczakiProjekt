@@ -93,11 +93,11 @@ void Huffman::usunDrzewo(WezelHuffmana* korzen) {
     delete korzen;
 }
 
-void Huffman::wypiszKod(WezelHuffmana* korzen, const std::string& kod) {
+void Huffman::wypiszKod(WezelHuffmana* korzen, const std::string& kod, std::stringstream& out) {
     if (korzen->lewy == nullptr && korzen->prawy == nullptr) {
-        std::cout << korzen->znak << ": " << kod << std::endl;
+        out << korzen->znak << ": " << kod << std::endl;
     } else {
-        wypiszKod(korzen->lewy, kod + "0");
-        wypiszKod(korzen->prawy, kod + "1");
+        wypiszKod(korzen->lewy, kod + "0", out);
+        wypiszKod(korzen->prawy, kod + "1", out);
     }
 }
