@@ -32,7 +32,7 @@ long orientacja(Punkt a, Punkt b, Punkt c){
     return (det > 0) ? 1 : 2; //1 jeśli pasuje i 2 jeśli nie pasuje
 }
 
-void stworzOtoczke(Punkt punkty[], int n, double &odleglosc){
+void stworzOtoczke(Punkt punkty[], int n, double &odleglosc, vector<int> &indeksy_otoczki){
 
     int nastPunkt[n];
     for(int i = 0; i < n; i++){
@@ -62,12 +62,15 @@ void stworzOtoczke(Punkt punkty[], int n, double &odleglosc){
         a = b;
 		
     }while(a != l);
+    cout<<endl;
     //wypisz wynik
     for(int i = 0; i < n; i++){
         if(nastPunkt[i] != -1){
             cout << "(" << punkty[i].x << ", " << punkty[i].y << ")\n";
+            indeksy_otoczki.push_back(i);
         }
     }
+    
 
 }
 
@@ -153,17 +156,22 @@ int main()
         cout << "Punkt " << nazwyPunktow[i] << ": (" << tablicaPunktow[i].x << ", " << tablicaPunktow[i].y << ")" << endl;
     }
     
-   
-
-
-    stworzOtoczke(tablicaPunktow, n, odleglosc);
+	int superZrodlo = n;
+   	n++;
+   	SiecPrzeplywowa siecBudowy = SiecPrzeplywowa(n);
+	siecBudowy.dodajWierzcholek(n-1);
+	vector<int> indeksy_otoczki;
+    stworzOtoczke(tablicaPunktow, n-1, odleglosc, indeksy_otoczki);
+    
+    
+    
     int liczbaPracownikowZPrzodu, liczbaPracownikowZTylu, liczbaPolaczen;
     cout << "Podaj liczbe pracownikow z rekoma z przodu: ";
     cin >> liczbaPracownikowZPrzodu;
     cout << "Podaj liczbe pracownikow z rekoma z tylu: ";
     cin >> liczbaPracownikowZTylu;
-
-     cout << "Pracownicy z rekoma z przodu (indeksy 0 do " << liczbaPracownikowZPrzodu - 1 << "):" << endl;
+	
+    cout << "Pracownicy z rekoma z przodu (indeksy 0 do " << liczbaPracownikowZPrzodu - 1 << "):" << endl;
     for (int i = 0; i < liczbaPracownikowZPrzodu; i++) {
         cout << "Pracownik z przodu [" << i << "]" << endl;
     }
@@ -186,7 +194,7 @@ int main()
     int maksymalneSkojarzenie = algorytmHopcroftaKarpa();
     cout << "Maksymalne skojarzenie: " << algorytmHopcroftaKarpa() << endl;
 
-    SiecPrzeplywowa siecBudowy = SiecPrzeplywowa(n);
+    
     for(int i = 0; i < n; i++){
         siecBudowy.dodajWierzcholek(nazwyPunktow[i]);
     }
@@ -207,17 +215,21 @@ int main()
     int ilosc_polaczen_punkt_otoczka;
     cin >> ilosc_polaczen_punkt_otoczka;
     cout << endl;
+    
     for(int i = 0; i < ilosc_polaczen_punkt_otoczka; i++){
         int zrodlo, cel;
         cout << "Jakie dwa punkty chcesz polaczyc (1 nie z otoczki, 2 z otoczki): ";
         cin >> zrodlo >> cel; cout << endl;
         siecBudowy.dodajKrawedz(nazwyPunktow[zrodlo], nazwyPunktow[cel], 8); 
     }
+    for(int i = 0; i < indeksy_otoczki.size(); i++){
+    	siecBudowy.dodajKrawedz(nazwyPunktow[indeksy_otoczki[i]], superZrodlo, 8); 
+	}
 
 
     cout<<"Dlugosc otoczki: "<<odleglosc<<endl;
     vector<vector<int>> sciez;
-    int maksymalnyPrzeplyw = siecBudowy.edmondsKarp(fabryka, nazwyPunktow[5], sciez);
+    int maksymalnyPrzeplyw = siecBudowy.edmondsKarp(fabryka, superZrodlo, sciez);
     cout << "Maksymalny przeplyw to: " << maksymalnyPrzeplyw << endl;
     
     int ilosc_dni_potrzebnych_do_budowy_plotu = 0;
