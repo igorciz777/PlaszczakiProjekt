@@ -100,11 +100,11 @@ bool wyszukiwanieWszerz() {
     return (odleglosc[-1] != INT_MAX);
 }
 
-bool wyszukiwanieWGleb( int u ) {
+bool wyszukiwanieWGlab( int u ) {
     if (u != -1) {
         for (int v : listaSasiedztwa[u]) {
             if (odleglosc[skojarzeniaZTylu[v]] == odleglosc[u] + 1) {
-                if (wyszukiwanieWGleb(skojarzeniaZTylu[v])) {
+                if (wyszukiwanieWGlab(skojarzeniaZTylu[v])) {
                     skojarzeniaZTylu[v] = u;
                     skojarzeniaZPrzodu[u] = v;
                     return true;
@@ -123,7 +123,7 @@ int algorytmHopcroftaKarpa() {
     int skojarzenia = 0;
     while (wyszukiwanieWszerz()) {
         for (int u = 0; u < MAKS; ++u) {
-            if (skojarzeniaZPrzodu[u] == -1 && wyszukiwanieWGleb(u)) {
+            if (skojarzeniaZPrzodu[u] == -1 && wyszukiwanieWGlab(u)) {
                 skojarzenia++;
             }
         }
@@ -203,7 +203,7 @@ int main()
     cin >> p;
     fabryka = nazwyPunktow[p];
     cout << "fabryka to punkt: " << fabryka << endl;
-    cout << "z iloma punktami (spoza otoczki) chcesz polaczyc fabryke? ";
+    cout << "z iloma punktami (spoza otoczki) chcesz polaczyc fabryke (ilosc polaczen fabryka - punkty stanowi liczbe kursow 1 pary tragarzy 1 dnia)? ";
     cin >> fabryka_punkt;
     for(int i = 0; i < fabryka_punkt; i++){
         int cel;
