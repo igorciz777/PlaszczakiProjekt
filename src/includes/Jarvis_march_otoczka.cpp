@@ -166,33 +166,33 @@ int main()
     
     
     int liczbaPracownikowZPrzodu, liczbaPracownikowZTylu, liczbaPolaczen;
-    cout << "Podaj liczbe pracownikow z rekoma z przodu: ";
+    cout << "Podaj liczbe tragarzy z rekoma z przodu: ";
     cin >> liczbaPracownikowZPrzodu;
-    cout << "Podaj liczbe pracownikow z rekoma z tylu: ";
+    cout << "Podaj liczbe tragarzy z rekoma z tylu: ";
     cin >> liczbaPracownikowZTylu;
 	
-    cout << "Pracownicy z rekoma z przodu (indeksy 0 do " << liczbaPracownikowZPrzodu - 1 << "):" << endl;
+    cout << "Tragarze z rekoma z przodu (indeksy 0 do " << liczbaPracownikowZPrzodu - 1 << "):" << endl;
     for (int i = 0; i < liczbaPracownikowZPrzodu; i++) {
-        cout << "Pracownik z przodu [" << i << "]" << endl;
+        cout << "Tragarz z rekoma z przodu [" << i << "]" << endl;
     }
 
-    cout << "Pracownicy z rekoma z tylu (indeksy 0 do " << liczbaPracownikowZTylu - 1 << "):" << endl;
+    cout << "Tragarze z rekoma z tylu (indeksy 0 do " << liczbaPracownikowZTylu - 1 << "):" << endl;
     for (int j = 0; j < liczbaPracownikowZTylu; j++) {
-        cout << "Pracownik z tylu [" << j << "]" << endl;
+        cout << "Tragarz z rekoma z tylu [" << j << "]" << endl;
     }
     
-    cout << "Podaj liczbe polaczen miedzy pracownikami: ";
+    cout << "Podaj liczbe polaczen miedzy pracownikami(ilosc par wspolpracujacych): ";
     cin >> liczbaPolaczen;
 
     for (int i = 0; i < liczbaPolaczen; ++i) {
         int zPrzodu, zTylu;
-        cout << "Podaj pare pracownikow (z przodu i z tylu), ktorzy wspolpracuja: ";
+        cout << "Podaj pare pracownikow (jeden z rekoma z przodu i jeden rekoma z tylu), ktorzy wspolpracuja: ";
         cin >> zPrzodu >> zTylu;
         listaSasiedztwa[zPrzodu].push_back(zTylu);
     }
 
     int maksymalneSkojarzenie = algorytmHopcroftaKarpa();
-    cout << "Maksymalne skojarzenie: " << algorytmHopcroftaKarpa() << endl;
+    cout << "Maksymalne skojarzenie(ile par jednoczesnie moze ze soba wpolpracowac): " << algorytmHopcroftaKarpa() << endl;
 
     
     for(int i = 0; i < n; i++){
@@ -203,7 +203,7 @@ int main()
     cin >> p;
     fabryka = nazwyPunktow[p];
     cout << "fabryka to punkt: " << fabryka << endl;
-    cout << "z iloma punktami (spoza otoczki) chcesz polaczyc fabryke (ilosc polaczen fabryka - punkty stanowi liczbe kursow 1 pary tragarzy 1 dnia)? ";
+    cout << "z iloma punktami (spoza otoczki) chcesz polaczyc fabryke (ilosc polaczen fabryka - punkty stanowi liczbe kursow jednej pary tragarzy jednego dnia)? ";
     cin >> fabryka_punkt;
     for(int i = 0; i < fabryka_punkt; i++){
         int cel;
@@ -211,7 +211,7 @@ int main()
         cin >> cel;
         siecBudowy.dodajKrawedz(fabryka, cel, maksymalneSkojarzenie); 
     }
-    cout << "ile punktow chcesz polaczyc z punktami na otoczce? ";
+    cout << "ile polaczen wykonac z podanych punktow do punktow orientacyjnych lezacych na otoczce? ";
     int ilosc_polaczen_punkt_otoczka;
     cin >> ilosc_polaczen_punkt_otoczka;
     cout << endl;
