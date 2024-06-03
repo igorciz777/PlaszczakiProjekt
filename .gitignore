@@ -39,5 +39,5 @@
 *.txt
 
 # Doxygen
-html
 latex
+plaszczaki_docs
