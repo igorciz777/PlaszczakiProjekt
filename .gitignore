@@ -37,3 +37,7 @@
 
 # txt
 *.txt
+
+# Doxygen
+html
+latex
