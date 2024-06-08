@@ -18,3 +18,9 @@ Uruchom w głównym katalogu
 ```terminal
   g++ -Wall -Wextra .\src\problem3.cpp .\src\include\*.cpp -o problem3.exe
 ```
+
+## Użyte technologie
+- **C++** - język programowania
+- [**Doxygen**](https://www.doxygen.nl/index.html) - generowanie dokumentacji technicznej
+- [**GitHub Pages**](https://pages.github.com/) - hosting dokumentacji technicznej
+- [**doctest**](https://github.com/doctest/doctest) - framework do testów jednostkowych
