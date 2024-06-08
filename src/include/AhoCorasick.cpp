@@ -1,3 +1,11 @@
+/**
+ * @file AhoCorasick.cpp
+ * @brief Plik źródłowy klasy AhoCorasick
+ * 
+ * Plik zawiera implementację metod klasy AhoCorasick
+ * 
+ * @see AhoCorasick.h
+ */
 #include "AhoCorasick.h"
 #define llu long long unsigned
 

@@ -1,6 +1,11 @@
 /**
  * @file SiecPrzeplywowa.h
  * @brief Plik nagłówkowy dla implementacji sieci przepływowej
+ * 
+ * Plik zawiera deklaracje klasy SiecPrzeplywowa oraz struktury Krawedz
+ * 
+ * @see SiecPrzeplywowa.cpp
+ * 
 */
 
 #include <vector>

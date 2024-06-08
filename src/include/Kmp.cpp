@@ -1,3 +1,12 @@
+/**
+ * @file Kmp.cpp
+ * 
+ * @brief Plik implementacji algorytmu wyszukiwania wzorca w tekście
+ * 
+ * Plik zawiera implementację algorytmu wyszukiwania wzorca w tekście
+ * 
+ * @see Kmp.h
+ */
 #include "Kmp.h"
 
 std::vector<int> KMP::stworzLPS(const std::string& wzorzec) {

@@ -2,6 +2,10 @@
  * @file Geometria.cpp
  * @brief Plik źródłowy dla implementacji struktur i algorytmów geometrycznych
  * 
+ * Plik zawiera implementacje metod klas Macierz3x3 oraz OtoczkaJarvis
+ * 
+ * @see Geometria.h
+ * 
 */
 
 #include "Geometria.h"

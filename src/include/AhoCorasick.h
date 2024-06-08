@@ -1,3 +1,11 @@
+/**
+ * @file AhoCorasick.h
+ * @brief Plik nagłówkowy klasy AhoCorasick
+ * 
+ * Plik zawiera deklaracje klasy AhoCorasick oraz struktury Wezel
+ * 
+ * @see AhoCorasick.cpp
+ */
 #include <cstdio>
 #include <cstring>
 #include <iostream>

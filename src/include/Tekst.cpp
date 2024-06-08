@@ -1,6 +1,10 @@
 /**
  * @file Tekst.cpp
  * @brief Plik implementacji funkcji do obsługi tekstu
+ * 
+ * Plik zawiera implementacje funkcji zamieniających fragmenty tekstu oraz konwersji ASCII <-> BIN
+ * 
+ * @see Tekst.h
 */
 
 #include "Tekst.h"

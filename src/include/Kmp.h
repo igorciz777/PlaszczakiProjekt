@@ -1,12 +1,14 @@
-#include <iostream>
-#include <vector>
-
 /**
+ * @file Kmp.h
  * @brief Klasa reprezentująca algorytm KMP
  * 
  * Klasa zawiera metody do tworzenia tablicy LPS oraz wyszukiwania wzorca w tekście
  * 
+ * @see Kmp.cpp
+ * 
 */
+#include <iostream>
+#include <vector>
 
 class KMP{
     public:

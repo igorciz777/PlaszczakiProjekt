@@ -13,6 +13,12 @@
  * 3. Jeśli nie ma takich fragmentów, wykonać zamianę „poli” na „boli” za pomocą algorytmu KMP.
  * 4. Jeśli są takie fragmenty, wykonać zamianę wszystkich fragmentów na poprawne za pomocą algorytmu Aho-Corasick.
  * 5. Skompresować opowieść-melodię za pomocą algorytmu Huffmana.
+ * 
+ * Użyte biblioteki:
+ * @see AhoCorasick.h
+ * @see Kmp.h
+ * @see Huffman.h
+ * @see Tekst.h
 */
 
 #include "include/AhoCorasick.h"

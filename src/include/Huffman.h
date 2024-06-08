@@ -1,6 +1,10 @@
 /**
  * @file Huffman.h
  * @brief Plik nagłówkowy dla implementacji kompresji algorytmem Huffmana
+ * 
+ * Plik zawiera deklaracje klasy Huffman oraz struktury WezelHuffmana
+ * 
+ * @see Huffman.cpp
 */
 
 #include <iostream>

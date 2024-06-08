@@ -1,6 +1,10 @@
 /**
  * @file Tekst.h
  * @brief Plik nagłówkowy dla implementacji funkcji do obsługi tekstu
+ * 
+ * Plik zawiera deklaracje klasy Tekst oraz funkcji zamieniających fragmenty tekstu oraz konwersji ASCII <-> BIN
+ * 
+ * @see Tekst.cpp
 */
 
 #include <iostream>

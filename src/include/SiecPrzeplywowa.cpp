@@ -1,3 +1,11 @@
+/**
+ * @file SiecPrzeplywowa.cpp
+ * @brief Plik źródłowy klasy SiecPrzeplywowa
+ * 
+ * Plik zawiera implementację metod klasy SiecPrzeplywowa
+ * 
+ * @see SiecPrzeplywowa.h
+ */
 #include <iostream>
 #include "SiecPrzeplywowa.h"
 

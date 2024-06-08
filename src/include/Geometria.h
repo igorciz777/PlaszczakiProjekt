@@ -2,6 +2,9 @@
  * @file Geometria.h
  * @brief Plik nagłówkowy dla implementacji struktur i algorytmów geometrycznych
  * 
+ * Plik zawiera deklaracje klas Macierz3x3 oraz OtoczkaJarvis
+ * 
+ * @see Geometria.cpp
 */
 #include <iostream>
 #include <vector>
