@@ -15,10 +15,10 @@
  * 5. Skompresować opowieść-melodię za pomocą algorytmu Huffmana.
 */
 
-#include "includes/AhoCorasick.cpp"
-#include "includes/Kmp.cpp"
-#include "includes/Huffman.cpp"
-#include "includes/Tekst.cpp"
+#include "include/AhoCorasick.h"
+#include "include/Kmp.h"
+#include "include/Huffman.h"
+#include "include/Tekst.h"
 #include <fstream>
 
 std::string dekodujHuffman(const std::string& zakodowana_melodia, const std::string& kody){
@@ -28,16 +28,16 @@ std::string dekodujHuffman(const std::string& zakodowana_melodia, const std::str
     while(ss >> kod >> znak){
         mapa_kodow[kod] = znak[0];
     }
-    std::string odkodowana_melodia = "";
+    std::stringstream odkodowana_melodia("");
     kod = "";
     for(char c : zakodowana_melodia){
         kod += c;
         if(mapa_kodow.find(kod) != mapa_kodow.end()){
-            odkodowana_melodia += mapa_kodow[kod];
+            odkodowana_melodia << mapa_kodow[kod];
             kod = "";
         }
     }
-    return odkodowana_melodia;
+    return odkodowana_melodia.str();
 }
 
 
@@ -50,10 +50,30 @@ int main(){
 
     std::cout << "Odkodowac melodie z pliku? (t/n): ";
     std::cin >> c;
-    if(c == 't'){
+    if(c == 't' || c == 'T'){
+        std::string nazwa_pliku;
         std::string zakodowana_melodia;
-        std::string kody;
-        file_in.open("zakodowana_melodia.txt");
+        std::stringstream kody("");
+        
+        std::cout << "Podaj nazwe pliku (.txt): ";
+        std::cin >> nazwa_pliku;
+
+        if(nazwa_pliku.empty()){
+            std::cerr << "Nieprawidlowa nazwa pliku" << std::endl;
+            return 1;
+        }
+
+        if(nazwa_pliku.find(".txt") == std::string::npos){
+            nazwa_pliku += ".txt";
+        }
+
+        file_in.open(nazwa_pliku);
+
+        if(!file_in.is_open()){
+            std::cerr << "Nie udalo sie otworzyc pliku" << std::endl;
+            return 1;
+        }
+
         std::string line;
         while(std::getline(file_in, line)){
             if(line == "##"){
@@ -62,13 +82,14 @@ int main(){
             std::stringstream ss(line);
             std::string znak, kod;
             ss >> znak >> kod;
-            kody += kod + " " + znak + " ";
+            kody << kod << " " << znak << " ";
         }
         std::getline(file_in, zakodowana_melodia);
 
+        file_in.close();
         file_out.close();
-        opowiesc_melodia = dekodujHuffman(zakodowana_melodia, kody);
-        std::cout << "Odokodowana melodia: " << opowiesc_melodia << std::endl;
+        opowiesc_melodia = dekodujHuffman(zakodowana_melodia, kody.str());
+        std::cout << "Odkodowana melodia: " << opowiesc_melodia << std::endl;
         return 0;
     }else{
         std::cin.ignore();
@@ -113,7 +134,33 @@ int main(){
     }
     Huffman huffman;
     std::string zakodowana_melodia = huffman.koduj(opowiesc_melodia);
-    file_out.open("zakodowana_melodia.txt");
+
+    std::cout << "Czy zapisac zakodowana melodie do pliku? (t/n): ";
+    std::cin >> c;
+    if(c == 'n' || c == 'N'){
+        std::cout << "Zakodowana melodia: " << zakodowana_melodia << std::endl;
+        return 0;
+    }else{
+        std::string nazwa_pliku;
+        std::cout << "Podaj nazwe pliku (.txt): ";
+        std::cin >> nazwa_pliku;
+
+        if(nazwa_pliku.empty()){
+            std::cerr << "Nieprawidlowa nazwa pliku" << std::endl;
+            return 1;
+        }
+
+        if(nazwa_pliku.find(".txt") == std::string::npos){
+            nazwa_pliku += ".txt";
+        }
+
+        file_out.open(nazwa_pliku);
+
+        if(!file_out.is_open()){
+            std::cerr << "Nie udalo sie otworzyc pliku" << std::endl;
+            return 1;
+        }
+    }
 
     std::stringstream kody("");
     huffman.wypiszKod(huffman.getKorzen(), "", kody);
