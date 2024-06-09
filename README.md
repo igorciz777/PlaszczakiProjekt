@@ -19,6 +19,12 @@ Uruchom w głównym katalogu
   g++ -Wall -Wextra .\src\problem3.cpp .\src\include\*.cpp -o problem3.exe
 ```
 
+### Testy jednostkowe
+Uruchom w głównym katalogu
+```terminal
+  g++ -Iinclude .\tests\tests.cpp .\src\include\*.cpp -o test
+```
+
 ## Użyte technologie
 - **C++** - język programowania
 - [**Doxygen**](https://www.doxygen.nl/index.html) - generowanie dokumentacji technicznej
