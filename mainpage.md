@@ -18,8 +18,8 @@ Program ma za zadanie przetwarzać opowieść-melodię, zamieniając w niej okre
 
 #### 2. Algorytmy i struktury danych
 
-- **Aho-Corasick**: Używany do jednoczesnego wyszukiwania wielu wzorców w tekście.
-- **Knuth-Morris-Pratt (KMP)**: Używany do wyszukiwania pojedynczego wzorca w tekście.
+- [Aho-Corasick](#AhoCorasick): Używany do jednoczesnego wyszukiwania wielu wzorców w tekście.
+- [Knuth-Morris-Pratt (KMP)](#KMP): Używany do wyszukiwania pojedynczego wzorca w tekście.
 - **Huffman**: Używany do kompresji tekstu.
 
 ---
