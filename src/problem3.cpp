@@ -42,10 +42,10 @@ struct Plaszczak{
     bool odpoczywa = false;
 };
 
-int operator<(const Plaszczak& a, const Plaszczak& b){
+bool operator<(const Plaszczak& a, const Plaszczak& b){
     return a.co_ile_zatrzyma_sie < b.co_ile_zatrzyma_sie;
 }
-int operator>(const Plaszczak& a, const Plaszczak& b){
+bool operator>(const Plaszczak& a, const Plaszczak& b){
     return a.co_ile_zatrzyma_sie > b.co_ile_zatrzyma_sie;
 }
 
@@ -101,9 +101,8 @@ int main(){
             PunktOrientacyjny* punkt_startowy = &punkty[i];
             PunktOrientacyjny* aktualny_punkt = punkt_startowy->nastepny;
             int liczba_odsluchan = 0;
-            int krok = 0;
+            int krok = 1;
             while(aktualny_punkt != punkt_startowy){
-                krok++;
                 if(krok == plaszczak->co_ile_zatrzyma_sie){
                     if(aktualny_punkt->jasnosc < aktualny_punkt->nastepny->jasnosc){
                         liczba_odsluchan++;
@@ -111,6 +110,7 @@ int main(){
                     krok = 0;
                 }
                 aktualny_punkt = aktualny_punkt->nastepny;
+                krok++;
             }
             if(i == 0 || liczba_odsluchan < min_odsluchan){
                 min_odsluchan = liczba_odsluchan;
