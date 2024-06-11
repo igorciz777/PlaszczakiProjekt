@@ -6,32 +6,44 @@
 
 ### Rozwiązanie problemu drugiego
 
-1. **Uruchomienie programu**:
-   Po uruchomieniu program pyta użytkownika, czy ma odczytać zapisaną wcześniej opowieść-melodię.
-   - **Odpowiedź "t"**: Program odczytuje z zadanego pliku zakodowaną za pomocą kodowania Huffmana opowieść-melodię i wyświetla ją na standardowe wyjście.
-   - **Odpowiedź "n"**: Program prosi użytkownika o wprowadzenie nowej opowieści-melodii.
+---
 
-2. **Wprowadzenie opowieści-melodii**:
-   Po wprowadzeniu opowieści-melodii przez użytkownika, program pyta, czy w tekście istnieją niepokojące fragmenty inne niż “boli” -> “poli”.
-   - **Odpowiedź "n"**: Program dokonuje zamiany “boli” -> “poli” używając algorytmu KMP do znalezienia wzorców, a następnie koduje poprawioną opowieść-melodię korzystając z kodowania Huffmana.
-   - Program następnie pyta użytkownika, czy zakodowana opowieść-melodia ma zostać zapisana do pliku.
-     - **Odpowiedź "t"**: Program zapisuje zakodowaną melodię do pliku tekstowego o nazwie wprowadzonej przez użytkownika.
-     - **Odpowiedź "n"**: Program przechodzi dalej.
+#### 1. Opis problemu
 
-3. **Wyświetlenie wyników**:
-   Program wyświetla na standardowe wyjście opowieść-melodię po zamianach fragmentów oraz jej zakodowaną wersję w kodzie Huffmana.
-
-4. **Dodatkowe zamiany**:
-   W przypadku odpowiedzi "t" na pytanie o inne niepokojące fragmenty, program prosi użytkownika o ich wprowadzenie, na przykład: “goli” -> “soli”.
-   - Po wprowadzeniu fragmentów, program dokonuje zamiany “boli” -> “poli” oraz podanych przez użytkownika fragmentów, używając algorytmu Aho-Corasicka do znalezienia wzorców, a następnie koduje poprawioną opowieść-melodię korzystając z kodowania Huffmana.
-   - Program następnie pyta użytkownika, czy zakodowana opowieść-melodia ma zostać zapisana do pliku.
-     - **Odpowiedź "t"**: Program zapisuje zakodowaną melodię do pliku tekstowego o nazwie wprowadzonej przez użytkownika.
-     - **Odpowiedź "n"**: Program przechodzi dalej.
-
-5. **Wyświetlenie wyników po dodatkowych zamianach**:
-   Na koniec program wyświetla na standardowe wyjście opowieść-melodię po zamianach fragmentów oraz jej zakodowaną wersję w kodzie Huffmana.
+Program ma za zadanie przetwarzać opowieść-melodię, zamieniając w niej określone fragmenty tekstu. Standardowo zamienia „poli” na „boli”, a jeśli zostaną zgłoszone dodatkowe fragmenty do zamiany, to zamienia również te fragmenty. Po dokonaniu zamian, melodia jest kompresowana za pomocą algorytmu Huffmana w celu oszczędzenia miejsca.
 
 ---
+
+#### 2. Algorytmy i struktury danych
+
+- **Aho-Corasick**: Używany do jednoczesnego wyszukiwania wielu wzorców w tekście.
+- **Knuth-Morris-Pratt (KMP)**: Używany do wyszukiwania pojedynczego wzorca w tekście.
+- **Huffman**: Używany do kompresji tekstu.
+
+---
+
+#### 3. Struktura kodu
+
+
+**Funkcja główna:**
+
+1. **Inicjalizacja i odczyt danych wejściowych:**
+   - Użytkownik wybiera, czy odkodować melodię z pliku.
+   - Jeśli tak, wczytywana jest zakodowana melodia oraz kody Huffmana z pliku, a następnie melodia jest dekodowana.
+   - Jeśli nie, użytkownik podaje opowieść-melodię ręcznie.
+
+2. **Sprawdzanie dodatkowych fragmentów do zamiany:**
+   - Użytkownik może podać dodatkowe fragmenty tekstu do zamiany.
+   - W przypadku podania dodatkowych fragmentów, używany jest algorytm Aho-Corasick do jednoczesnego wyszukiwania i zamiany wszystkich fragmentów.
+   - W przypadku braku dodatkowych fragmentów, używany jest algorytm KMP do zamiany „poli” na „boli”.
+
+3. **Kompresja melodii:**
+   - Po dokonaniu zamian, melodia jest kompresowana za pomocą algorytmu Huffmana.
+   - Użytkownik może wybrać, czy zapisać zakodowaną melodię do pliku.
+
+
+---
+
 
 ### Rozwiązanie problemu trzeciego
 

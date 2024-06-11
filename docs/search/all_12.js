@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['zamienfragment_0',['zamienFragment',['../class_tekst.html#a3b05579b6d4ded962a1f4c2b0f82f38e',1,'Tekst']]]
+  ['wezel_0',['Wezel',['../struct_wezel.html',1,'Wezel'],['../struct_wezel.html#a4b0f983c449278e4285687fdcddb5415',1,'Wezel::Wezel()']]],
+  ['wezelhuffmana_1',['WezelHuffmana',['../struct_wezel_huffmana.html',1,'']]],
+  ['wymagania_2',['2. Wymagania',['../index.html#autotoc_md14',1,'']]]
 ];

@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['techniczna_20projektu_20plaszczakiprojekt_0',['Dokumentacja techniczna projektu PlaszczakiProjekt',['../index.html',1,'']]],
-  ['tekst_1',['Tekst',['../class_tekst.html',1,'']]],
-  ['tekst_2ecpp_2',['Tekst.cpp',['../_tekst_8cpp.html',1,'']]],
-  ['tekst_2eh_3',['Tekst.h',['../_tekst_8h.html',1,'']]],
-  ['tragarz_4',['Tragarz',['../struct_tragarz.html',1,'']]],
-  ['trzeciego_5',['Rozwiązanie problemu trzeciego',['../index.html#autotoc_md5',1,'']]]
+  ['siecprzeplywowa_0',['SiecPrzeplywowa',['../class_siec_przeplywowa.html',1,'SiecPrzeplywowa'],['../class_siec_przeplywowa.html#a82c040c997f30782f093740b7ab5253b',1,'SiecPrzeplywowa::SiecPrzeplywowa()']]],
+  ['siecprzeplywowa_2ecpp_1',['SiecPrzeplywowa.cpp',['../_siec_przeplywowa_8cpp.html',1,'']]],
+  ['siecprzeplywowa_2eh_2',['SiecPrzeplywowa.h',['../_siec_przeplywowa_8h.html',1,'']]],
+  ['struktura_20kodu_3',['3. Struktura kodu',['../index.html#autotoc_md9',1,'']]],
+  ['struktury_20danych_4',['Struktury danych',['../index.html#autotoc_md7',1,'2. Algorytmy i struktury danych'],['../index.html#autotoc_md16',1,'3. Struktury danych']]],
+  ['stworzlps_5',['stworzLPS',['../class_k_m_p.html#ab28fa355aab9ed3a0b7c06939fd05915',1,'KMP']]],
+  ['szukaj_6',['szukaj',['../class_aho_corasick.html#a4540cd3901faf02771e95a9bcfe4218c',1,'AhoCorasick']]]
 ];

@@ -80,49 +80,57 @@ Rozwiązanie problemu pierwszego</h2>
 <hr  />
 <h2><a class="anchor" id="autotoc_md3"></a>
 Rozwiązanie problemu drugiego</h2>
+<hr  />
+<h3><a class="anchor" id="autotoc_md5"></a>
+1. Opis problemu</h3>
+<p>Program ma za zadanie przetwarzać opowieść-melodię, zamieniając w niej określone fragmenty tekstu. Standardowo zamienia „poli” na „boli”, a jeśli zostaną zgłoszone dodatkowe fragmenty do zamiany, to zamienia również te fragmenty. Po dokonaniu zamian, melodia jest kompresowana za pomocą algorytmu Huffmana w celu oszczędzenia miejsca.</p>
+<hr  />
+<h3><a class="anchor" id="autotoc_md7"></a>
+2. Algorytmy i struktury danych</h3>
+<ul>
+<li><b>Aho-Corasick</b>: Używany do jednoczesnego wyszukiwania wielu wzorców w tekście.</li>
+<li><b>Knuth-Morris-Pratt (<a class="el" href="class_k_m_p.html">KMP</a>)</b>: Używany do wyszukiwania pojedynczego wzorca w tekście.</li>
+<li><b><a class="el" href="class_huffman.html">Huffman</a></b>: Używany do kompresji tekstu.</li>
+</ul>
+<hr  />
+<h3><a class="anchor" id="autotoc_md9"></a>
+3. Struktura kodu</h3>
+<p><b>Funkcja główna:</b></p>
 <ol type="1">
-<li><b>Uruchomienie programu</b>: Po uruchomieniu program pyta użytkownika, czy ma odczytać zapisaną wcześniej opowieść-melodię.<ul>
-<li><b>Odpowiedź "t"</b>: Program odczytuje z zadanego pliku zakodowaną za pomocą kodowania Huffmana opowieść-melodię i wyświetla ją na standardowe wyjście.</li>
-<li><b>Odpowiedź "n"</b>: Program prosi użytkownika o wprowadzenie nowej opowieści-melodii.</li>
+<li><b>Inicjalizacja i odczyt danych wejściowych:</b><ul>
+<li>Użytkownik wybiera, czy odkodować melodię z pliku.</li>
+<li>Jeśli tak, wczytywana jest zakodowana melodia oraz kody Huffmana z pliku, a następnie melodia jest dekodowana.</li>
+<li>Jeśli nie, użytkownik podaje opowieść-melodię ręcznie.</li>
 </ul>
 </li>
-<li><b>Wprowadzenie opowieści-melodii</b>: Po wprowadzeniu opowieści-melodii przez użytkownika, program pyta, czy w tekście istnieją niepokojące fragmenty inne niż “boli” -&gt; “poli”.<ul>
-<li><b>Odpowiedź "n"</b>: Program dokonuje zamiany “boli” -&gt; “poli” używając algorytmu <a class="el" href="class_k_m_p.html">KMP</a> do znalezienia wzorców, a następnie koduje poprawioną opowieść-melodię korzystając z kodowania Huffmana.</li>
-<li>Program następnie pyta użytkownika, czy zakodowana opowieść-melodia ma zostać zapisana do pliku.<ul>
-<li><b>Odpowiedź "t"</b>: Program zapisuje zakodowaną melodię do pliku tekstowego o nazwie wprowadzonej przez użytkownika.</li>
-<li><b>Odpowiedź "n"</b>: Program przechodzi dalej.</li>
+<li><b>Sprawdzanie dodatkowych fragmentów do zamiany:</b><ul>
+<li>Użytkownik może podać dodatkowe fragmenty tekstu do zamiany.</li>
+<li>W przypadku podania dodatkowych fragmentów, używany jest algorytm Aho-Corasick do jednoczesnego wyszukiwania i zamiany wszystkich fragmentów.</li>
+<li>W przypadku braku dodatkowych fragmentów, używany jest algorytm <a class="el" href="class_k_m_p.html">KMP</a> do zamiany „poli” na „boli”.</li>
 </ul>
 </li>
+<li><b>Kompresja melodii:</b><ul>
+<li>Po dokonaniu zamian, melodia jest kompresowana za pomocą algorytmu Huffmana.</li>
+<li>Użytkownik może wybrać, czy zapisać zakodowaną melodię do pliku.</li>
 </ul>
 </li>
-<li><b>Wyświetlenie wyników</b>: Program wyświetla na standardowe wyjście opowieść-melodię po zamianach fragmentów oraz jej zakodowaną wersję w kodzie Huffmana.</li>
-<li><b>Dodatkowe zamiany</b>: W przypadku odpowiedzi "t" na pytanie o inne niepokojące fragmenty, program prosi użytkownika o ich wprowadzenie, na przykład: “goli” -&gt; “soli”.<ul>
-<li>Po wprowadzeniu fragmentów, program dokonuje zamiany “boli” -&gt; “poli” oraz podanych przez użytkownika fragmentów, używając algorytmu Aho-Corasicka do znalezienia wzorców, a następnie koduje poprawioną opowieść-melodię korzystając z kodowania Huffmana.</li>
-<li>Program następnie pyta użytkownika, czy zakodowana opowieść-melodia ma zostać zapisana do pliku.<ul>
-<li><b>Odpowiedź "t"</b>: Program zapisuje zakodowaną melodię do pliku tekstowego o nazwie wprowadzonej przez użytkownika.</li>
-<li><b>Odpowiedź "n"</b>: Program przechodzi dalej.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><b>Wyświetlenie wyników po dodatkowych zamianach</b>: Na koniec program wyświetla na standardowe wyjście opowieść-melodię po zamianach fragmentów oraz jej zakodowaną wersję w kodzie Huffmana.</li>
 </ol>
 <hr  />
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md11"></a>
 Rozwiązanie problemu trzeciego</h2>
-<h3><a class="anchor" id="autotoc_md6"></a>
+<h3><a class="anchor" id="autotoc_md12"></a>
 1. Opis problemu</h3>
 <p>Strażnicy, zwani płaszczakami, mają za zadanie raz dziennie patrolować płot chroniący krainę. Patrolowanie odbywa się zgodnie z ruchem wskazówek zegara po punktach orientacyjnych o różnej jasności. Płaszczak musi się zatrzymać po przejściu określonej liczby punktów, aby się rozejrzeć, i zachowuje energię tylko wtedy, gdy poprzedni punkt zatrzymania był jaśniejszy od bieżącego. Gdy punkt bieżący jest ciemniejszy lub równie jasny jak poprzedni, płaszczak traci całą energię i musi odpocząć, słuchając melodii.</p>
 <p>Celem jest ustalenie, który płaszczak będzie patrolował danego dnia i w jakim punkcie orientacyjnym powinien rozpocząć trasę, aby liczba odsłuchań melodii była minimalna.</p>
 <hr  />
-<h3><a class="anchor" id="autotoc_md8"></a>
+<h3><a class="anchor" id="autotoc_md14"></a>
 2. Wymagania</h3>
 <ul>
 <li>Ustalanie grafiku pracy strażników na siedem dni.</li>
 <li>Minimalizacja liczby odsłuchań melodii przez każdego strażnika.</li>
 </ul>
 <hr  />
-<h3><a class="anchor" id="autotoc_md10"></a>
+<h3><a class="anchor" id="autotoc_md16"></a>
 3. Struktury danych</h3>
 <ul>
 <li><b><a class="el" href="struct_plaszczak.html">Plaszczak</a></b><ul>
@@ -139,7 +147,7 @@ Rozwiązanie problemu trzeciego</h2>
 </li>
 </ul>
 <hr  />
-<h3><a class="anchor" id="autotoc_md12"></a>
+<h3><a class="anchor" id="autotoc_md18"></a>
 4. Algorytm</h3>
 <ol type="1">
 <li><b>Wczytywanie danych</b>:<ul>
