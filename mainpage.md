@@ -3,10 +3,11 @@
 ### Rozwiązanie problemu pierwszego
 
 ---
-
+&NewLine;
+&NewLine;
+&NewLine;
+&NewLine;
 ### Rozwiązanie problemu drugiego
-
----
 
 #### 1. Opis problemu
 
@@ -43,8 +44,10 @@ Program ma za zadanie przetwarzać opowieść-melodię, zamieniając w niej okre
 
 
 ---
-
-
+&NewLine;
+&NewLine;
+&NewLine;
+&NewLine;
 ### Rozwiązanie problemu trzeciego
 
 #### 1. Opis problemu
