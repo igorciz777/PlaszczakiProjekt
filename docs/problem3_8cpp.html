@@ -75,15 +75,54 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Komponenty</a> &#124;
+<a href="#func-members">Funkcje</a>  </div>
   <div class="headertitle"><div class="title">Dokumentacja pliku problem3.cpp</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Rozwiązanie problemu 3.  
 <a href="#details">Więcej...</a></p>
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;cstdlib&gt;</code><br />
+<code>#include &lt;queue&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Komponenty</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_plaszczak.html">Plaszczak</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_punkt_orientacyjny.html">PunktOrientacyjny</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funkcje</h2></td></tr>
+<tr class="memitem:aba383a8bfdf060446b222f270a14d7cb" id="r_aba383a8bfdf060446b222f270a14d7cb"><td class="memItemLeft" align="right" valign="top"><a id="aba383a8bfdf060446b222f270a14d7cb" name="aba383a8bfdf060446b222f270a14d7cb"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="struct_plaszczak.html">Plaszczak</a> &amp;a, const <a class="el" href="struct_plaszczak.html">Plaszczak</a> &amp;b)</td></tr>
+<tr class="separator:aba383a8bfdf060446b222f270a14d7cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a292bae3b67f9aaf3b1ad718e1026f52a" id="r_a292bae3b67f9aaf3b1ad718e1026f52a"><td class="memItemLeft" align="right" valign="top"><a id="a292bae3b67f9aaf3b1ad718e1026f52a" name="a292bae3b67f9aaf3b1ad718e1026f52a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="struct_plaszczak.html">Plaszczak</a> &amp;a, const <a class="el" href="struct_plaszczak.html">Plaszczak</a> &amp;b)</td></tr>
+<tr class="separator:a292bae3b67f9aaf3b1ad718e1026f52a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4" id="r_ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top"><a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> ()</td></tr>
+<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
 <div class="textblock"><p>Rozwiązanie problemu 3. </p>
-<p>Rozwiązanie problemu: </p>
+<p>Rozwiązanie problemu: Ustalić jak najszybciej grafik pracy strażników i jak najmniejszą liczbę odsłuchań melodii dla każdego strażnika.</p>
+<p>Rozwiązanie teoretyczne:</p><ol type="1">
+<li>Wczytaj liczbę punktów orientacyjnych i liczbę płaszczaków.</li>
+<li>Wczytaj jasność punktów orientacyjnych.</li>
+<li>Wczytaj co ile punktów płaszczak musi się zatrzymać.</li>
+<li>Dla każdego dnia:</li>
+<li>Wybierz płaszczaka z kolejki.</li>
+<li>Znajdź taki punkt startowy, przez który odslucha jak najmniej melodii.</li>
+<li>Zapisz płaszczaka jako strażnika na dany dzień.</li>
+<li>Oznacz płaszczaka jako odpoczywającego i dodaj go na koniec kolejki.</li>
+<li>Wyświetl grafik pracy strażników. </li>
+</ol>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
