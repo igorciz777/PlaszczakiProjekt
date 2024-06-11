@@ -87,31 +87,35 @@ int main(){
     }
 
     for(int dzien = 0; dzien < 7; dzien++){
-        //dla kazdego plaszczaka znajdz taki punkt startowy (za razem koncowy) przez ktory odslucha jak najmniej melodii
+        // dla kazdego plaszczaka znajdz taki punkt startowy (za razem koncowy) przez ktory odslucha jak najmniej melodii
         Plaszczak* plaszczak = &kolejka_plaszczakow.front();
         kolejka_plaszczakow.pop();
         if(plaszczak->odpoczywa){
             std::cout << "Niewystarczajaca liczba plaszczakow aby wypelnic grafik wraz z odpoczynkiem" << std::endl;
             break;
         }
-        int min_odsluchan = 0;
+        unsigned int min_odsluchan = INT_MAX;
         int id_wybranego_straznika = 0;
         PunktOrientacyjny* wybrany_punkt = nullptr;
         for(int i = 0; i < liczba_puntkow; i++){
             PunktOrientacyjny* punkt_startowy = &punkty[i];
-            PunktOrientacyjny* aktualny_punkt = punkt_startowy->nastepny;
+            PunktOrientacyjny* aktualny_punkt = punkt_startowy;
             int liczba_odsluchan = 0;
-            int krok = 1;
-            while(aktualny_punkt != punkt_startowy){
+            PunktOrientacyjny* poprzedni_punkt = punkt_startowy;
+            int krok = 0;
+
+            do {
                 if(krok == plaszczak->co_ile_zatrzyma_sie){
-                    if(aktualny_punkt->jasnosc < aktualny_punkt->nastepny->jasnosc){
+                    if(poprzedni_punkt->jasnosc >= aktualny_punkt->jasnosc){
                         liczba_odsluchan++;
                     }
                     krok = 0;
+                    poprzedni_punkt = aktualny_punkt;
                 }
                 aktualny_punkt = aktualny_punkt->nastepny;
                 krok++;
-            }
+            } while(aktualny_punkt != punkt_startowy);
+
             if(i == 0 || liczba_odsluchan < min_odsluchan){
                 min_odsluchan = liczba_odsluchan;
                 id_wybranego_straznika = plaszczak->id;
