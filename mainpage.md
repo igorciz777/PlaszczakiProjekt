@@ -1,6 +1,6 @@
-## Dokumentacja techniczna projektu PlaszczakiProjekt
+# Dokumentacja techniczna projektu PlaszczakiProjekt
 
-### Rozwiązanie problemu pierwszego
+## Rozwiązanie problemu pierwszego
 
 ---
 
@@ -8,7 +8,7 @@
 
 
 
-### Rozwiązanie problemu drugiego
+## Rozwiązanie problemu drugiego
 
 #### 1. Opis problemu
 
@@ -50,7 +50,7 @@ Program ma za zadanie przetwarzać opowieść-melodię, zamieniając w niej okre
 
 
 
-### Rozwiązanie problemu trzeciego
+## Rozwiązanie problemu trzeciego
 
 #### 1. Opis problemu
 
