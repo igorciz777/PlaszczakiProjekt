@@ -80,22 +80,47 @@ int main(){
         plaszczaki[i].id = i;
     }
 
+    std::queue<Plaszczak> kolejka_plaszczakow;
     std::sort(plaszczaki.begin(), plaszczaki.end(), std::greater<Plaszczak>());
+    for(int i = 0; i < liczba_plaszczakow; i++){
+        kolejka_plaszczakow.push(plaszczaki[i]);
+    }
 
     for(int dzien = 0; dzien < 7; dzien++){
         //dla kazdego plaszczaka znajdz taki punkt startowy (za razem koncowy) przez ktory odslucha jak najmniej melodii
-        for(int i = 0; i < liczba_plaszczakow; i++){
-            if(plaszczaki[i].odpoczywa){
-                continue;
-            }
-            int min_odsluchania = INT_MAX;
-            int punkt_startowy = -1;
-            /*
-            TODO: petla przechodzi przez caly graf i znajduje najlepszy punkty startowy i przypisuje plaszczaka na dany dzien
-            TODO: lepsza struktura grafu do punktow orientacyjnych
-            TODO: przemyslec czy sortowanie plaszczakow jest dobre, czy energia ma jakiekolwiek znaczenie
-            */
+        Plaszczak* plaszczak = &kolejka_plaszczakow.front();
+        kolejka_plaszczakow.pop();
+        if(plaszczak->odpoczywa){
+            std::cout << "Niewystarczajaca liczba plaszczakow aby wypelnic grafik wraz z odpoczynkiem" << std::endl;
+            break;
         }
+        int min_odsluchan = 0;
+        int id_wybranego_straznika = 0;
+        PunktOrientacyjny* wybrany_punkt = nullptr;
+        for(int i = 0; i < liczba_puntkow; i++){
+            PunktOrientacyjny* punkt_startowy = &punkty[i];
+            PunktOrientacyjny* aktualny_punkt = punkt_startowy->nastepny;
+            int liczba_odsluchan = 0;
+            int krok = 0;
+            while(aktualny_punkt != punkt_startowy){
+                krok++;
+                if(krok == plaszczak->co_ile_zatrzyma_sie){
+                    if(aktualny_punkt->jasnosc < aktualny_punkt->nastepny->jasnosc){
+                        liczba_odsluchan++;
+                    }
+                    krok = 0;
+                }
+                aktualny_punkt = aktualny_punkt->nastepny;
+            }
+            if(i == 0 || liczba_odsluchan < min_odsluchan){
+                min_odsluchan = liczba_odsluchan;
+                id_wybranego_straznika = plaszczak->id;
+                wybrany_punkt = punkt_startowy;
+            }
+        }
+        std::cout << "Dzien " << dzien+1 << ": Plaszczak " << id_wybranego_straznika << " zaczyna od punktu " << wybrany_punkt->id << " i odslucha " << min_odsluchan << " melodii" << std::endl;
+        plaszczak->odpoczywa = true;
+        kolejka_plaszczakow.push(*plaszczak);
     }
 
     return 0;
