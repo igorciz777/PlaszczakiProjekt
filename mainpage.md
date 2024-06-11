@@ -1,4 +1,4 @@
-# Dokumentacja techniczna projektu PlaszczakiProjekt
+## Dokumentacja techniczna projektu Plaszczaki Projekt
 
 ## Rozwiązanie problemu pierwszego
 
