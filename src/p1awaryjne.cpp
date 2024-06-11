@@ -32,8 +32,8 @@
 #include <climits>
 #include <cstring>
 #include <algorithm>
-#include "SiecPrzeplywowa.cpp"
-#include "DoborTragarzy.cpp"
+#include "include/SiecPrzeplywowa.cpp"
+#include "include/DoborTragarzy.cpp"
 #define MAX 10000
 using namespace std;
 const int MAKS = 1000;  // Maksymalna liczba pracowników w każdej grupie
