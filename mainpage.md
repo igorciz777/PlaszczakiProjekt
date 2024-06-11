@@ -11,33 +11,30 @@
 
 ### Rozwiązanie problemu drugiego
 
-**Problem 2**
+1. **Uruchomienie programu**:
+   Po uruchomieniu program pyta użytkownika, czy ma odczytać zapisaną wcześniej opowieść-melodię.
+   - **Odpowiedź "t"**: Program odczytuje z zadanego pliku zakodowaną za pomocą kodowania Huffmana opowieść-melodię i wyświetla ją na standardowe wyjście.
+   - **Odpowiedź "n"**: Program prosi użytkownika o wprowadzenie nowej opowieści-melodii.
 
-(Zapisać opowieść-melodię, zamieniając “poli” na “boli” oraz inne fragmenty niepokojące i oszczędzić przy tym wykorzystane miejsce.)
+2. **Wprowadzenie opowieści-melodii**:
+   Po wprowadzeniu opowieści-melodii przez użytkownika, program pyta, czy w tekście istnieją niepokojące fragmenty inne niż “boli” -> “poli”.
+   - **Odpowiedź "n"**: Program dokonuje zamiany “boli” -> “poli” używając algorytmu KMP do znalezienia wzorców, a następnie koduje poprawioną opowieść-melodię korzystając z kodowania Huffmana.
+   - Program następnie pyta użytkownika, czy zakodowana opowieść-melodia ma zostać zapisana do pliku.
+     - **Odpowiedź "t"**: Program zapisuje zakodowaną melodię do pliku tekstowego o nazwie wprowadzonej przez użytkownika.
+     - **Odpowiedź "n"**: Program przechodzi dalej.
 
-Program po uruchomieniu pyta użytkownika, czy ma odczytać zapisaną wcześniej opowieść-melodię.
+3. **Wyświetlenie wyników**:
+   Program wyświetla na standardowe wyjście opowieść-melodię po zamianach fragmentów oraz jej zakodowaną wersję w kodzie Huffmana.
 
-W przypadku odpowiedzi “t” program odczytuje z zadanego pliku zakodowaną poprzez kodowanie Huffmana opowieść-melodię i wyświetla ją na standardowe wyjście.
+4. **Dodatkowe zamiany**:
+   W przypadku odpowiedzi "t" na pytanie o inne niepokojące fragmenty, program prosi użytkownika o ich wprowadzenie, na przykład: “goli” -> “soli”.
+   - Po wprowadzeniu fragmentów, program dokonuje zamiany “boli” -> “poli” oraz podanych przez użytkownika fragmentów, używając algorytmu Aho-Corasicka do znalezienia wzorców, a następnie koduje poprawioną opowieść-melodię korzystając z kodowania Huffmana.
+   - Program następnie pyta użytkownika, czy zakodowana opowieść-melodia ma zostać zapisana do pliku.
+     - **Odpowiedź "t"**: Program zapisuje zakodowaną melodię do pliku tekstowego o nazwie wprowadzonej przez użytkownika.
+     - **Odpowiedź "n"**: Program przechodzi dalej.
 
-W przypadku odpowiedzi “n” program prosi użytkownika o wprowadzenie opowieści-melodii, następnie po wprowadzeniu jej przez użytkownika, program pyta czy w opowieści-melodii istnieją fragmenty niepokojące inne niż “boli” -> “poli”.
-
-W przypadku odpowiedzi “n” program dokonuje zamiany “boli” -> “poli” używając algorytmu [KMP](https://igorciz777.github.io/PlaszczakiProjekt/_kmp_8h.html) do znalezienia wzorców, następnie koduje poprawioną opowieść-melodię korzystając z kodowania [Huffmana](https://igorciz777.github.io/PlaszczakiProjekt/_huffman_8h.html). Kolejno, użytkownik jest pytany o to, czy zakodowana opowieść-melodia ma zostać zapisana do pliku.
-
-W przypadku odpowiedzi “t” program zapisuje zakodowaną melodię do pliku tekstowego o nazwie wprowadzonej przez użytkownika.
-
-W przypadku odpowiedzi “n” program przechodzi dalej.
-
-Na koniec program wyświetla na standardowe wyjście opowieść-melodię po zamianach fragmentów, oraz jej zakodowaną wersję w kodzie [Huffmana](https://igorciz777.github.io/PlaszczakiProjekt/_huffman_8h.html).
-
-W przypadku odpowiedzi “t” program prosi użytkownika o wprowadzenie niepokojących fragmentów innych niż “boli” -> “poli”, na przykład: “goli” -> “soli”.
-
-Po wprowadzeniu program dokonuje zamiany “boli” -> “poli” oraz podanych przez użytkownika fragmentów używając algorytmu [Aho-Corasicka](https://igorciz777.github.io/PlaszczakiProjekt/_aho_corasick_8h.html) do znalezienia wzorców, a następnie koduje poprawioną opowieść-melodię korzystając z kodowania [Huffmana](https://igorciz777.github.io/PlaszczakiProjekt/_huffman_8h.html). Kolejno, użytkownik jest pytany o to, czy zakodowana opowieść-melodia ma zostać zapisana do pliku.
-
-W przypadku odpowiedzi “t” program zapisuje zakodowaną melodię do pliku tekstowego o nazwie wprowadzonej przez użytkownika.
-
-W przypadku odpowiedzi “n” program przechodzi dalej.
-
-Na koniec program wyświetla na standardowe wyjście opowieść-melodię po zamianach fragmentów, oraz jej zakodowaną wersję w kodzie [Huffmana](https://igorciz777.github.io/PlaszczakiProjekt/_huffman_8h.html).
+5. **Wyświetlenie wyników po dodatkowych zamianach**:
+   Na koniec program wyświetla na standardowe wyjście opowieść-melodię po zamianach fragmentów oraz jej zakodowaną wersję w kodzie Huffmana.
 
 ### Rozwiązanie problemu trzeciego
 

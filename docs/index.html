@@ -90,20 +90,33 @@ Opis problemu</h3>
 Opis rozwiązania</h3>
 <h2><a class="anchor" id="autotoc_md5"></a>
 Rozwiązanie problemu drugiego</h2>
-<p><b>Problem 2</b></p>
-<p>(Zapisać opowieść-melodię, zamieniając “poli” na “boli” oraz inne fragmenty niepokojące i oszczędzić przy tym wykorzystane miejsce.)</p>
-<p>Program po uruchomieniu pyta użytkownika, czy ma odczytać zapisaną wcześniej opowieść-melodię.</p>
-<p>W przypadku odpowiedzi “t” program odczytuje z zadanego pliku zakodowaną poprzez kodowanie Huffmana opowieść-melodię i wyświetla ją na standardowe wyjście.</p>
-<p>W przypadku odpowiedzi “n” program prosi użytkownika o wprowadzenie opowieści-melodii, następnie po wprowadzeniu jej przez użytkownika, program pyta czy w opowieści-melodii istnieją fragmenty niepokojące inne niż “boli” -&gt; “poli”.</p>
-<p>W przypadku odpowiedzi “n” program dokonuje zamiany “boli” -&gt; “poli” używając algorytmu <a href="https://igorciz777.github.io/PlaszczakiProjekt/_kmp_8h.html">KMP</a> do znalezienia wzorców, następnie koduje poprawioną opowieść-melodię korzystając z kodowania <a href="https://igorciz777.github.io/PlaszczakiProjekt/_huffman_8h.html">Huffmana</a>. Kolejno, użytkownik jest pytany o to, czy zakodowana opowieść-melodia ma zostać zapisana do pliku.</p>
-<p>W przypadku odpowiedzi “t” program zapisuje zakodowaną melodię do pliku tekstowego o nazwie wprowadzonej przez użytkownika.</p>
-<p>W przypadku odpowiedzi “n” program przechodzi dalej.</p>
-<p>Na koniec program wyświetla na standardowe wyjście opowieść-melodię po zamianach fragmentów, oraz jej zakodowaną wersję w kodzie <a href="https://igorciz777.github.io/PlaszczakiProjekt/_huffman_8h.html">Huffmana</a>.</p>
-<p>W przypadku odpowiedzi “t” program prosi użytkownika o wprowadzenie niepokojących fragmentów innych niż “boli” -&gt; “poli”, na przykład: “goli” -&gt; “soli”.</p>
-<p>Po wprowadzeniu program dokonuje zamiany “boli” -&gt; “poli” oraz podanych przez użytkownika fragmentów używając algorytmu <a href="https://igorciz777.github.io/PlaszczakiProjekt/_aho_corasick_8h.html">Aho-Corasicka</a> do znalezienia wzorców, a następnie koduje poprawioną opowieść-melodię korzystając z kodowania <a href="https://igorciz777.github.io/PlaszczakiProjekt/_huffman_8h.html">Huffmana</a>. Kolejno, użytkownik jest pytany o to, czy zakodowana opowieść-melodia ma zostać zapisana do pliku.</p>
-<p>W przypadku odpowiedzi “t” program zapisuje zakodowaną melodię do pliku tekstowego o nazwie wprowadzonej przez użytkownika.</p>
-<p>W przypadku odpowiedzi “n” program przechodzi dalej.</p>
-<p>Na koniec program wyświetla na standardowe wyjście opowieść-melodię po zamianach fragmentów, oraz jej zakodowaną wersję w kodzie <a href="https://igorciz777.github.io/PlaszczakiProjekt/_huffman_8h.html">Huffmana</a>.</p>
+<ol type="1">
+<li><b>Uruchomienie programu</b>: Po uruchomieniu program pyta użytkownika, czy ma odczytać zapisaną wcześniej opowieść-melodię.<ul>
+<li><b>Odpowiedź "t"</b>: Program odczytuje z zadanego pliku zakodowaną za pomocą kodowania Huffmana opowieść-melodię i wyświetla ją na standardowe wyjście.</li>
+<li><b>Odpowiedź "n"</b>: Program prosi użytkownika o wprowadzenie nowej opowieści-melodii.</li>
+</ul>
+</li>
+<li><b>Wprowadzenie opowieści-melodii</b>: Po wprowadzeniu opowieści-melodii przez użytkownika, program pyta, czy w tekście istnieją niepokojące fragmenty inne niż “boli” -&gt; “poli”.<ul>
+<li><b>Odpowiedź "n"</b>: Program dokonuje zamiany “boli” -&gt; “poli” używając algorytmu <a class="el" href="class_k_m_p.html">KMP</a> do znalezienia wzorców, a następnie koduje poprawioną opowieść-melodię korzystając z kodowania Huffmana.</li>
+<li>Program następnie pyta użytkownika, czy zakodowana opowieść-melodia ma zostać zapisana do pliku.<ul>
+<li><b>Odpowiedź "t"</b>: Program zapisuje zakodowaną melodię do pliku tekstowego o nazwie wprowadzonej przez użytkownika.</li>
+<li><b>Odpowiedź "n"</b>: Program przechodzi dalej.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><b>Wyświetlenie wyników</b>: Program wyświetla na standardowe wyjście opowieść-melodię po zamianach fragmentów oraz jej zakodowaną wersję w kodzie Huffmana.</li>
+<li><b>Dodatkowe zamiany</b>: W przypadku odpowiedzi "t" na pytanie o inne niepokojące fragmenty, program prosi użytkownika o ich wprowadzenie, na przykład: “goli” -&gt; “soli”.<ul>
+<li>Po wprowadzeniu fragmentów, program dokonuje zamiany “boli” -&gt; “poli” oraz podanych przez użytkownika fragmentów, używając algorytmu Aho-Corasicka do znalezienia wzorców, a następnie koduje poprawioną opowieść-melodię korzystając z kodowania Huffmana.</li>
+<li>Program następnie pyta użytkownika, czy zakodowana opowieść-melodia ma zostać zapisana do pliku.<ul>
+<li><b>Odpowiedź "t"</b>: Program zapisuje zakodowaną melodię do pliku tekstowego o nazwie wprowadzonej przez użytkownika.</li>
+<li><b>Odpowiedź "n"</b>: Program przechodzi dalej.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><b>Wyświetlenie wyników po dodatkowych zamianach</b>: Na koniec program wyświetla na standardowe wyjście opowieść-melodię po zamianach fragmentów oraz jej zakodowaną wersję w kodzie Huffmana.</li>
+</ol>
 <h2><a class="anchor" id="autotoc_md6"></a>
 Rozwiązanie problemu trzeciego</h2>
 </div></div><!-- PageDoc -->
