@@ -3,31 +3,20 @@
  * @brief Rozwiązanie problemu 3
  * 
  * Rozwiązanie problemu:
+ * Ustalić jak najszybciej grafik pracy strażników i jak najmniejszą liczbę odsłuchań melodii dla każdego strażnika.
  * 
-*/
-/*
-Płaszczaki uznały, że dla zwiększenia bezpieczeństwa raz dziennie dookoła płotu powinien przejść strażnik.
-Punkty orientacyjne, przez które przebiega płot, są różnej jasności i zgodnie z ruchem wskazówek zegara wyznaczają trasę strażnika.
-Punkt pierwszy trasy (po jednym okrążeniu) jest jednocześnie punktem końcowym dla strażnika.
-Strażnikiem może zostać każdy płaszczak, który ma odpowiednią ilość energii.
-Niestety ilość energii każdego płaszczaka jest losowej wielkości.
-Płaszczak po wykonaniu pracy strażnika musi przez tydzień odpoczywać.
-Heretyk, który zazwyczaj mąci, ponumerował płaszczaki.
-W ramach oszczędności zaproponował, by każdego dnia strzegł Krainy jeden strażnik wybrany z kilku płaszczaków o kolejnych numerach,
-i wystarczy, by to był ten, który z nich ma najwięcej energii.
-
-Problem jednak polega na tym,
-że strażnik po minięciu co najwyżej pewnej liczby punktów orientacyjnych musi zatrzymać się, by dokładniej rozejrzeć się dookoła.
-Jednak zachowuje całą energię do pracy tylko wtedy, gdy poprzednim punktem zatrzymania był punkt jaśniejszy od tego,
-w którym się aktualnie zatrzymuje (nie męczą mu się oczy).
-W przeciwnym razie całą energię traci i wtedy musi w tym punkcie odpocząć i posłuchać melodii, by energię odzyskać.
-Ponieważ niektóre płaszczaki planują urlopy, trzeba szybko ustalić kolejnych strażników na cały krainowy tydzień.
-Dla każdego z nich trzeba też wybrać takie punkty zatrzymania się, by liczba odsłuchań melodii przez strażnika była jak najmniejsza,
-bo słuchając jej strasznie się nudzą.
-Heretyk, któremu zlecono rolę ustalenia kolejnych strażników, ma mało czasu i potrzebuje Twojej pomocy.
-
-
-Problem. Ustalić jak najszybciej grafik pracy strażników i jak najmniejszą liczbę odsłuchań melodii dla każdego strażnika.
+ * Rozwiązanie teoretyczne:
+ * 1. Wczytaj liczbę punktów orientacyjnych i liczbę płaszczaków.
+ * 2. Wczytaj jasność punktów orientacyjnych.
+ * 3. Wczytaj co ile punktów płaszczak musi się zatrzymać.
+ * 4. Dla każdego dnia:
+ * 5.     Wybierz płaszczaka z kolejki.
+ * 6.     Znajdź taki punkt startowy, przez który odslucha jak najmniej melodii.
+ * 7.     Zapisz płaszczaka jako strażnika na dany dzień.
+ * 8.     Oznacz płaszczaka jako odpoczywającego i dodaj go na koniec kolejki.
+ * 9. Wyświetl grafik pracy strażników.
+ * 
+ * 
 */
 
 #include <iostream>
@@ -81,23 +70,23 @@ int main(){
     }
 
     std::queue<Plaszczak> kolejka_plaszczakow;
-    std::sort(plaszczaki.begin(), plaszczaki.end(), std::greater<Plaszczak>());
-    for(int i = 0; i < liczba_plaszczakow; i++){
+    
+    for (int i = 0; i < liczba_plaszczakow; i++) {
         kolejka_plaszczakow.push(plaszczaki[i]);
     }
 
-    for(int dzien = 0; dzien < 7; dzien++){
+    for (int dzien = 0; dzien < 7; dzien++) {
         // dla kazdego plaszczaka znajdz taki punkt startowy (za razem koncowy) przez ktory odslucha jak najmniej melodii
         Plaszczak* plaszczak = &kolejka_plaszczakow.front();
         kolejka_plaszczakow.pop();
-        if(plaszczak->odpoczywa){
+        if (plaszczak->odpoczywa) {
             std::cout << "Niewystarczajaca liczba plaszczakow aby wypelnic grafik wraz z odpoczynkiem" << std::endl;
             break;
         }
         unsigned int min_odsluchan = INT_MAX;
         int id_wybranego_straznika = 0;
         PunktOrientacyjny* wybrany_punkt = nullptr;
-        for(int i = 0; i < liczba_puntkow; i++){
+        for (int i = 0; i < liczba_puntkow; i++) {
             PunktOrientacyjny* punkt_startowy = &punkty[i];
             PunktOrientacyjny* aktualny_punkt = punkt_startowy;
             int liczba_odsluchan = 0;
@@ -105,8 +94,8 @@ int main(){
             int krok = 0;
 
             do {
-                if(krok == plaszczak->co_ile_zatrzyma_sie){
-                    if(poprzedni_punkt->jasnosc >= aktualny_punkt->jasnosc){
+                if (krok == plaszczak->co_ile_zatrzyma_sie) {
+                    if (poprzedni_punkt->jasnosc < aktualny_punkt->jasnosc) {
                         liczba_odsluchan++;
                     }
                     krok = 0;
@@ -114,15 +103,15 @@ int main(){
                 }
                 aktualny_punkt = aktualny_punkt->nastepny;
                 krok++;
-            } while(aktualny_punkt != punkt_startowy);
+            } while (aktualny_punkt != punkt_startowy);
 
-            if(i == 0 || liczba_odsluchan < min_odsluchan){
+            if (liczba_odsluchan < min_odsluchan) {
                 min_odsluchan = liczba_odsluchan;
                 id_wybranego_straznika = plaszczak->id;
                 wybrany_punkt = punkt_startowy;
             }
         }
-        std::cout << "Dzien " << dzien+1 << ": Plaszczak " << id_wybranego_straznika << " zaczyna od punktu " << wybrany_punkt->id << " i odslucha " << min_odsluchan << " melodii" << std::endl;
+        std::cout << "Dzien " << dzien + 1 << ": Plaszczak " << id_wybranego_straznika << " zaczyna od punktu " << wybrany_punkt->id << " i odslucha " << min_odsluchan << " melodii" << std::endl;
         plaszczak->odpoczywa = true;
         kolejka_plaszczakow.push(*plaszczak);
     }
