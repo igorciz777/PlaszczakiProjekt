@@ -36,12 +36,23 @@ Problem. Ustalić jak najszybciej grafik pracy strażników i jak najmniejszą l
 #include <cstdlib>
 #include <queue>
 
-#define RANDOM 0
-
-
 struct Plaszczak{
     int id;
-    int energia;
+    int co_ile_zatrzyma_sie = 0;
+    bool odpoczywa = false;
+};
+
+int operator<(const Plaszczak& a, const Plaszczak& b){
+    return a.co_ile_zatrzyma_sie < b.co_ile_zatrzyma_sie;
+}
+int operator>(const Plaszczak& a, const Plaszczak& b){
+    return a.co_ile_zatrzyma_sie > b.co_ile_zatrzyma_sie;
+}
+
+struct PunktOrientacyjny{
+    int id;
+    int jasnosc;
+    PunktOrientacyjny* nastepny;
 };
 
 int main(){
@@ -51,43 +62,41 @@ int main(){
     std::cout << "Podaj liczbe plaszczakow: ";
     std::cin >> liczba_plaszczakow;
 
-    std::vector<int> jasnosc_punktow(liczba_puntkow);
+    std::vector<PunktOrientacyjny> punkty(liczba_puntkow);
     std::vector<Plaszczak> plaszczaki(liczba_plaszczakow);
 
     std::cout << "Podaj jasnosc punktow: " << std::endl;
     for(int i = 0; i < liczba_puntkow; i++){
         std::cout << "[" << i << "]: ";
-        std::cin >> jasnosc_punktow[i];
+        std::cin >> punkty[i].jasnosc;
+        punkty[i].id = i;
+        punkty[i].nastepny = &punkty[(i + 1) % liczba_puntkow];
     }
-#if RANDOM
-    for(int i = 0; i < liczba_plaszczakow; i++){
-        plaszczaki[i].id = i;
-        plaszczaki[i].energia = rand() % 100;
-    }
-#else
-    std::cout << "Podaj energie plaszczakow: " << std::endl;
+
+    std::cout << "Podaj co ile punktow plaszczak musi sie zatrzymac aby dokladniej sie rozejrzec: " << std::endl;
     for(int i = 0; i < liczba_plaszczakow; i++){
         std::cout << "[" << i << "]: ";
-        std::cin >> plaszczaki[i].energia;
+        std::cin >> plaszczaki[i].co_ile_zatrzyma_sie;
         plaszczaki[i].id = i;
     }
-#endif
 
-    sort(plaszczaki.rbegin(), plaszczaki.rend(), [](const Plaszczak &a, const Plaszczak &b) {
-        return a.energia > b.energia;
-    });
+    std::sort(plaszczaki.begin(), plaszczaki.end(), std::greater<Plaszczak>());
 
-    std::vector<int> punkty_zatrzymania(liczba_plaszczakow);
-    punkty_zatrzymania[0] = 0;
+    for(int dzien = 0; dzien < 7; dzien++){
+        //dla kazdego plaszczaka znajdz taki punkt startowy (za razem koncowy) przez ktory odslucha jak najmniej melodii
+        for(int i = 0; i < liczba_plaszczakow; i++){
+            if(plaszczaki[i].odpoczywa){
+                continue;
+            }
+            int min_odsluchania = INT_MAX;
+            int punkt_startowy = -1;
+            /*
+            TODO: petla przechodzi przez caly graf i znajduje najlepszy punkty startowy i przypisuje plaszczaka na dany dzien
+            TODO: lepsza struktura grafu do punktow orientacyjnych
+            TODO: przemyslec czy sortowanie plaszczakow jest dobre, czy energia ma jakiekolwiek znaczenie
+            */
+        }
+    }
 
-    std::deque<int> kolejka;
-    kolejka.push_back(0);
-
-    /*
-    TODO: reszta problemu
-    */
-
-
-    
-    return 0;   
+    return 0;
 }
