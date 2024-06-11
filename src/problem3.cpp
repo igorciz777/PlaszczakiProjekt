@@ -25,6 +25,15 @@
 #include <cstdlib>
 #include <queue>
 
+/**
+ * @brief Struktura Plaszczak
+ * 
+ * Struktura przechowująca informacje o plaszczaku
+ * 
+ * @param id - identyfikator plaszczaka
+ * @param co_ile_zatrzyma_sie - co ile punktów plaszczak musi się zatrzymać
+ * @param odpoczywa - czy plaszczak odpoczywa
+ */
 struct Plaszczak{
     int id;
     int co_ile_zatrzyma_sie = 0;
@@ -38,6 +47,15 @@ bool operator>(const Plaszczak& a, const Plaszczak& b){
     return a.co_ile_zatrzyma_sie > b.co_ile_zatrzyma_sie;
 }
 
+/**
+ * @brief Struktura PunktOrientacyjny
+ * 
+ * Struktura przechowująca informacje o punkcie orientacyjnym
+ * 
+ * @param id - identyfikator punktu orientacyjnego
+ * @param jasnosc - jasnosc punktu orientacyjnego
+ * @param nastepny - wskaznik na nastepny punkt orientacyjny
+ */
 struct PunktOrientacyjny{
     int id;
     int jasnosc;
