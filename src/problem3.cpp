@@ -70,6 +70,7 @@ int main(){
     }
 
     std::queue<Plaszczak> kolejka_plaszczakow;
+    std::sort(plaszczaki.begin(), plaszczaki.end(), std::greater<Plaszczak>()); /*TODO: czy sortowac po tym czy zaimplementowac energie z powrotem*/
     
     for (int i = 0; i < liczba_plaszczakow; i++) {
         kolejka_plaszczakow.push(plaszczaki[i]);
