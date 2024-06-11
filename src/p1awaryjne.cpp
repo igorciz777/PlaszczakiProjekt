@@ -32,8 +32,8 @@
 #include <climits>
 #include <cstring>
 #include <algorithm>
-#include "include/SiecPrzeplywowa.cpp"
-#include "include/DoborTragarzy.cpp"
+#include "SiecPrzeplywowa.cpp"
+#include "DoborTragarzy.cpp"
 #define MAX 10000
 using namespace std;
 const int MAKS = 1000;  // Maksymalna liczba pracowników w każdej grupie
@@ -337,7 +337,8 @@ int main()
         	czyPunktNalezyDoOtoczki(punktyOtoczki, cel, jestRozny);
     	}
         siecBudowy.dodajKrawedz(nazwyPunktow[zrodlo], nazwyPunktow[cel], maksymalneSkojarzenie);
-        tab[cel]++;
+        auto it = find(punktyOtoczki.begin(), punktyOtoczki.end(), cel);
+        tab[distance(punktyOtoczki.begin(), it)]++;
     }
     while (any_of(tab, tab + rozmiar, [](int i) { return i == 0; })) {
         cout << "Ktorys punkt z otoczki nie ma polaczenia do fabryki. Musisz podac kolejne punkty ktore chcesz polaczyc." <<endl;
@@ -378,7 +379,8 @@ int main()
         		czyPunktNalezyDoOtoczki(punktyOtoczki, cel, jestRozny);
     		}
         	siecBudowy.dodajKrawedz(nazwyPunktow[zrodlo], nazwyPunktow[cel], maksymalneSkojarzenie);
-        	tab[cel]++;
+        	auto it = find(punktyOtoczki.begin(), punktyOtoczki.end(), cel);
+        	tab[distance(punktyOtoczki.begin(), it)]++;
     	}
     }
     for(int i = 0; i < punktyOtoczki.size(); i++){
