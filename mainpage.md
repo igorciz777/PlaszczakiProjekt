@@ -1,13 +1,8 @@
 ## Dokumentacja techniczna projektu PlaszczakiProjekt
-### Spis treści
-1. [Rozwiązanie problemu pierwszego](#rozwiązanie-problemu-pierwszego)
-2. [Rozwiązanie problemu drugiego](#rozwiązanie-problemu-drugiego)
-3. [Rozwiązanie problemu trzeciego](#rozwiązanie-problemu-trzeciego)
 
 ### Rozwiązanie problemu pierwszego
-#### Opis problemu
 
-#### Opis rozwiązania
+---
 
 ### Rozwiązanie problemu drugiego
 
@@ -36,9 +31,9 @@
 5. **Wyświetlenie wyników po dodatkowych zamianach**:
    Na koniec program wyświetla na standardowe wyjście opowieść-melodię po zamianach fragmentów oraz jej zakodowaną wersję w kodzie Huffmana.
 
-### Rozwiązanie problemu trzeciego
+---
 
-### Dokumentacja do programu rozwiązującego problem 3
+### Rozwiązanie problemu trzeciego
 
 #### 1. Opis problemu
 
