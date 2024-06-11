@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['macierz3x3_0',['Macierz3x3',['../struct_macierz3x3.html',1,'']]]
+  ['edmondskarp_0',['edmondsKarp',['../class_siec_przeplywowa.html#a89c2b1d053647a16c6ced28d9f0e13f8',1,'SiecPrzeplywowa']]]
 ];

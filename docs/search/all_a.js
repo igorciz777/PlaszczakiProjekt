@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['rozwiązania_0',['Opis rozwiązania',['../index.html#autotoc_md4',1,'']]],
-  ['rozwiązanie_20problemu_20drugiego_1',['Rozwiązanie problemu drugiego',['../index.html#autotoc_md5',1,'']]],
-  ['rozwiązanie_20problemu_20pierwszego_2',['Rozwiązanie problemu pierwszego',['../index.html#autotoc_md2',1,'']]],
-  ['rozwiązanie_20problemu_20trzeciego_3',['Rozwiązanie problemu trzeciego',['../index.html#autotoc_md6',1,'']]]
+  ['kmp_0',['KMP',['../class_k_m_p.html',1,'']]],
+  ['kmp_2ecpp_1',['Kmp.cpp',['../_kmp_8cpp.html',1,'']]],
+  ['kmp_2eh_2',['Kmp.h',['../_kmp_8h.html',1,'']]],
+  ['kmpszukaj_3',['kmpSzukaj',['../class_k_m_p.html#a7c5f1a1936e7bab5b7891823ca7eb204',1,'KMP']]],
+  ['krawedz_4',['Krawedz',['../struct_krawedz.html',1,'']]]
 ];

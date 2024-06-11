@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['zamienfragment_0',['zamienFragment',['../class_tekst.html#a3b05579b6d4ded962a1f4c2b0f82f38e',1,'Tekst']]]
+  ['rozwiązania_0',['Opis rozwiązania',['../index.html#autotoc_md4',1,'']]],
+  ['rozwiązanie_20problemu_20drugiego_1',['Rozwiązanie problemu drugiego',['../index.html#autotoc_md5',1,'']]],
+  ['rozwiązanie_20problemu_20pierwszego_2',['Rozwiązanie problemu pierwszego',['../index.html#autotoc_md2',1,'']]],
+  ['rozwiązanie_20problemu_20trzeciego_3',['Rozwiązanie problemu trzeciego',['../index.html#autotoc_md6',1,'']]],
+  ['rozwiązującego_20problem_203_4',['Dokumentacja do programu rozwiązującego problem 3',['../index.html#autotoc_md7',1,'']]]
 ];

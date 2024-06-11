@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['huffman_0',['Huffman',['../class_huffman.html',1,'']]],
-  ['huffman_2ecpp_1',['Huffman.cpp',['../_huffman_8cpp.html',1,'']]],
-  ['huffman_2eh_2',['Huffman.h',['../_huffman_8h.html',1,'']]]
+  ['bintoascii_0',['BINtoASCII',['../class_tekst.html#a741796d18c2495487f88a214e02d12f9',1,'Tekst']]]
 ];

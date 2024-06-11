@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['opis_20problemu_0',['Opis problemu',['../index.html#autotoc_md3',1,'']]],
-  ['opis_20rozwiązania_1',['Opis rozwiązania',['../index.html#autotoc_md4',1,'']]],
-  ['otoczkajarvis_2',['OtoczkaJarvis',['../class_otoczka_jarvis.html',1,'']]]
+  ['geometria_2ecpp_0',['Geometria.cpp',['../_geometria_8cpp.html',1,'']]],
+  ['geometria_2eh_1',['Geometria.h',['../_geometria_8h.html',1,'']]]
 ];

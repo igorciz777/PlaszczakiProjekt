@@ -38,3 +38,59 @@
 
 ### Rozwiązanie problemu trzeciego
 
+### Dokumentacja do programu rozwiązującego problem 3
+
+#### 1. Opis problemu
+
+Strażnicy, zwani płaszczakami, mają za zadanie raz dziennie patrolować płot chroniący krainę.
+Patrolowanie odbywa się zgodnie z ruchem wskazówek zegara po punktach orientacyjnych o różnej jasności.
+Płaszczak musi się zatrzymać po przejściu określonej liczby punktów, aby się rozejrzeć, i zachowuje energię tylko wtedy, gdy poprzedni punkt zatrzymania był jaśniejszy od bieżącego.
+Gdy punkt bieżący jest ciemniejszy lub równie jasny jak poprzedni, płaszczak traci całą energię i musi odpocząć, słuchając melodii.
+
+Celem jest ustalenie, który płaszczak będzie patrolował danego dnia i w jakim punkcie orientacyjnym powinien rozpocząć trasę, aby liczba odsłuchań melodii była minimalna.
+
+---
+
+#### 2. Wymagania
+
+- Ustalanie grafiku pracy strażników na siedem dni.
+- Minimalizacja liczby odsłuchań melodii przez każdego strażnika.
+
+---
+
+#### 3. Struktury danych
+
+- **Plaszczak**
+  - `int id`: identyfikator płaszczaka.
+  - `int co_ile_zatrzyma_sie`: liczba punktów, po której płaszczak musi się zatrzymać.
+  - `bool odpoczywa`: flaga wskazująca, czy płaszczak odpoczywa.
+
+- **PunktOrientacyjny**
+  - `int id`: identyfikator punktu orientacyjnego.
+  - `int jasnosc`: jasność punktu orientacyjnego.
+  - `PunktOrientacyjny* nastepny`: wskaźnik na następny punkt orientacyjny.
+
+---
+
+#### 4. Algorytm
+
+1. **Wczytywanie danych**:
+   - Wczytanie liczby punktów orientacyjnych i liczby płaszczaków.
+   - Wczytanie jasności punktów orientacyjnych.
+   - Wczytanie liczby punktów, po której płaszczak musi się zatrzymać.
+
+2. **Inicjalizacja**:
+   - Utworzenie listy punktów orientacyjnych.
+   - Utworzenie kolejki priorytetowej płaszczaków, posortowanej według liczby punktów do zatrzymania.
+
+3. **Wyznaczanie grafiku**:
+   - Na każdy dzień tygodnia:
+     - Wybranie płaszczaka z największą liczbą punktów do zatrzymania.
+     - Dla każdego punktu orientacyjnego jako punktu startowego:
+       - Symulacja trasy płaszczaka, zliczanie odsłuchań melodii.
+       - Wybór trasy minimalizującej liczbę odsłuchań melodii.
+     - Wysłanie płaszczaka na odpoczynek po wykonaniu dnia pracy.
+
+4. **Wyjście**:
+   - Wyświetlenie grafiku pracy strażników z minimalną liczbą odsłuchań melodii.
+

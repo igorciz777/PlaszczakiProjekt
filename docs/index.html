@@ -119,6 +119,69 @@ Rozwiązanie problemu drugiego</h2>
 </ol>
 <h2><a class="anchor" id="autotoc_md6"></a>
 Rozwiązanie problemu trzeciego</h2>
+<h2><a class="anchor" id="autotoc_md7"></a>
+Dokumentacja do programu rozwiązującego problem 3</h2>
+<h3><a class="anchor" id="autotoc_md8"></a>
+1. Opis problemu</h3>
+<p>Strażnicy, zwani płaszczakami, mają za zadanie raz dziennie patrolować płot chroniący krainę. Patrolowanie odbywa się zgodnie z ruchem wskazówek zegara po punktach orientacyjnych o różnej jasności. Płaszczak musi się zatrzymać po przejściu określonej liczby punktów, aby się rozejrzeć, i zachowuje energię tylko wtedy, gdy poprzedni punkt zatrzymania był jaśniejszy od bieżącego. Gdy punkt bieżący jest ciemniejszy lub równie jasny jak poprzedni, płaszczak traci całą energię i musi odpocząć, słuchając melodii.</p>
+<p>Celem jest ustalenie, który płaszczak będzie patrolował danego dnia i w jakim punkcie orientacyjnym powinien rozpocząć trasę, aby liczba odsłuchań melodii była minimalna.</p>
+<hr  />
+<h3><a class="anchor" id="autotoc_md10"></a>
+2. Wymagania</h3>
+<ul>
+<li>Ustalanie grafiku pracy strażników na siedem dni.</li>
+<li>Minimalizacja liczby odsłuchań melodii przez każdego strażnika.</li>
+</ul>
+<hr  />
+<h3><a class="anchor" id="autotoc_md12"></a>
+3. Struktury danych</h3>
+<ul>
+<li><b><a class="el" href="struct_plaszczak.html">Plaszczak</a></b><ul>
+<li><code>int id</code>: identyfikator płaszczaka.</li>
+<li><code>int co_ile_zatrzyma_sie</code>: liczba punktów, po której płaszczak musi się zatrzymać.</li>
+<li><code>bool odpoczywa</code>: flaga wskazująca, czy płaszczak odpoczywa.</li>
+</ul>
+</li>
+<li><b><a class="el" href="struct_punkt_orientacyjny.html">PunktOrientacyjny</a></b><ul>
+<li><code>int id</code>: identyfikator punktu orientacyjnego.</li>
+<li><code>int jasnosc</code>: jasność punktu orientacyjnego.</li>
+<li><code>PunktOrientacyjny* nastepny</code>: wskaźnik na następny punkt orientacyjny.</li>
+</ul>
+</li>
+</ul>
+<hr  />
+<h3><a class="anchor" id="autotoc_md14"></a>
+4. Algorytm</h3>
+<ol type="1">
+<li><b>Wczytywanie danych</b>:<ul>
+<li>Wczytanie liczby punktów orientacyjnych i liczby płaszczaków.</li>
+<li>Wczytanie jasności punktów orientacyjnych.</li>
+<li>Wczytanie liczby punktów, po której płaszczak musi się zatrzymać.</li>
+</ul>
+</li>
+<li><b>Inicjalizacja</b>:<ul>
+<li>Utworzenie listy punktów orientacyjnych.</li>
+<li>Utworzenie kolejki priorytetowej płaszczaków, posortowanej według liczby punktów do zatrzymania.</li>
+</ul>
+</li>
+<li><b>Wyznaczanie grafiku</b>:<ul>
+<li>Na każdy dzień tygodnia:<ul>
+<li>Wybranie płaszczaka z największą liczbą punktów do zatrzymania.</li>
+<li>Dla każdego punktu orientacyjnego jako punktu startowego:<ul>
+<li>Symulacja trasy płaszczaka, zliczanie odsłuchań melodii.</li>
+<li>Wybór trasy minimalizującej liczbę odsłuchań melodii.</li>
+</ul>
+</li>
+<li>Wysłanie płaszczaka na odpoczynek po wykonaniu dnia pracy.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><b>Wyjście</b>:<ul>
+<li>Wyświetlenie grafiku pracy strażników z minimalną liczbą odsłuchań melodii. </li>
+</ul>
+</li>
+</ol>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"/>
 </div><!-- contents -->
