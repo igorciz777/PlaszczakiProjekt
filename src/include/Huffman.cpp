@@ -19,6 +19,7 @@ std::string Huffman::koduj(const std::string& tekst) {
     zbudujKody(korzen, "");
     std::string zakodowany_tekst = "";
     for (char znak : tekst) {
+        if(znak == ' '){ znak = '_'; }
         zakodowany_tekst += kody[znak];
     }
     
@@ -36,7 +37,8 @@ std::string Huffman::dekoduj(const std::string& tekst) {
         }
 
         if (aktualny->lewy == nullptr && aktualny->prawy == nullptr) {
-            odkodowany_tekst += aktualny->znak;
+            if(aktualny->znak == '_'){ odkodowany_tekst += ' '; }
+            else{ odkodowany_tekst += aktualny->znak; }
             aktualny = korzen;
         }
     }
@@ -47,6 +49,7 @@ std::string Huffman::dekoduj(const std::string& tekst) {
 void Huffman::zbudujDrzewo(const std::string& tekst) {
     std::unordered_map<char, int> czestotliwosci;
     for (char znak : tekst) {
+        if(znak == ' '){ znak = '_'; }
         czestotliwosci[znak]++;
     }
 

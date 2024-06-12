@@ -39,7 +39,11 @@ std::string dekodujHuffman(const std::string& zakodowana_melodia, const std::str
     for(char c : zakodowana_melodia){
         kod += c;
         if(mapa_kodow.find(kod) != mapa_kodow.end()){
-            odkodowana_melodia << mapa_kodow[kod];
+            if(mapa_kodow[kod] == '_'){
+                odkodowana_melodia << ' ';
+            }else{
+                odkodowana_melodia << mapa_kodow[kod];
+            }
             kod = "";
         }
     }
