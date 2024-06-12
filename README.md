@@ -1,6 +1,9 @@
 # Płaszczaki Projekt
 Projekt na przedmiot Algorytmy i Struktury Danych 2
 
+### Dokumentacja opisowa
+[Link do dokumentacji](https://docs.google.com/document/d/1JqA5u0gE-6G75cN4mcdqnfFWQBzu6YQKedxCKFQmzMY/edit?usp=sharing)
+
 ### Dokumentacja techniczna
 [Link do dokumentacji](https://igorciz777.github.io/PlaszczakiProjekt/)
 
