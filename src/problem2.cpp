@@ -148,6 +148,7 @@ int main(){
     std::cout << "Czy zapisac zakodowana melodie do pliku? (t/n): ";
     std::cin >> c;
     if(c == 'n' || c == 'N'){
+        std::cout << "Melodia po zmianach: " << opowiesc_melodia << std::endl;
         std::cout << "Zakodowana melodia: " << zakodowana_melodia << std::endl;
         return 0;
     }else{
