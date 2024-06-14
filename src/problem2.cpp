@@ -29,6 +29,17 @@
 #ifndef llu
     #define llu long long unsigned
 #endif
+#ifndef lli
+    #define lli long long
+#endif
+#ifndef _WIN32
+    #define INT_MAX 2147483647
+    #define INT_MIN -2147483648
+#endif
+#ifndef _WIN64
+    #define INT_MAX 2147483647
+    #define INT_MIN -2147483648
+#endif
 
 struct OpowiescMelodiaInfo{
     bool poprawna = false;
@@ -153,15 +164,15 @@ OpowiescMelodiaInfo problem2_init(){
             wzorce.push_back(i.first);
         }
         AhoCorasick ahoCorasick(wzorce);
-        std::vector<std::pair<int,int> > idx = ahoCorasick.szukaj(opowiesc_melodia);
+        std::vector<std::pair<lli,lli> > idx = ahoCorasick.szukaj(opowiesc_melodia);
 
         for(auto it = idx.rbegin(); it != idx.rend(); it++){
-            int start = it->first - zamiany[it->second].first.size() + 1;
+            lli start = it->first - zamiany[it->second].first.size() + 1;
             Tekst::zamienFragment(opowiesc_melodia, start, zamiany[it->second]);
         }
     }else{
-        std::vector<int> idx = KMP::kmpSzukaj(opowiesc_melodia, zamiany[0].first);
-        for(int i : idx){
+        std::vector<lli> idx = KMP::kmpSzukaj(opowiesc_melodia, zamiany[0].first);
+        for(lli i : idx){
             Tekst::zamienFragment(opowiesc_melodia,i,zamiany[0].second);
         }
     }

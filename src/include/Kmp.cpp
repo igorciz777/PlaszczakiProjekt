@@ -9,11 +9,11 @@
  */
 #include "Kmp.h"
 
-std::vector<int> KMP::stworzLPS(const std::string& wzorzec) {
-    int m = wzorzec.length();
-    std::vector<int> lps(m, 0);
-    int len = 0;
-    int i = 1;
+std::vector<lli> KMP::stworzLPS(const std::string& wzorzec) {
+    llu m = wzorzec.length();
+    std::vector<lli> lps(m, 0);
+    llu len = 0;
+    llu i = 1;
 
     while (i < m) {
         if (wzorzec[i] == wzorzec[len]) {
@@ -33,14 +33,14 @@ std::vector<int> KMP::stworzLPS(const std::string& wzorzec) {
     return lps;
 }
 
-std::vector<int> KMP::kmpSzukaj(const std::string& tekst, const std::string& wzorzec) {
-    std::vector<int> lps = stworzLPS(wzorzec);
-    std::vector<int> indices;
+std::vector<lli> KMP::kmpSzukaj(const std::string& tekst, const std::string& wzorzec) {
+    std::vector<lli> lps = stworzLPS(wzorzec);
+    std::vector<lli> indices;
 
-    int n = tekst.length();
-    int m = wzorzec.length();
-    int i = 0;
-    int j = 0;
+    llu n = tekst.length();
+    llu m = wzorzec.length();
+    llu i = 0;
+    llu j = 0;
 
     while (i < n) {
         if (wzorzec[j] == tekst[i]) {

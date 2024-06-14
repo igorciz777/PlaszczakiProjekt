@@ -27,9 +27,20 @@
 #include "include\SiecPrzeplywowa.h"
 #include "include\DoborTragarzy.h"
 
-#define MAX 10000
 #ifndef llu
     #define llu long long unsigned
+#endif
+#ifndef lli
+    #define lli long long
+#endif
+
+#ifndef _WIN32
+    #define INT_MAX 2147483647
+    #define INT_MIN -2147483648
+#endif
+#ifndef _WIN64
+    #define INT_MAX 2147483647
+    #define INT_MIN -2147483648
 #endif
 
 using namespace std;
@@ -107,7 +118,7 @@ void stworzOtoczke(Punkt punkty[], int n, double &odleglosc, int &wynik, vector<
     }
 
 }
-
+/*Dlaczego bfs i dfs sa tutaj i w DoborTragarzy.cpp*/
 bool wyszukiwanieWszerz() {
     queue<int> kolejka;
     for (int u = 0; u < MAKS; ++u) {
@@ -118,11 +129,12 @@ bool wyszukiwanieWszerz() {
             odleglosc[u] = INT_MAX;
         }
     }
-    odleglosc[-1] = INT_MAX;
+    //odleglosc[-1] = INT_MAX; co to jest blagam
+    odleglosc[MAKS - 1] = INT_MAX; 
     while (!kolejka.empty()) {
         int u = kolejka.front();
         kolejka.pop();
-        if (odleglosc[u] < odleglosc[-1]) {
+        if (odleglosc[u] < odleglosc[MAKS-1]) {
             for (int v : listaSasiedztwa[u]) {
                 if (odleglosc[skojarzeniaZTylu[v]] == INT_MAX) {
                     odleglosc[skojarzeniaZTylu[v]] = odleglosc[u] + 1;
@@ -131,7 +143,8 @@ bool wyszukiwanieWszerz() {
             }
         }
     }
-    return (odleglosc[-1] != INT_MAX);
+    //return (odleglosc[-1] != INT_MAX);
+    return (odleglosc[MAKS - 1] != INT_MAX);
 }
 
 bool wyszukiwanieWGlab( int u ) {
@@ -167,7 +180,7 @@ int algorytmHopcroftaKarpa() {
 
 
 void czyPunktNalezyDoOtoczki(vector <int> punktyOtoczki, int p, bool &jestRozny){
-	for (int i = 0; i < punktyOtoczki.size(); ++i) {
+	for (llu i = 0; i < punktyOtoczki.size(); ++i) {
         if (punktyOtoczki[i] == p) {
             jestRozny = false;
             break;
@@ -264,7 +277,7 @@ PlotInfo problem1_init()
     for(int i = 0; i < n; i++){
         siecBudowy.dodajWierzcholek(nazwyPunktow[i]);
     }
-    int fabryka, p, fabryka_punkt;
+    llu fabryka, p, fabryka_punkt;
     cout << "Wybierz punkt (nie moze byc na otoczce) ktory jest fabryka: ";
     cin >> p;
     bool jestRozny = true;
@@ -283,7 +296,7 @@ PlotInfo problem1_init()
     	cin >> fabryka_punkt;
 	}
 	vector<int> punkty_polaczone_z_fabryka;
-    for(int i = 0; i < fabryka_punkt; i++){
+    for(llu i = 0; i < fabryka_punkt; i++){
         int cel;
         cout << i + 1 << "Punkt: ";
         cin >> cel;
@@ -392,7 +405,7 @@ PlotInfo problem1_init()
         	tab[distance(punktyOtoczki.begin(), it)]++;
     	}
     }
-    for(int i = 0; i < punktyOtoczki.size(); i++){
+    for(llu i = 0; i < punktyOtoczki.size(); i++){
     	siecBudowy.dodajKrawedz(nazwyPunktow[punktyOtoczki[i]], superUjscie, maksymalneSkojarzenie); 
 	}
 

@@ -14,6 +14,13 @@
 #include <queue>
 #include <string>
 
+#ifndef llu
+    #define llu long long unsigned
+#endif
+#ifndef lli
+    #define lli long long
+#endif
+
 /**
  * @brief Struktura reprezentująca węzeł drzewa Aho-Corasicka
  * 
@@ -95,5 +102,5 @@ class AhoCorasick{
          * @param s Tekst
          * @return Wektor par (pozycja wzorca, identyfikator wzorca)
          */
-        std::vector<std::pair<int,int> > szukaj(std::string s);
+        std::vector<std::pair<lli,lli> > szukaj(std::string s);
 };

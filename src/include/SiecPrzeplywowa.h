@@ -11,6 +11,12 @@
 #include <vector>
 #include <algorithm>
 
+#ifndef llu
+    #define llu long long unsigned
+#endif
+#ifndef lli
+    #define lli long long
+#endif
 #define INF 1000000000
 
 /**

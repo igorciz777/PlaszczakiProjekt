@@ -7,7 +7,6 @@
  * @see AhoCorasick.h
  */
 #include "AhoCorasick.h"
-#define llu long long unsigned
 
 Wezel::Wezel()
 {
@@ -130,10 +129,10 @@ Wezel* AhoCorasick::sufiks(Wezel* x, char c)
     return x;
 }
 
-std::vector<std::pair<int,int> > AhoCorasick::szukaj(std::string s)
+std::vector<std::pair<lli,lli> > AhoCorasick::szukaj(std::string s)
 {
     Wezel* x = trie;
-    std::vector<std::pair<int,int> > wynik;
+    std::vector<std::pair<lli,lli> > wynik;
     for (llu i = 0; i < s.size(); i++)
     {
         x = sufiks(x, s[i]);

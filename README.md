@@ -12,7 +12,7 @@ Uruchom w głównym katalogu
 
 #### Main
 ```terminal
-  g++ .\src\main.cpp .\src\include\*.cpp -o main
+  g++ -Wall -Wextra .\src\main.cpp .\src\include\*.cpp -o main
 ```
 
 ### Testy jednostkowe

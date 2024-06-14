@@ -9,6 +9,7 @@ DoborTragarzy::DoborTragarzy() {
     std::memset(skojarzeniaZTylu, -1, sizeof(skojarzeniaZTylu));
 }
 
+/*Dlaczego bfs i dfs sa tutaj i w problemie1.cpp*/
 bool DoborTragarzy::wyszukiwanieWszerz() {
     std::queue<int> kolejka;
     for (int u = 0; u < MAKS; ++u) {
@@ -19,11 +20,12 @@ bool DoborTragarzy::wyszukiwanieWszerz() {
             odleglosc[u] = INT_MAX;
         }
     }
-    odleglosc[-1] = INT_MAX;
+    //odleglosc[-1] = INT_MAX;
+    odleglosc[MAKS-1] = INT_MAX;
     while (!kolejka.empty()) {
         int u = kolejka.front();
         kolejka.pop();
-        if (odleglosc[u] < odleglosc[-1]) {
+        if (odleglosc[u] < odleglosc[MAKS-1]) {
             for (int v : listaSasiedztwa[u]) {
                 if (odleglosc[skojarzeniaZTylu[v]] == INT_MAX) {
                     odleglosc[skojarzeniaZTylu[v]] = odleglosc[u] + 1;
@@ -32,7 +34,8 @@ bool DoborTragarzy::wyszukiwanieWszerz() {
             }
         }
     }
-    return (odleglosc[-1] != INT_MAX);
+    //return (odleglosc[-1] != INT_MAX);
+    return (odleglosc[MAKS-1] != INT_MAX);
 }
 
 bool DoborTragarzy::wyszukiwanieWGleb(int u) {

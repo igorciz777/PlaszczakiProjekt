@@ -102,7 +102,7 @@ int main(){
                     if(c != 't' && c != 'T'){
                         break;
                     }
-                    grafik_global = problem3_init();
+                    grafik_global = problem3_init(0);
                 }else{
                     grafik_global = problem3_init(plot_info_global.ilosc_odcinkow_plotu);
                 }

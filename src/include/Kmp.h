@@ -10,6 +10,13 @@
 #include <iostream>
 #include <vector>
 
+#ifndef llu
+    #define llu long long unsigned
+#endif
+#ifndef lli
+    #define lli long long
+#endif
+
 class KMP{
     public:
         /**
@@ -19,7 +26,7 @@ class KMP{
          * 
          * @param wzorzec Wzorzec, dla którego tworzymy tablicę LPS
         */
-        std::vector<int> static stworzLPS(const std::string& wzorzec);
+        std::vector<lli> static stworzLPS(const std::string& wzorzec);
 
         /**
          * @brief Metoda wyszukująca wzorzec w tekście
@@ -28,6 +35,6 @@ class KMP{
          * 
          * @param wzorzec Wzorzec, który szukamy w tekście
         */ 
-        std::vector<int> static kmpSzukaj(const std::string& tekst, const std::string& wzorzec);    
+        std::vector<lli> static kmpSzukaj(const std::string& tekst, const std::string& wzorzec);    
 };
 

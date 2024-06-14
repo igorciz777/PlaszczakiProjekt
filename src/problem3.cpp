@@ -29,6 +29,17 @@
 #ifndef llu
     #define llu long long unsigned
 #endif
+#ifndef lli
+    #define lli long long
+#endif
+#ifndef _WIN32
+    #define INT_MAX 2147483647
+    #define INT_MIN -2147483648
+#endif
+#ifndef _WIN64
+    #define INT_MAX 2147483647
+    #define INT_MIN -2147483648
+#endif
 
 /**
  * @brief Struktura Plaszczak
@@ -40,8 +51,8 @@
  * @param odpoczywa - czy plaszczak odpoczywa
  */
 struct Plaszczak{
-    int id;
-    int co_ile_zatrzyma_sie = 0;
+    lli id;
+    lli co_ile_zatrzyma_sie = 0;
     bool odpoczywa = false;
 };
 
@@ -62,8 +73,8 @@ bool operator>(const Plaszczak& a, const Plaszczak& b){
  * @param nastepny - wskaznik na nastepny punkt orientacyjny
  */
 struct PunktOrientacyjny{
-    int id;
-    int jasnosc;
+    lli id;
+    lli jasnosc;
     PunktOrientacyjny* nastepny;
 };
 
@@ -73,88 +84,13 @@ struct GrafikInfo{
     llu suma_odsluchan = 0;
 };
 
-GrafikInfo problem3_init(){
-    GrafikInfo result;
-    int liczba_punktow, liczba_plaszczakow;
-    std::cout << "Podaj liczbe punktow orientacyjnych: ";
-    std::cin >> liczba_punktow;
-    std::cout << "Podaj liczbe plaszczakow: ";
-    std::cin >> liczba_plaszczakow;
-
-    std::vector<PunktOrientacyjny> punkty(liczba_punktow);
-    std::vector<Plaszczak> plaszczaki(liczba_plaszczakow);
-
-    std::cout << "Podaj jasnosc punktow: " << std::endl;
-    for(int i = 0; i < liczba_punktow; i++){
-        std::cout << "[" << i << "]: ";
-        std::cin >> punkty[i].jasnosc;
-        punkty[i].id = i;
-        punkty[i].nastepny = &punkty[(i + 1) % liczba_punktow];
-    }
-
-    std::cout << "Podaj co ile punktow plaszczak musi sie zatrzymac aby dokladniej sie rozejrzec: " << std::endl;
-    for(int i = 0; i < liczba_plaszczakow; i++){
-        std::cout << "[" << i << "]: ";
-        std::cin >> plaszczaki[i].co_ile_zatrzyma_sie;
-        plaszczaki[i].id = i;
-    }
-
-    std::queue<Plaszczak> kolejka_plaszczakow;
-    std::sort(plaszczaki.begin(), plaszczaki.end(), std::greater<Plaszczak>()); /*TODO: czy sortowac po tym czy zaimplementowac energie z powrotem*/
-    
-    for (int i = 0; i < liczba_plaszczakow; i++) {
-        kolejka_plaszczakow.push(plaszczaki[i]);
-    }
-    for (int dzien = 0; dzien < 7; dzien++) {
-        // dla kazdego plaszczaka znajdz taki punkt startowy (za razem koncowy) przez ktory odslucha jak najmniej melodii
-        Plaszczak* plaszczak = &kolejka_plaszczakow.front();
-        kolejka_plaszczakow.pop();
-        if (plaszczak->odpoczywa) {
-            std::cout << "Niewystarczajaca liczba plaszczakow aby wypelnic grafik wraz z odpoczynkiem" << std::endl;
-            break;
-        }
-        unsigned int min_odsluchan = INT_MAX;
-        int id_wybranego_straznika = 0;
-        PunktOrientacyjny* wybrany_punkt = nullptr;
-        for (int i = 0; i < liczba_punktow; i++) {
-            PunktOrientacyjny* punkt_startowy = &punkty[i];
-            PunktOrientacyjny* aktualny_punkt = punkt_startowy;
-            int liczba_odsluchan = 0;
-            PunktOrientacyjny* poprzedni_punkt = punkt_startowy;
-            int krok = 0;
-
-            do {
-                if (krok == plaszczak->co_ile_zatrzyma_sie) {
-                    if (poprzedni_punkt->jasnosc < aktualny_punkt->jasnosc) {
-                        liczba_odsluchan++;
-                    }
-                    krok = 0;
-                    poprzedni_punkt = aktualny_punkt;
-                }
-                aktualny_punkt = aktualny_punkt->nastepny;
-                krok++;
-            } while (aktualny_punkt != punkt_startowy);
-
-            if (liczba_odsluchan < min_odsluchan) {
-                min_odsluchan = liczba_odsluchan;
-                id_wybranego_straznika = plaszczak->id;
-                wybrany_punkt = punkt_startowy;
-            }
-        }
-        std::cout << "Dzien " << dzien + 1 << ": Plaszczak " << id_wybranego_straznika << " zaczyna od punktu " << wybrany_punkt->id << " i odslucha " << min_odsluchan << " melodii" << std::endl;
-        result.grafik.push_back("Dzien " + std::to_string(dzien + 1) + ": Plaszczak " + std::to_string(id_wybranego_straznika) + " zaczyna od punktu " + std::to_string(wybrany_punkt->id) + " i odslucha " + std::to_string(min_odsluchan) + " melodii");
-        result.suma_odsluchan += min_odsluchan;
-        plaszczak->odpoczywa = true;
-        kolejka_plaszczakow.push(*plaszczak);
-    }
-
-    result.poprawny = true;
-    return result;
-}
-
 GrafikInfo problem3_init(llu liczba_punktow){
     GrafikInfo result;
-    int liczba_plaszczakow;
+    llu liczba_plaszczakow;
+    if(liczba_punktow < 1){
+        std::cout << "Podaj liczbe punktow orientacyjnych: ";
+        std::cin >> liczba_punktow;
+    }
     std::cout << "Podaj liczbe plaszczakow: ";
     std::cin >> liczba_plaszczakow;
 
@@ -162,7 +98,7 @@ GrafikInfo problem3_init(llu liczba_punktow){
     std::vector<Plaszczak> plaszczaki(liczba_plaszczakow);
 
     std::cout << "Podaj jasnosc punktow: " << std::endl;
-    for(int i = 0; i < liczba_punktow; i++){
+    for(llu i = 0; i < liczba_punktow; i++){
         std::cout << "[" << i << "]: ";
         std::cin >> punkty[i].jasnosc;
         punkty[i].id = i;
@@ -170,7 +106,7 @@ GrafikInfo problem3_init(llu liczba_punktow){
     }
 
     std::cout << "Podaj co ile punktow plaszczak musi sie zatrzymac aby dokladniej sie rozejrzec: " << std::endl;
-    for(int i = 0; i < liczba_plaszczakow; i++){
+    for(llu i = 0; i < liczba_plaszczakow; i++){
         std::cout << "[" << i << "]: ";
         std::cin >> plaszczaki[i].co_ile_zatrzyma_sie;
         plaszczaki[i].id = i;
@@ -179,11 +115,11 @@ GrafikInfo problem3_init(llu liczba_punktow){
     std::queue<Plaszczak> kolejka_plaszczakow;
     std::sort(plaszczaki.begin(), plaszczaki.end(), std::greater<Plaszczak>()); /*TODO: czy sortowac po tym czy zaimplementowac energie z powrotem*/
     
-    for (int i = 0; i < liczba_plaszczakow; i++) {
+    for (llu i = 0; i < liczba_plaszczakow; i++) {
         kolejka_plaszczakow.push(plaszczaki[i]);
     }
 
-    for (int dzien = 0; dzien < 7; dzien++) {
+    for (llu dzien = 0; dzien < 7; dzien++) {
         // dla kazdego plaszczaka znajdz taki punkt startowy (za razem koncowy) przez ktory odslucha jak najmniej melodii
         Plaszczak* plaszczak = &kolejka_plaszczakow.front();
         kolejka_plaszczakow.pop();
@@ -191,15 +127,15 @@ GrafikInfo problem3_init(llu liczba_punktow){
             std::cout << "Niewystarczajaca liczba plaszczakow aby wypelnic grafik wraz z odpoczynkiem" << std::endl;
             break;
         }
-        unsigned int min_odsluchan = INT_MAX;
-        int id_wybranego_straznika = 0;
+        llu min_odsluchan = INT_MAX;
+        lli id_wybranego_straznika = 0;
         PunktOrientacyjny* wybrany_punkt = nullptr;
-        for (int i = 0; i < liczba_punktow; i++) {
+        for (llu i = 0; i < liczba_punktow; i++) {
             PunktOrientacyjny* punkt_startowy = &punkty[i];
             PunktOrientacyjny* aktualny_punkt = punkt_startowy;
-            int liczba_odsluchan = 0;
+            llu liczba_odsluchan = 0;
             PunktOrientacyjny* poprzedni_punkt = punkt_startowy;
-            int krok = 0;
+            lli krok = 0;
 
             do {
                 if (krok == plaszczak->co_ile_zatrzyma_sie) {

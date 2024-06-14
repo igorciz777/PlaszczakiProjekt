@@ -37,20 +37,20 @@ void SiecPrzeplywowa::dodajKrawedz(int u, int v, int przepustowosc){
 int SiecPrzeplywowa::edmondsKarp(int s, int t, std::vector<std::vector<int>> &sciezki_out){
     int maxPrzeplyw = 0;
     int przeplyw = 0;
-    while(przeplyw = bfs(s, t)){
+    while((przeplyw = bfs(s, t))){
         maxPrzeplyw += przeplyw;
         int v = t;
         std::vector<int> sciezka;
         while(v != s){
             int u = this->poprzednik[v];
             sciezka.push_back(v);
-            for(int i = 0; i < this->graf[u].size(); i++){
+            for(llu i = 0; i < this->graf[u].size(); i++){
                 if(this->graf[u][i].cel == v){
                     this->graf[u][i].przeplyw += przeplyw;
                     break;
                 }
             }
-            for(int i = 0; i < this->graf[v].size(); i++){
+            for(llu i = 0; i < this->graf[v].size(); i++){
                 if(this->graf[v][i].cel == u){
                     this->graf[v][i].przeplyw -= przeplyw;
                     break;
@@ -80,7 +80,7 @@ int SiecPrzeplywowa::bfs(int s, int t){
     while(!kolejka.empty()){
         int u = kolejka[0];
         kolejka.erase(kolejka.begin());
-        for(int i = 0; i < this->graf[u].size(); i++){
+        for(llu i = 0; i < this->graf[u].size(); i++){
             int v = this->graf[u][i].cel;
             if(!odwiedzone[v] && this->graf[u][i].przepustowosc - this->graf[u][i].przeplyw > 0){
                 this->poprzednik[v] = u;
