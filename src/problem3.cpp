@@ -24,6 +24,11 @@
 #include <algorithm>
 #include <cstdlib>
 #include <queue>
+#include <string>
+
+#ifndef llu
+    #define llu long long unsigned
+#endif
 
 /**
  * @brief Struktura Plaszczak
@@ -62,7 +67,14 @@ struct PunktOrientacyjny{
     PunktOrientacyjny* nastepny;
 };
 
-int problem3_init(){
+struct GrafikInfo{
+    bool poprawny = false;
+    std::vector<std::string> grafik;
+    llu suma_odsluchan = 0;
+};
+
+GrafikInfo problem3_init(){
+    GrafikInfo result;
     int liczba_punktow, liczba_plaszczakow;
     std::cout << "Podaj liczbe punktow orientacyjnych: ";
     std::cin >> liczba_punktow;
@@ -93,7 +105,6 @@ int problem3_init(){
     for (int i = 0; i < liczba_plaszczakow; i++) {
         kolejka_plaszczakow.push(plaszczaki[i]);
     }
-
     for (int dzien = 0; dzien < 7; dzien++) {
         // dla kazdego plaszczaka znajdz taki punkt startowy (za razem koncowy) przez ktory odslucha jak najmniej melodii
         Plaszczak* plaszczak = &kolejka_plaszczakow.front();
@@ -131,14 +142,18 @@ int problem3_init(){
             }
         }
         std::cout << "Dzien " << dzien + 1 << ": Plaszczak " << id_wybranego_straznika << " zaczyna od punktu " << wybrany_punkt->id << " i odslucha " << min_odsluchan << " melodii" << std::endl;
+        result.grafik.push_back("Dzien " + std::to_string(dzien + 1) + ": Plaszczak " + std::to_string(id_wybranego_straznika) + " zaczyna od punktu " + std::to_string(wybrany_punkt->id) + " i odslucha " + std::to_string(min_odsluchan) + " melodii");
+        result.suma_odsluchan += min_odsluchan;
         plaszczak->odpoczywa = true;
         kolejka_plaszczakow.push(*plaszczak);
     }
 
-    return 0;
+    result.poprawny = true;
+    return result;
 }
 
-int problem3_init(int liczba_punktow){
+GrafikInfo problem3_init(llu liczba_punktow){
+    GrafikInfo result;
     int liczba_plaszczakow;
     std::cout << "Podaj liczbe plaszczakow: ";
     std::cin >> liczba_plaszczakow;
@@ -205,9 +220,12 @@ int problem3_init(int liczba_punktow){
             }
         }
         std::cout << "Dzien " << dzien + 1 << ": Plaszczak " << id_wybranego_straznika << " zaczyna od punktu " << wybrany_punkt->id << " i odslucha " << min_odsluchan << " melodii" << std::endl;
+        result.grafik.push_back("Dzien " + std::to_string(dzien + 1) + ": Plaszczak " + std::to_string(id_wybranego_straznika) + " zaczyna od punktu " + std::to_string(wybrany_punkt->id) + " i odslucha " + std::to_string(min_odsluchan) + " melodii");
         plaszczak->odpoczywa = true;
+        result.suma_odsluchan += min_odsluchan;
         kolejka_plaszczakow.push(*plaszczak);
     }
+    result.poprawny = true;
 
-    return 0;
+    return result;
 }

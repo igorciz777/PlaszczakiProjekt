@@ -28,13 +28,25 @@
 #include "include\DoborTragarzy.h"
 
 #define MAX 10000
-#define llu long long unsigned
+#ifndef llu
+    #define llu long long unsigned
+#endif
 
 using namespace std;
 const int MAKS = 1000;  // Maksymalna liczba pracowników w każdej grupie
 int skojarzeniaZPrzodu[MAKS], skojarzeniaZTylu[MAKS], odleglosc[MAKS];
 vector<int> listaSasiedztwa[MAKS];
 
+struct PlotInfo{
+    bool poprawny = false;
+    llu ilosc_odcinkow_plotu;
+    double dlugosc_plotu;
+    llu ilosc_tragarzy_z_przodu;
+    llu ilosc_tragarzy_z_tylu;
+    llu ilosc_par;
+    llu maksymalny_przeplyw;
+    llu dni_do_zbudowania;
+};
 
 struct Punkt{
     int x;
@@ -164,16 +176,16 @@ void czyPunktNalezyDoOtoczki(vector <int> punktyOtoczki, int p, bool &jestRozny)
     }
 }
 
-int problem1_init()
+PlotInfo problem1_init()
 {
-    
+    PlotInfo result;
     int n;
     cout << "Okresl ile puntow orientacyjnych zawiera kraina : ";
     cin >> n;
     double odleglosc;
     if(n < 3){
         cout << "musza byc minimum 3 punkty!" << endl;
-        return 0;
+        return result;
     }
     cout << "Podaj wspolrzedne punktow (x i y odzielone spacja):\n";
     vector<Punkt> tablicaPunktow(n);
@@ -399,7 +411,14 @@ int problem1_init()
     
     cout << "Tragarze potrzebuja " << ilosc_dni_potrzebnych_do_budowy_plotu << " dni do zbudowania plotu." << endl;
 
+    result.poprawny = true;
+    result.ilosc_odcinkow_plotu = punktyOtoczki.size();
+    result.dlugosc_plotu = odleglosc;
+    result.ilosc_tragarzy_z_przodu = liczbaPracownikowZPrzodu;
+    result.ilosc_tragarzy_z_tylu = liczbaPracownikowZTylu;
+    result.ilosc_par = maksymalneSkojarzenie;
+    result.maksymalny_przeplyw = maksymalnyPrzeplyw;
+    result.dni_do_zbudowania = ilosc_dni_potrzebnych_do_budowy_plotu;
 
-
-    return 0;
+    return result;
 }

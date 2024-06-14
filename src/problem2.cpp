@@ -26,6 +26,18 @@
 #include "include/Tekst.h"
 #include <fstream>
 
+#ifndef llu
+    #define llu long long unsigned
+#endif
+
+struct OpowiescMelodiaInfo{
+    bool poprawna = false;
+    std::string opowiesc_melodia;
+    std::string zakodowana_melodia;
+    std::string kody_huffmana;
+    double wspolczynnik_kompresji;
+};
+
 std::string dekodujHuffman(const std::string& zakodowana_melodia, const std::string& kody){
     std::unordered_map<std::string, char> mapa_kodow;
     std::stringstream ss(kody);
@@ -50,7 +62,8 @@ std::string dekodujHuffman(const std::string& zakodowana_melodia, const std::str
 }
 
 
-int problem2_init(){
+OpowiescMelodiaInfo problem2_init(){
+    OpowiescMelodiaInfo result;
     char c;
     std::ifstream file_in;
     std::ofstream file_out;
@@ -69,7 +82,7 @@ int problem2_init(){
 
         if(nazwa_pliku.empty()){
             std::cerr << "Nieprawidlowa nazwa pliku" << std::endl;
-            return 1;
+            return result;
         }
 
         if(nazwa_pliku.find(".txt") == std::string::npos){
@@ -80,7 +93,7 @@ int problem2_init(){
 
         if(!file_in.is_open()){
             std::cerr << "Nie udalo sie otworzyc pliku" << std::endl;
-            return 1;
+            return result;
         }
 
         std::string line;
@@ -99,7 +112,18 @@ int problem2_init(){
         file_out.close();
         opowiesc_melodia = dekodujHuffman(zakodowana_melodia, kody.str());
         std::cout << "Odkodowana melodia: " << opowiesc_melodia << std::endl;
-        return 0;
+        result.poprawna = true;
+        result.opowiesc_melodia = opowiesc_melodia;
+        result.zakodowana_melodia = zakodowana_melodia;
+        result.kody_huffmana = kody.str();
+
+        std::string bezKompresji = Tekst::ASCIItoBIN(opowiesc_melodia);
+        
+        llu dlugosc_bez_kompresji = bezKompresji.size();
+        llu dlugosc_z_kompresja = zakodowana_melodia.size();
+        result.wspolczynnik_kompresji = (double)dlugosc_bez_kompresji / dlugosc_z_kompresja;
+
+        return result;
     }else{
         std::cin.ignore();
     }
@@ -149,7 +173,20 @@ int problem2_init(){
     if(c == 'n' || c == 'N'){
         std::cout << "Melodia po zmianach: " << opowiesc_melodia << std::endl;
         std::cout << "Zakodowana melodia: " << zakodowana_melodia << std::endl;
-        return 0;
+        result.poprawna = true;
+        result.opowiesc_melodia = opowiesc_melodia;
+        result.zakodowana_melodia = zakodowana_melodia;
+        std::stringstream temp("");
+        huffman.wypiszKod(huffman.getKorzen(), "", temp);
+        result.kody_huffmana = temp.str();
+
+        std::string bezKompresji = Tekst::ASCIItoBIN(opowiesc_melodia);
+
+        llu dlugosc_bez_kompresji = bezKompresji.size();
+        llu dlugosc_z_kompresja = zakodowana_melodia.size();
+        result.wspolczynnik_kompresji = (double)dlugosc_bez_kompresji / dlugosc_z_kompresja;
+
+        return result;
     }else{
         std::string nazwa_pliku;
         std::cout << "Podaj nazwe pliku (.txt): ";
@@ -157,7 +194,7 @@ int problem2_init(){
 
         if(nazwa_pliku.empty()){
             std::cerr << "Nieprawidlowa nazwa pliku" << std::endl;
-            return 1;
+            return result;
         }
 
         if(nazwa_pliku.find(".txt") == std::string::npos){
@@ -168,7 +205,7 @@ int problem2_init(){
 
         if(!file_out.is_open()){
             std::cerr << "Nie udalo sie otworzyc pliku" << std::endl;
-            return 1;
+            return result;
         }
     }
 
@@ -181,6 +218,17 @@ int problem2_init(){
     file_out << "##" << std::endl;
     file_out << zakodowana_melodia << std::endl;
     file_out.close();
+
+    result.poprawna = true;
+    result.opowiesc_melodia = opowiesc_melodia;
+    result.zakodowana_melodia = zakodowana_melodia;
+    result.kody_huffmana = kody.str();
+
+    std::string bezKompresji = Tekst::ASCIItoBIN(opowiesc_melodia);
+
+    llu dlugosc_bez_kompresji = bezKompresji.size();
+    llu dlugosc_z_kompresja = zakodowana_melodia.size();
+    result.wspolczynnik_kompresji = (double)dlugosc_bez_kompresji / dlugosc_z_kompresja;
    
-    return 0;
+    return result;
 }
