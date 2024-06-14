@@ -24,8 +24,8 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
-#include "include\SiecPrzeplywowa.h"
-#include "include\DoborTragarzy.h"
+#include "include/SiecPrzeplywowa.h"
+#include "include/DoborTragarzy.h"
 
 #ifndef llu
     #define llu long long unsigned
