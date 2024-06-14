@@ -84,6 +84,25 @@ struct GrafikInfo{
     llu suma_odsluchan = 0;
 };
 
+
+/**
+ * @brief Funkcja inicjalizująca problem 3
+ * 
+ * Funkcja rozwiązująca problem 3, ustalająca jak najszybciej grafik pracy strażników i jak najmniejszą liczbę odsłuchań melodii dla każdego strażnika
+ * Dane wejściowe:
+ * 1. Liczba punktów orientacyjnych
+ * 2. Liczba plaszczakow
+ * 3. Jasność punktów orientacyjnych
+ * 4. Co ile punktów plaszczak musi się zatrzymać
+ * 
+ * Dane wyjściowe:
+ * 1. Grafik pracy strażników
+ * 2. Suma odsłuchań melodii
+ * 
+ * @param liczba_punktow - liczba punktow orientacyjnych przez ktore przechodzi plot, uzyskana z problemu 1
+ * 
+ * @return GrafikInfo - struktura przechowująca informacje o rozwiązaniu problemu
+ */
 GrafikInfo problem3_init(llu liczba_punktow){
     GrafikInfo result;
     llu liczba_plaszczakow;
@@ -91,8 +110,17 @@ GrafikInfo problem3_init(llu liczba_punktow){
         std::cout << "Podaj liczbe punktow orientacyjnych: ";
         std::cin >> liczba_punktow;
     }
+    if(liczba_punktow < 3){
+        std::cout << "Za malo punktow orientacyjnych aby stworzyc trase" << std::endl;
+        return result;
+    }
     std::cout << "Podaj liczbe plaszczakow: ";
     std::cin >> liczba_plaszczakow;
+
+    if(liczba_plaszczakow < 1){
+        std::cout << "Niepoprawna liczba plaszczakow" << std::endl;
+        return result;
+    }
 
     std::vector<PunktOrientacyjny> punkty(liczba_punktow);
     std::vector<Plaszczak> plaszczaki(liczba_plaszczakow);

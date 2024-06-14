@@ -49,6 +49,16 @@ struct OpowiescMelodiaInfo{
     double wspolczynnik_kompresji;
 };
 
+/**
+ * @brief Funkcja dekodująca zakodowaną melodię za pomocą algorytmu Huffmana
+ * 
+ * Funkcja dekoduje zakodowaną melodię za pomocą algorytmu Huffmana
+ * Wczytuje kody z pliku i tworzy mapę kodów
+ * Następnie dekoduje zakodowaną melodię
+ * 
+ * @param zakodowana_melodia - zakodowana melodia
+ * @param kody - kody Huffmana
+ */
 std::string dekodujHuffman(const std::string& zakodowana_melodia, const std::string& kody){
     std::unordered_map<std::string, char> mapa_kodow;
     std::stringstream ss(kody);
@@ -72,7 +82,22 @@ std::string dekodujHuffman(const std::string& zakodowana_melodia, const std::str
     return odkodowana_melodia.str();
 }
 
-
+/**
+ * @brief Funkcja inicjalizująca problem 2
+ * 
+ * Funkcja rozwiązująca problem 2
+ * 
+ * Dane wejściowe:
+ * 1. Opowieść-melodia
+ * 2. Fragmenty, które niepokoją Heretyka i Informatyka
+ * 
+ * Dane wyjściowe:
+ * 1. Zakodowana melodia
+ * 2. Kody Huffmana
+ * 3. Współczynnik kompresji
+ * 
+ * @return OpowiescMelodiaInfo - struktura przechowująca informacje o rozwiązaniu problemu
+ */
 OpowiescMelodiaInfo problem2_init(){
     OpowiescMelodiaInfo result;
     char c;
