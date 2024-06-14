@@ -14,7 +14,6 @@
  * 4. Jeśli są takie fragmenty, wykonać zamianę wszystkich fragmentów na poprawne za pomocą algorytmu Aho-Corasick.
  * 5. Skompresować opowieść-melodię za pomocą algorytmu Huffmana.
  * 
- * Użyte biblioteki:
  * @see AhoCorasick.h
  * @see Kmp.h
  * @see Huffman.h
@@ -51,7 +50,7 @@ std::string dekodujHuffman(const std::string& zakodowana_melodia, const std::str
 }
 
 
-int main(){
+int problem2_init(){
     char c;
     std::ifstream file_in;
     std::ofstream file_out;
