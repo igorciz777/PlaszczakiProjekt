@@ -59,7 +59,7 @@ struct PlotInfo{
 
 #define MAX 10000
 using namespace std;
-const int MAKS = 1000;  // Maksymalna liczba pracowników w każdej grupie
+const int MAKS = 10000;  // Maksymalna liczba pracowników w każdej grupie
 int skojarzeniaZPrzodu[MAKS], skojarzeniaZTylu[MAKS], odleglosc[MAKS];
 vector<int> listaSasiedztwa[MAKS];
 
@@ -98,7 +98,7 @@ void stworzOtoczke(Punkt punkty[], int n, double &dlugosc_plotu, int &wynik, vec
     }
     //zaczynamy od punktu najbardziej po lewej, zgodnie ze wskazówkami zegara aż dojdziemy do startowego
 	
-    int a = l, b, c = 1;
+    int a = l, b;//, c = 1;
     do{
         //szukamy punktu b którego kąt(a, i, b) jest <180
         b = (a + 1) % n;
@@ -183,7 +183,7 @@ int algorytmHopcroftaKarpa() {
 
 
 void czyPunktNalezyDoOtoczki(vector <int> punktyOtoczki, int p, bool &jestRozny){
-	for (int i = 0; i < punktyOtoczki.size(); ++i) {
+	for (llu i = 0; i < punktyOtoczki.size(); ++i) {
         if (punktyOtoczki[i] == p) {
             jestRozny = false;
             break;
@@ -279,7 +279,7 @@ PlotInfo problem1_init()
     for(int i = 0; i < n; i++){
         siecBudowy.dodajWierzcholek(nazwyPunktow[i]);
     }
-    int fabryka, p, fabryka_punkt;
+    llu fabryka, p, fabryka_punkt;
     cout << "Wybierz punkt (nie moze byc na otoczce) ktory jest fabryka: ";
     cin >> p;
     bool jestRozny = true;
@@ -298,7 +298,7 @@ PlotInfo problem1_init()
     	cin >> fabryka_punkt;
 	}
 	vector<int> punkty_polaczone_z_fabryka;
-    for(int i = 0; i < fabryka_punkt; i++){
+    for(llu i = 0; i < fabryka_punkt; i++){
         int cel;
         cout << i + 1 << "Punkt: ";
         cin >> cel;
@@ -328,7 +328,8 @@ PlotInfo problem1_init()
 	}
     cout << endl;
     int rozmiar = punktyOtoczki.size();
-    int tab[rozmiar];
+    //int tab[rozmiar];
+    vector<int> tab(rozmiar);
     for(int i=0; i<rozmiar;i++){
     	tab[i]=0;
 	}
@@ -363,7 +364,7 @@ PlotInfo problem1_init()
         auto it = find(punktyOtoczki.begin(), punktyOtoczki.end(), cel);
         tab[distance(punktyOtoczki.begin(), it)]++;
     }
-    while (any_of(tab, tab + rozmiar, [](int i) { return i == 0; })) {
+    while (any_of(tab.data(), tab.data() + rozmiar, [](int i) { return i == 0; })) {
         cout << "Ktorys punkt z otoczki nie ma polaczenia do fabryki. Musisz podac kolejne punkty ktore chcesz polaczyc." <<endl;
         
         cout << "Ile polaczen punktow spoza otoczki z wierzcholkami plotu? ";
@@ -406,7 +407,7 @@ PlotInfo problem1_init()
         	tab[distance(punktyOtoczki.begin(), it)]++;
     	}
     }
-    for(int i = 0; i < punktyOtoczki.size(); i++){
+    for(llu i = 0; i < punktyOtoczki.size(); i++){
     	siecBudowy.dodajKrawedz(nazwyPunktow[punktyOtoczki[i]], superUjscie, maksymalneSkojarzenie); 
 	}
 
