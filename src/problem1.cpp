@@ -27,8 +27,8 @@
 #include <climits>
 #include <cstring>
 #include <algorithm>
+#include <queue>
 #include "include/SiecPrzeplywowa.h"
-#include "include/DoborTragarzy.h"
 
 #ifndef llu
     #define llu long long unsigned
@@ -412,6 +412,7 @@ PlotInfo problem1_init()
 
 
     cout<<"Dlugosc otoczki: "<<odleglosc<<endl;
+    result.dlugosc_plotu = odleglosc;
     vector<vector<int>> sciez;
     int maksymalnyPrzeplyw = siecBudowy.edmondsKarp(fabryka, superUjscie, sciez);
     cout << "Maksymalny przeplyw to: " << maksymalnyPrzeplyw << endl;
@@ -427,7 +428,6 @@ PlotInfo problem1_init()
 
     result.poprawny = true;
     result.ilosc_odcinkow_plotu = punktyOtoczki.size();
-    result.dlugosc_plotu = odleglosc;
     result.ilosc_tragarzy_z_przodu = liczbaPracownikowZPrzodu;
     result.ilosc_tragarzy_z_tylu = liczbaPracownikowZTylu;
     result.ilosc_par = maksymalneSkojarzenie;
