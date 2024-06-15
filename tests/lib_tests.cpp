@@ -7,10 +7,6 @@
 #include "../src/include/SiecPrzeplywowa.h"
 #include "../src/include/Tekst.h"
 
-#include "../src/problem1.cpp"
-#include "../src/problem2.cpp"
-#include "../src/problem3.cpp"
-
 #include <iostream>
 
 TEST_CASE("KMP") {
@@ -125,4 +121,10 @@ TEST_CASE("Tekst") {
         CHECK(text == "abcst");
     }
     
+}
+
+TEST_CASE("Problem 1"){
+    SUBCASE("Dane 1"){
+        
+    }
 }
