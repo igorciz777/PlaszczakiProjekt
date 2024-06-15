@@ -7,6 +7,10 @@
 #include "../src/include/SiecPrzeplywowa.h"
 #include "../src/include/Tekst.h"
 
+#include "../src/problem1.cpp"
+#include "../src/problem2.cpp"
+#include "../src/problem3.cpp"
+
 #include <iostream>
 
 TEST_CASE("KMP") {
@@ -14,8 +18,8 @@ TEST_CASE("KMP") {
         KMP kmp;
         std::string pattern = "test";
         std::string text = "aaatestaaa";
-        std::vector<int> result = kmp.kmpSzukaj(text, pattern);
-        std::vector<int> expected = {3};
+        std::vector<long long> result = kmp.kmpSzukaj(text, pattern);
+        std::vector<long long> expected = {3};
         for(int i = 0; i < result.size(); i++){
             CHECK(result[i] == expected[i]);
         }
@@ -24,8 +28,8 @@ TEST_CASE("KMP") {
         KMP kmp;
         std::string pattern = "test";
         std::string text = "testtesttest";
-        std::vector<int> result = kmp.kmpSzukaj(text, pattern);
-        std::vector<int> expected = {0, 4, 8};
+        std::vector<long long> result = kmp.kmpSzukaj(text, pattern);
+        std::vector<long long> expected = {0, 4, 8};
         for(int i = 0; i < result.size(); i++){
             CHECK(result[i] == expected[i]);
         }
@@ -34,8 +38,8 @@ TEST_CASE("KMP") {
         KMP kmp;
         std::string pattern = "test";
         std::string text = "aaaaaaa";
-        std::vector<int> result = kmp.kmpSzukaj(text, pattern);
-        std::vector<int> expected = {};
+        std::vector<long long> result = kmp.kmpSzukaj(text, pattern);
+        std::vector<long long> expected = {};
         CHECK(result == expected);
     }
 }
@@ -45,8 +49,8 @@ TEST_CASE("AhoCorasick") {
         std::string pattern = "test";
         std::string text = "aaatestaaa";
         AhoCorasick aho(pattern);
-        std::vector<std::pair<int,int> > result = aho.szukaj(text);
-        std::vector<std::pair<int,int> > expected = {{6, 0}};
+        std::vector<std::pair<long long,long long> > result = aho.szukaj(text);
+        std::vector<std::pair<long long,long long> > expected = {{6, 0}};
         for(int i = 0; i < result.size(); i++){
             CHECK(result[i].first == expected[i].first);
             CHECK(result[i].second == expected[i].second);
@@ -56,8 +60,8 @@ TEST_CASE("AhoCorasick") {
         std::vector<std::string> patterns = {"test", "abc"};
         std::string text = "aaatestaaaabc";
         AhoCorasick aho(patterns);
-        std::vector<std::pair<int,int> > result = aho.szukaj(text);
-        std::vector<std::pair<int,int> > expected = {{6, 0}, {12, 1}};
+        std::vector<std::pair<long long,long long> > result = aho.szukaj(text);
+        std::vector<std::pair<long long,long long> > expected = {{6, 0}, {12, 1}};
         for(int i = 0; i < result.size(); i++){
             CHECK(result[i].first == expected[i].first);
             CHECK(result[i].second == expected[i].second);
@@ -67,8 +71,8 @@ TEST_CASE("AhoCorasick") {
         std::vector<std::string> patterns = {"test", "abc"};
         std::string text = "testtesttestabcabcabc";
         AhoCorasick aho(patterns);
-        std::vector<std::pair<int,int> > result = aho.szukaj(text);
-        std::vector<std::pair<int,int> > expected = {{3, 0}, {7, 0}, {11, 0}, {14, 1}, {17, 1}, {20, 1}};
+        std::vector<std::pair<long long,long long> > result = aho.szukaj(text);
+        std::vector<std::pair<long long,long long> > expected = {{3, 0}, {7, 0}, {11, 0}, {14, 1}, {17, 1}, {20, 1}};
         for(int i = 0; i < result.size(); i++){
             CHECK(result[i].first == expected[i].first);
             CHECK(result[i].second == expected[i].second);
@@ -122,4 +126,3 @@ TEST_CASE("Tekst") {
     }
     
 }
-

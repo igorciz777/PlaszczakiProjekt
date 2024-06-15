@@ -21,9 +21,9 @@ void printInfo(){
     if(plot_info_global.poprawny){
         std::cout << "\t-Ilosc odcinkow plotu: " << plot_info_global.ilosc_odcinkow_plotu << std::endl;
         std::cout << "\t-Dlugosc plotu: " << plot_info_global.dlugosc_plotu << std::endl;
-        std::cout << "\t-Ilosc tragarzy z przodu: " << plot_info_global.ilosc_tragarzy_z_przodu << std::endl;
-        std::cout << "\t-Ilosc tragarzy z tylu: " << plot_info_global.ilosc_tragarzy_z_tylu << std::endl;
-        std::cout << "\t-Ilosc par: " << plot_info_global.ilosc_par << std::endl;
+        std::cout << "\t-Ilosc tragarzy z rekoma z przodu: " << plot_info_global.ilosc_tragarzy_z_przodu << std::endl;
+        std::cout << "\t-Ilosc tragarzy z rekoma z tylu: " << plot_info_global.ilosc_tragarzy_z_tylu << std::endl;
+        std::cout << "\t-Ilosc par tragarzy wspolpracujacych: " << plot_info_global.ilosc_par << std::endl;
         std::cout << "\t-Maksymalny przeplyw: " << plot_info_global.maksymalny_przeplyw << std::endl;
         std::cout << "\t-Dni do zbudowania: " << plot_info_global.dni_do_zbudowania << std::endl;
     }else{

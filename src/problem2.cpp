@@ -25,20 +25,13 @@
 #include "include/Huffman.h"
 #include "include/Tekst.h"
 #include <fstream>
+#include <climits>
 
 #ifndef llu
     #define llu long long unsigned
 #endif
 #ifndef lli
     #define lli long long
-#endif
-#ifndef _WIN32
-    #define INT_MAX 2147483647
-    #define INT_MIN -2147483648
-#endif
-#ifndef _WIN64
-    #define INT_MAX 2147483647
-    #define INT_MIN -2147483648
 #endif
 
 struct OpowiescMelodiaInfo{

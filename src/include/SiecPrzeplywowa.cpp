@@ -9,17 +9,17 @@
 #include <iostream>
 #include "SiecPrzeplywowa.h"
 
-SiecPrzeplywowa::SiecPrzeplywowa(int n){
+SiecPrzeplywowa::SiecPrzeplywowa(lli n){
     this->n = n;
     this->graf = std::vector<std::vector<Krawedz>>(n);
-    this->poprzednik = std::vector<int>(n);
+    this->poprzednik = std::vector<lli>(n);
 }
 
-void SiecPrzeplywowa::dodajWierzcholek(int v){
+void SiecPrzeplywowa::dodajWierzcholek(lli v){
     this->graf[v] = std::vector<Krawedz>();
 }
 
-void SiecPrzeplywowa::dodajKrawedz(int u, int v, int przepustowosc){
+void SiecPrzeplywowa::dodajKrawedz(lli u, lli v, lli przepustowosc){
     Krawedz k1 = Krawedz();
     k1.cel = v;
     k1.przepustowosc = przepustowosc;
@@ -34,15 +34,15 @@ void SiecPrzeplywowa::dodajKrawedz(int u, int v, int przepustowosc){
     this->graf[v].push_back(k2);
 }
 
-int SiecPrzeplywowa::edmondsKarp(int s, int t, std::vector<std::vector<int>> &sciezki_out){
-    int maxPrzeplyw = 0;
-    int przeplyw = 0;
+lli SiecPrzeplywowa::edmondsKarp(lli s, lli t, std::vector<std::vector<lli>> &sciezki_out){
+    lli maxPrzeplyw = 0;
+    lli przeplyw = 0;
     while((przeplyw = bfs(s, t))){
         maxPrzeplyw += przeplyw;
-        int v = t;
-        std::vector<int> sciezka;
+        lli v = t;
+        std::vector<lli> sciezka;
         while(v != s){
-            int u = this->poprzednik[v];
+            lli u = this->poprzednik[v];
             sciezka.push_back(v);
             for(llu i = 0; i < this->graf[u].size(); i++){
                 if(this->graf[u][i].cel == v){
@@ -66,22 +66,22 @@ int SiecPrzeplywowa::edmondsKarp(int s, int t, std::vector<std::vector<int>> &sc
 }
 
 
-int SiecPrzeplywowa::bfs(int s, int t){
+lli SiecPrzeplywowa::bfs(lli s, lli t){
     std::vector<bool> odwiedzone = std::vector<bool>(this->n);
-    std::vector<int> przeplyw = std::vector<int>(this->n);
-    for(int i = 0; i < this->n; i++){
+    std::vector<lli> przeplyw = std::vector<lli>(this->n);
+    for(lli i = 0; i < this->n; i++){
         odwiedzone[i] = false;
         przeplyw[i] = 0;
     }
-    std::vector<int> kolejka = std::vector<int>();
+    std::vector<lli> kolejka = std::vector<lli>();
     kolejka.push_back(s);
     odwiedzone[s] = true;
     przeplyw[s] = INF;
     while(!kolejka.empty()){
-        int u = kolejka[0];
+        lli u = kolejka[0];
         kolejka.erase(kolejka.begin());
         for(llu i = 0; i < this->graf[u].size(); i++){
-            int v = this->graf[u][i].cel;
+            lli v = this->graf[u][i].cel;
             if(!odwiedzone[v] && this->graf[u][i].przepustowosc - this->graf[u][i].przeplyw > 0){
                 this->poprzednik[v] = u;
                 przeplyw[v] = std::min(przeplyw[u], this->graf[u][i].przepustowosc - this->graf[u][i].przeplyw);

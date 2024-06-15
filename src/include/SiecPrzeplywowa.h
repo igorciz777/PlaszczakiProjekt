@@ -30,10 +30,10 @@
  * @param przepustowoscPoczatkowa - przepustowość początkowa krawędzi
 */
 struct Krawedz{
-    int cel;
-    int przepustowosc;
-    int przeplyw;
-    int przepustowoscPoczatkowa;
+    lli cel;
+    lli przepustowosc;
+    lli przeplyw;
+    lli przepustowoscPoczatkowa;
 };
 
 /**
@@ -60,7 +60,7 @@ class SiecPrzeplywowa{
          * 
          * @param n - ilość wierzchołków w grafie
         */
-        SiecPrzeplywowa(int n);
+        SiecPrzeplywowa(lli n);
         /**
          * @brief Dodaje wierzchołek do grafu
          * 
@@ -68,7 +68,7 @@ class SiecPrzeplywowa{
          * 
          * @param v - numer wierzchołka
         */
-        void dodajWierzcholek(int v);
+        void dodajWierzcholek(lli v);
         /**
          * @brief Dodaje krawędź do grafu
          * 
@@ -78,7 +78,7 @@ class SiecPrzeplywowa{
          * @param v - wierzchołek docelowy
          * @param przepustowosc - przepustowość krawędzi
         */
-        void dodajKrawedz(int u, int v, int przepustowosc);
+        void dodajKrawedz(lli u, lli v, lli przepustowosc);
         /**
          * @brief Algorytm Edmondsa-Karpa znajdujący maksymalny przepływ w grafie
          * 
@@ -91,11 +91,11 @@ class SiecPrzeplywowa{
          * @return maksymalny przepływ w grafie
         */
 
-        int edmondsKarp(int s, int t, std::vector<std::vector<int>> &sciezki_out);
+        lli edmondsKarp(lli s, lli t, std::vector<std::vector<lli>> &sciezki_out);
     private:
-        int n;
+        lli n;
         std::vector<std::vector<Krawedz>> graf;
-        std::vector<int> poprzednik;
+        std::vector<lli> poprzednik;
         /**
          * @brief Algorytm przeszukiwania wszerz znajdujący ścieżkę w grafie
          * 
@@ -106,5 +106,5 @@ class SiecPrzeplywowa{
          * 
          * @return przepływ w znalezionej ścieżce
         */
-        int bfs(int s, int t);
+        lli bfs(lli s, lli t);
 };
