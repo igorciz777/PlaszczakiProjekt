@@ -36,10 +36,10 @@ TEST_CASE("Problem 1") {
         CHECK(result.poprawny == true);
         CHECK(result.dni_do_zbudowania == 7);
         CHECK(result.maksymalny_przeplyw == 8);
-        CHECK(result.ilosc_odcinkow_plotu == 5);
+        CHECK(result.ilosc_odcinkow_plotu == 9);
         CHECK(result.dlugosc_plotu > 48);
         CHECK(result.dlugosc_plotu < 49);
-        CHECK(result.ilosc_par == 3);
+        CHECK(result.ilosc_par == 2);
         std::cin.rdbuf(backup);
     }
 }

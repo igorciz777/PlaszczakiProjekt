@@ -81,7 +81,7 @@ long orientacja(Punkt a, Punkt b, Punkt c){
     return (det > 0) ? 1 : 2; //1 jeśli pasuje i 2 jeśli nie pasuje
 }
 
-void stworzOtoczke(Punkt punkty[], int n, double &odleglosc, int &wynik, vector<int> &punktyOtoczki){
+void stworzOtoczke(Punkt punkty[], int n, double &dlugosc_plotu, int &wynik, vector<int> &punktyOtoczki){
 
 
     std::vector<int> nastPunkt(n);
@@ -109,7 +109,7 @@ void stworzOtoczke(Punkt punkty[], int n, double &odleglosc, int &wynik, vector<
             }
         }
         nastPunkt[a] = b;
-        odleglosc += obliczOdleglosc(punkty[a], punkty[b]);
+        dlugosc_plotu += obliczOdleglosc(punkty[a], punkty[b]);
         a = b;
 		
     }while(a != l);
@@ -198,7 +198,7 @@ PlotInfo problem1_init()
     int n;
     cout << "Okresl ile puntow orientacyjnych zawiera kraina : ";
     cin >> n;
-    double odleglosc;
+    double dlugosc_plotu;
     if(n < 3){
         cout << "musza byc minimum 3 punkty!" << endl;
         return result;
@@ -222,7 +222,7 @@ PlotInfo problem1_init()
    
 	vector<int> punktyOtoczki;
 	int wynik = 0;
-    stworzOtoczke(tablicaPunktow.data(), n-1, odleglosc, wynik, punktyOtoczki);
+    stworzOtoczke(tablicaPunktow.data(), n-1, dlugosc_plotu, wynik, punktyOtoczki);
     while(wynik < 3){
     	cout<<"Otoczka jest linia prosta. Podaj punkty ponownie."<<endl;
     	cout << "Okresl ile puntow orientacyjnych zawiera kraina : ";
@@ -411,16 +411,16 @@ PlotInfo problem1_init()
 	}
 
 
-    cout<<"Dlugosc otoczki: "<<odleglosc<<endl;
-    result.dlugosc_plotu = odleglosc;
+    cout<<"Dlugosc otoczki: "<<dlugosc_plotu<<endl;
+    result.dlugosc_plotu = dlugosc_plotu;
     vector<vector<lli>> sciez;
     int maksymalnyPrzeplyw = siecBudowy.edmondsKarp(fabryka, superUjscie, sciez);
     cout << "Maksymalny przeplyw to: " << maksymalnyPrzeplyw << endl;
     
     int ilosc_dni_potrzebnych_do_budowy_plotu = 0;
     
-    while(odleglosc > 0){
-        odleglosc -= maksymalnyPrzeplyw;
+    while(dlugosc_plotu > 0){
+        dlugosc_plotu -= maksymalnyPrzeplyw;
         ilosc_dni_potrzebnych_do_budowy_plotu++;
     }
     
@@ -433,6 +433,14 @@ PlotInfo problem1_init()
     result.ilosc_par = maksymalneSkojarzenie;
     result.maksymalny_przeplyw = maksymalnyPrzeplyw;
     result.dni_do_zbudowania = ilosc_dni_potrzebnych_do_budowy_plotu;
+
+    
+    for(int i = 0; i < MAKS; i++){
+        skojarzeniaZPrzodu[i] = 0;
+        skojarzeniaZTylu[i] = 0;
+        odleglosc[i] = 0;
+        listaSasiedztwa[i].clear();
+    }
 
     return result;
 }
