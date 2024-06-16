@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dobortragarzy_0',['DoborTragarzy',['../class_dobor_tragarzy.html',1,'']]]
+  ['grafikinfo_0',['GrafikInfo',['../struct_grafik_info.html',1,'']]]
 ];

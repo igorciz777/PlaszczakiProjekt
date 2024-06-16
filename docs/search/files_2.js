@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['huffman_2ecpp_0',['Huffman.cpp',['../_huffman_8cpp.html',1,'']]],
-  ['huffman_2eh_1',['Huffman.h',['../_huffman_8h.html',1,'']]]
+  ['kmp_2ecpp_0',['Kmp.cpp',['../_kmp_8cpp.html',1,'']]],
+  ['kmp_2eh_1',['Kmp.h',['../_kmp_8h.html',1,'']]]
 ];

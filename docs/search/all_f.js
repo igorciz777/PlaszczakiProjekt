@@ -20,7 +20,5 @@ var searchData=
   ['projekt_17',['Dokumentacja techniczna projektu &quot;Plaszczaki Projekt&quot;',['../index.html',1,'']]],
   ['projektu_20plaszczaki_20projekt_18',['Dokumentacja techniczna projektu &quot;Plaszczaki Projekt&quot;',['../index.html',1,'']]],
   ['punkt_19',['Punkt',['../struct_punkt.html',1,'']]],
-  ['punkt2_20',['Punkt2',['../struct_punkt2.html',1,'']]],
-  ['punkt3_21',['Punkt3',['../struct_punkt3.html',1,'']]],
-  ['punktorientacyjny_22',['PunktOrientacyjny',['../struct_punkt_orientacyjny.html',1,'']]]
+  ['punktorientacyjny_20',['PunktOrientacyjny',['../struct_punkt_orientacyjny.html',1,'']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['siecprzeplywowa_0',['SiecPrzeplywowa',['../class_siec_przeplywowa.html',1,'']]]
+  ['wezel_0',['Wezel',['../struct_wezel.html',1,'']]],
+  ['wezelhuffmana_1',['WezelHuffmana',['../struct_wezel_huffmana.html',1,'']]]
 ];

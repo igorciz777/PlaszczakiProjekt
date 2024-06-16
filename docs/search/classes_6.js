@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['opowiescmelodiainfo_0',['OpowiescMelodiaInfo',['../struct_opowiesc_melodia_info.html',1,'']]],
-  ['otoczkajarvis_1',['OtoczkaJarvis',['../class_otoczka_jarvis.html',1,'']]]
+  ['siecprzeplywowa_0',['SiecPrzeplywowa',['../class_siec_przeplywowa.html',1,'']]]
 ];
