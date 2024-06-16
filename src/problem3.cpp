@@ -140,7 +140,7 @@ GrafikInfo problem3_init(llu liczba_punktow){
         kolejka_plaszczakow.push(plaszczaki[i]);
     }
 
-    for (llu dzien = 0; dzien < 7; dzien++) {
+    for (unsigned int dzien = 0; dzien < 7; dzien++) {
         // dla kazdego plaszczaka znajdz taki punkt startowy (za razem koncowy) przez ktory odslucha jak najmniej melodii
         Plaszczak* plaszczak = &kolejka_plaszczakow.front();
         kolejka_plaszczakow.pop();

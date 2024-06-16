@@ -89,6 +89,13 @@ int main(){
         switch(status){
             case 1:
                 plot_info_global = problem1_init();
+                std::cout << "Czy kontynuowac do problemu 3? (t/n): ";
+                char c;
+                std::cin >> c;
+                if(c != 't' && c != 'T'){
+                    break;
+                }
+                grafik_global = problem3_init(plot_info_global.ilosc_odcinkow_plotu);
                 break;
             case 2:
                 opowiesc_melodia_global = problem2_init();

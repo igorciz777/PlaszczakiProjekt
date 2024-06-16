@@ -14,9 +14,8 @@
  * 4. Zapytaj kto z kim się lubi i połącz tragarzy w pray tak aby było tych par najwięcej.
  * 5. Zapytaj który punkt spoza otoczki jest fabryką, a nastepnie połącz tą fabrykę z resztą punktów tak aby byla droga do otoczki.
  * 
- * Użyte biblioteki:
- * @see SiecPrzeplywowa.cpp
- * @see DoborTragarzy.cpp
+ * @see SiecPrzeplywowa.h
+ * @see DoborTragarzy.h
 */
 
 #include <iostream>
@@ -35,15 +34,6 @@
 #endif
 #ifndef lli
     #define lli long long
-#endif
-
-#ifndef _WIN32
-    #define INT_MAX 2147483647
-    #define INT_MIN -2147483648
-#endif
-#ifndef _WIN64
-    #define INT_MAX 2147483647
-    #define INT_MIN -2147483648
 #endif
 
 struct PlotInfo{
@@ -437,8 +427,8 @@ PlotInfo problem1_init()
 
     
     for(int i = 0; i < MAKS; i++){
-        skojarzeniaZPrzodu[i] = 0;
-        skojarzeniaZTylu[i] = 0;
+        skojarzeniaZPrzodu[i] = -1;
+        skojarzeniaZTylu[i] = -1;
         odleglosc[i] = 0;
         listaSasiedztwa[i].clear();
     }
