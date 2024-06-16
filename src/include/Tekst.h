@@ -15,6 +15,12 @@
  * 
  * Klasa zawiera funkcje do obsługi tekstu
  * 
+ * @fn zamienFragment - funkcja zamieniająca fragment w tekście
+ * @fn ASCIItoBIN - funkcja zamieniająca tekst ASCII na binarny
+ * @fn BINtoASCII - funkcja zamieniająca tekst binarny na ASCII
+ * 
+ * @see Tekst.cpp
+ * 
 */
 class Tekst{
     public:

@@ -53,15 +53,44 @@ const int MAKS = 10000;  // Maksymalna liczba pracowników w każdej grupie
 int skojarzeniaZPrzodu[MAKS], skojarzeniaZTylu[MAKS], odleglosc[MAKS];
 vector<int> listaSasiedztwa[MAKS];
 
+/**
+ * @brief Struktura Punkt
+ * 
+ * Struktura przechowująca informacje o punkcie
+ * 
+ * @param x - współrzędna x
+ * @param y - współrzędna y
+ */
 
 struct Punkt{
     int x;
     int y;
 };
 
+/**
+ * @brief Obliczanie odległości
+ * 
+ * Funkcja oblicza odległość między dwoma punktami
+ * 
+ * @param a - punkt a
+ * @param b - punkt b
+ * @return double - odległość
+ */
+
 double obliczOdleglosc(Punkt a, Punkt b){
     return sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y));
 }
+
+/**
+ * @brief Orientacja
+ * 
+ * Funkcja sprawdza orientacje punktow
+ * 
+ * @param a - punkt a
+ * @param b - punkt b
+ * @param c - punkt c
+ * @return long - 0 jeśli liniowe, 1 jeśli pasuje, 2 jeśli nie pasuje
+ */
 
 long orientacja(Punkt a, Punkt b, Punkt c){
     long det = (b.y - a.y) * (c.x - b.x) - (b.x - a.x) * (c.y - b.y);
@@ -70,6 +99,18 @@ long orientacja(Punkt a, Punkt b, Punkt c){
     }
     return (det > 0) ? 1 : 2; //1 jeśli pasuje i 2 jeśli nie pasuje
 }
+
+/**
+ * @brief Stworzenie otoczki
+ * 
+ * Funkcja tworzy otoczke na podstawie punktow orientacyjnych za pomoca algorytmu Jarvisa
+ * 
+ * @param punkty - punkty orientacyjne
+ * @param n - ilosc punktow
+ * @param dlugosc_plotu - dlugosc plotu
+ * @param wynik - wynik
+ * @param punktyOtoczki - punkty otoczki
+ */
 
 void stworzOtoczke(Punkt punkty[], int n, double &dlugosc_plotu, int &wynik, vector<int> &punktyOtoczki){
 
@@ -114,6 +155,15 @@ void stworzOtoczke(Punkt punkty[], int n, double &dlugosc_plotu, int &wynik, vec
 
 }
 
+/**
+ * @brief Wyszukiwanie w szerz
+ * 
+ * Funkcja przeszukuje graf w szerz
+ * 
+ * @return true - jeśli znaleziono
+ * @return false - jeśli nie znaleziono
+ */
+
 bool wyszukiwanieWszerz() {
     queue<int> kolejka;
     for (int u = 0; u < MAKS; ++u) {
@@ -140,6 +190,15 @@ bool wyszukiwanieWszerz() {
     return (odleglosc[-1] != INT_MAX);
 }
 
+/**
+ * @brief Wyszukiwanie w głąb
+ * 
+ * Funkcja przeszukuje graf w głąb
+ * 
+ * @param u - wierzchołek
+ * @return true - jeśli znaleziono
+ * @return false - jeśli nie znaleziono
+ */
 bool wyszukiwanieWGlab( int u ) {
     if (u != -1) {
         for (int v : listaSasiedztwa[u]) {
@@ -157,6 +216,13 @@ bool wyszukiwanieWGlab( int u ) {
     return true;
 }
 
+/**
+ * @brief Algorytm Hopcrofta-Karpa
+ * 
+ * Algorytm znajduje maksymalne skojarzenie w grafie dwudzielnym.
+ * 
+ * @return int - maksymalne skojarzenie
+ */
 int algorytmHopcroftaKarpa() {
     memset(skojarzeniaZPrzodu, -1, sizeof(skojarzeniaZPrzodu));
     memset(skojarzeniaZTylu, -1, sizeof(skojarzeniaZTylu));
@@ -171,7 +237,15 @@ int algorytmHopcroftaKarpa() {
     return skojarzenia;
 }
 
-
+/**
+ * @brief Sprawdza czy punkt należy do otoczki
+ * 
+ * Funkcja sprawdza czy punkt należy do otoczki
+ * 
+ * @param punktyOtoczki - punkty otoczki
+ * @param p - punkt
+ * @param jestRozny - zmienna pomocnicza
+ */
 void czyPunktNalezyDoOtoczki(vector <int> punktyOtoczki, int p, bool &jestRozny){
 	for (llu i = 0; i < punktyOtoczki.size(); ++i) {
         if (punktyOtoczki[i] == p) {
@@ -181,6 +255,14 @@ void czyPunktNalezyDoOtoczki(vector <int> punktyOtoczki, int p, bool &jestRozny)
         jestRozny = true;
     }
 }
+
+/**
+ * @brief Inicjalizacja problemu 1
+ * 
+ * Funkcja rozwiązująca problem 1, zwracająca informacje o budowie plotu
+ * 
+ * @return PlotInfo - struktura z informacjami o budowie plotu
+ */
 
 PlotInfo problem1_init()
 {

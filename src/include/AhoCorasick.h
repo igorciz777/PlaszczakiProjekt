@@ -52,6 +52,10 @@ struct Wezel{
  * @param trie Wskaźnik na korzeń drzewa Aho-Corasicka
  * @param nast_id Identyfikator następnego węzła
  * 
+ * @fn AhoCorasick - konstruktor klasy
+ * @fn szukaj - metoda szukająca wzorców w tekście
+ * 
+ * @see AhoCorasick.cpp
 */
 class AhoCorasick{
     private:

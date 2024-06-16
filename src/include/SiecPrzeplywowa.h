@@ -10,6 +10,7 @@
 
 #include <vector>
 #include <algorithm>
+#include <climits>
 
 #ifndef llu
     #define llu long long unsigned
@@ -17,7 +18,6 @@
 #ifndef lli
     #define lli long long
 #endif
-#define INF 1000000000
 
 /**
  * @brief Struktura przechowująca krawędź w grafie
@@ -50,6 +50,8 @@ struct Krawedz{
  * @fn dodajKrawedz - dodaje krawędź do grafu
  * @fn edmondsKarp - algorytm Edmondsa-Karpa znajdujący maksymalny przepływ w grafie
  * @fn bfs - algorytm przeszukiwania wszerz znajdujący ścieżkę w grafie
+ * 
+ * @see SiecPrzeplywowa.cpp
 */
 class SiecPrzeplywowa{
     public:

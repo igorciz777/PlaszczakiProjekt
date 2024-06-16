@@ -4,6 +4,10 @@
  * @brief Główny plik projektu
  * 
  * Główny plik wykonywalny projektu, jest odpowiednikiem menu wyboru, w którym użytkownik wybiera w jaki sposób rozwiązać i łączyć problemy.
+ * 
+ * @see problem1.cpp
+ * @see problem2.cpp
+ * @see problem3.cpp
  */
 
 #include "problem1.cpp"

@@ -76,7 +76,7 @@ lli SiecPrzeplywowa::bfs(lli s, lli t){
     std::vector<lli> kolejka = std::vector<lli>();
     kolejka.push_back(s);
     odwiedzone[s] = true;
-    przeplyw[s] = INF;
+    przeplyw[s] = INT_MAX;
     while(!kolejka.empty()){
         lli u = kolejka[0];
         kolejka.erase(kolejka.begin());

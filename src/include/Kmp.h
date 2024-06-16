@@ -1,12 +1,3 @@
-/**
- * @file Kmp.h
- * @brief Klasa reprezentująca algorytm KMP
- * 
- * Klasa zawiera metody do tworzenia tablicy LPS oraz wyszukiwania wzorca w tekście
- * 
- * @see Kmp.cpp
- * 
-*/
 #include <iostream>
 #include <vector>
 
@@ -17,6 +8,17 @@
     #define lli long long
 #endif
 
+/**
+ * @file Kmp.h
+ * @brief Klasa reprezentująca algorytm KMP
+ * 
+ * Klasa zawiera metody do tworzenia tablicy LPS oraz wyszukiwania wzorca w tekście
+ * 
+ * @fn stworzLPS - metoda tworząca tablicę LPS
+ * @fn kmpSzukaj - metoda wyszukująca wzorzec w tekście
+ * 
+ * @see Kmp.cpp
+*/
 class KMP{
     public:
         /**
