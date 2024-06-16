@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['huffman_0',['Huffman',['../class_huffman.html',1,'']]],
-  ['huffman_2ecpp_1',['Huffman.cpp',['../_huffman_8cpp.html',1,'']]],
-  ['huffman_2eh_2',['Huffman.h',['../_huffman_8h.html',1,'']]]
+  ['geometria_2ecpp_0',['Geometria.cpp',['../_geometria_8cpp.html',1,'']]],
+  ['geometria_2eh_1',['Geometria.h',['../_geometria_8h.html',1,'']]],
+  ['getkorzen_2',['getKorzen',['../class_huffman.html#ae5ee4da08b54b11c17f5481a5a8243b5',1,'Huffman']]],
+  ['grafikinfo_3',['GrafikInfo',['../struct_grafik_info.html',1,'']]]
 ];

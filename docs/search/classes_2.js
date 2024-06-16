@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['huffman_0',['Huffman',['../class_huffman.html',1,'']]]
+  ['grafikinfo_0',['GrafikInfo',['../struct_grafik_info.html',1,'']]]
 ];

@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['danych_0',['Danych',['../index.html#autotoc_md6',1,'2. Algorytmy i struktury danych'],['../index.html#autotoc_md15',1,'3. Struktury danych']]],
-  ['dobortragarzy_1',['DoborTragarzy',['../class_dobor_tragarzy.html',1,'']]],
-  ['dodajkrawedz_2',['dodajKrawedz',['../class_siec_przeplywowa.html#ab21c7b44b2081a6c1d184b1488b8e4b3',1,'SiecPrzeplywowa']]],
-  ['dodajwierzcholek_3',['dodajWierzcholek',['../class_siec_przeplywowa.html#ab4ab3c9f9a7580c21905e7bd36d8b7b4',1,'SiecPrzeplywowa']]],
-  ['dokumentacja_20techniczna_20projektu_20plaszczaki_20projekt_4',['Dokumentacja techniczna projektu Plaszczaki Projekt',['../index.html',1,'']]],
-  ['drugiego_5',['Rozwiązanie problemu drugiego',['../index.html#autotoc_md3',1,'']]]
+  ['cpp_20rozwiązanie_20problemu_20drugiego_0',['@ref &quot;problem2.cpp&quot; &quot;Rozwiązanie problemu drugiego&quot;',['../index.html#autotoc_md5',1,'']]],
+  ['cpp_20rozwiązanie_20problemu_20pierwszego_1',['@ref &quot;problem1.cpp&quot; &quot;Rozwiązanie problemu pierwszego&quot;',['../index.html#autotoc_md0',1,'']]],
+  ['cpp_20rozwiązanie_20problemu_20trzeciego_2',['@ref &quot;problem3.cpp&quot; &quot;Rozwiązanie problemu trzeciego&quot;',['../index.html#autotoc_md12',1,'']]],
+  ['czypunktnalezydootoczki_3',['czyPunktNalezyDoOtoczki',['../problem1_8cpp.html#a847ba1768f218da4d3c3d55bf57fe909',1,'problem1.cpp']]]
 ];

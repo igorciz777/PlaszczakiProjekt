@@ -84,22 +84,28 @@ $(function() { codefold.init(0); });
   <div class="headertitle"><div class="title">Kmp.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_kmp_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_k_m_p.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="class_k_m_p.html">KMP</a>{</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        std::vector&lt;int&gt; <span class="keyword">static</span> <a class="code hl_function" href="class_k_m_p.html#ab28fa355aab9ed3a0b7c06939fd05915">stworzLPS</a>(<span class="keyword">const</span> std::string&amp; wzorzec);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        std::vector&lt;int&gt; <span class="keyword">static</span> <a class="code hl_function" href="class_k_m_p.html#a7c5f1a1936e7bab5b7891823ca7eb204">kmpSzukaj</a>(<span class="keyword">const</span> std::string&amp; tekst, <span class="keyword">const</span> std::string&amp; wzorzec);    </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
+<a href="_kmp_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef llu</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">    #define llu long long unsigned</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef lli</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">    #define lli long long</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_k_m_p.html">   22</a></span><span class="keyword">class </span><a class="code hl_class" href="class_k_m_p.html">KMP</a>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        std::vector&lt;lli&gt; <span class="keyword">static</span> <a class="code hl_function" href="class_k_m_p.html#a9e9e22d76a6d172eaf5289b039f23ca7">stworzLPS</a>(<span class="keyword">const</span> std::string&amp; wzorzec);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        std::vector&lt;lli&gt; <span class="keyword">static</span> <a class="code hl_function" href="class_k_m_p.html#a88e9363c7d56ab08c2ad349350282e04">kmpSzukaj</a>(<span class="keyword">const</span> std::string&amp; tekst, <span class="keyword">const</span> std::string&amp; wzorzec);    </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
 </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="ttc" id="aclass_k_m_p_html"><div class="ttname"><a href="class_k_m_p.html">KMP</a></div><div class="ttdef"><b>Definition</b> Kmp.h:13</div></div>
-<div class="ttc" id="aclass_k_m_p_html_a7c5f1a1936e7bab5b7891823ca7eb204"><div class="ttname"><a href="class_k_m_p.html#a7c5f1a1936e7bab5b7891823ca7eb204">KMP::kmpSzukaj</a></div><div class="ttdeci">static std::vector&lt; int &gt; kmpSzukaj(const std::string &amp;tekst, const std::string &amp;wzorzec)</div><div class="ttdoc">Metoda wyszukująca wzorzec w tekście.</div><div class="ttdef"><b>Definition</b> Kmp.cpp:36</div></div>
-<div class="ttc" id="aclass_k_m_p_html_ab28fa355aab9ed3a0b7c06939fd05915"><div class="ttname"><a href="class_k_m_p.html#ab28fa355aab9ed3a0b7c06939fd05915">KMP::stworzLPS</a></div><div class="ttdeci">static std::vector&lt; int &gt; stworzLPS(const std::string &amp;wzorzec)</div><div class="ttdoc">Metoda tworząca tablicę LPS.</div><div class="ttdef"><b>Definition</b> Kmp.cpp:12</div></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="ttc" id="aclass_k_m_p_html"><div class="ttname"><a href="class_k_m_p.html">KMP</a></div><div class="ttdef"><b>Definition</b> Kmp.h:22</div></div>
+<div class="ttc" id="aclass_k_m_p_html_a88e9363c7d56ab08c2ad349350282e04"><div class="ttname"><a href="class_k_m_p.html#a88e9363c7d56ab08c2ad349350282e04">KMP::kmpSzukaj</a></div><div class="ttdeci">static std::vector&lt; lli &gt; kmpSzukaj(const std::string &amp;tekst, const std::string &amp;wzorzec)</div><div class="ttdoc">Metoda wyszukująca wzorzec w tekście.</div><div class="ttdef"><b>Definition</b> Kmp.cpp:36</div></div>
+<div class="ttc" id="aclass_k_m_p_html_a9e9e22d76a6d172eaf5289b039f23ca7"><div class="ttname"><a href="class_k_m_p.html#a9e9e22d76a6d172eaf5289b039f23ca7">KMP::stworzLPS</a></div><div class="ttdeci">static std::vector&lt; lli &gt; stworzLPS(const std::string &amp;wzorzec)</div><div class="ttdoc">Metoda tworząca tablicę LPS.</div><div class="ttdef"><b>Definition</b> Kmp.cpp:12</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

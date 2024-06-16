@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['wezel_0',['Wezel',['../struct_wezel.html',1,'']]],
-  ['wezelhuffmana_1',['WezelHuffmana',['../struct_wezel_huffmana.html',1,'']]]
+  ['tekst_0',['Tekst',['../class_tekst.html',1,'']]],
+  ['tragarz_1',['Tragarz',['../struct_tragarz.html',1,'']]]
 ];

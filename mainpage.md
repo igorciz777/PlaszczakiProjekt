@@ -1,6 +1,48 @@
-## Dokumentacja techniczna projektu Plaszczaki Projekt
+Dokumentacja techniczna projektu "Plaszczaki Projekt"
+---
+## [Rozwiązanie problemu pierwszego](#problem1.cpp)
 
-## Rozwiązanie problemu pierwszego
+#### 1. Opis problemu
+
+Płaszczaki żyją w świecie dwuwymiarowym, zwanym Krainą, który jest ograniczony punktami orientacyjnymi. Aby chronić piękną opowieść-melodię zapisaną na Stronie, postanowiono zbudować płot wokół Krainy, wykorzystując punkty orientacyjne. W procesie budowy zaangażowane są dwa rodzaje tragarzy, którzy przenoszą odcinki długości 1, tworzące płot.
+
+#### 2.Algorytmy i struktury danych
+
+- [Jarvis March](#problem1.cpp): Używany do znalezienia otoczki wypukłej punktów orientacyjnych.
+- [Edmonds-Karp](#SiecPrzeplywowa): Używany do znalezienia maksymalnego przepływu w grafie.
+- [Hopcroft-Karp](#problem1.cpp): Używany do znalezienia maksymalnego skojarzenia w grafie dwudzielnym, użyte do połączenia pracujących ze sobą tragarzy.
+
+#### 3. Struktura kodu
+
+**Funkcja główna:**
+1. **Wczytanie punktów orientacyjnych:**
+   - Użytkownik podaje liczbę punktów orientacyjnych.
+   - Użytkownik podaje współrzędne punktów orientacyjnych.
+   - Na podstawie punktów orientacyjnych tworzona jest otoczka wypukła.
+
+2. **Wczytanie liczby tragarzy:**
+   - Użytkownik podaje liczbę tragarzy z rękoma z przodu i z tyłu.
+
+3. **Wczytanie preferencji tragarzy:**
+   - Użytkownik podaje, kto z kim będzie pracował.
+   - Na podstawie preferencji tworzone są pary tragarzy, którzy będą pracować ze sobą.
+
+4. **Połączenie tragarzy:**
+   - Używany jest algorytm Hopcroft-Karp do znalezienia maksymalnego skojarzenia w grafie dwudzielnym.
+   - Połączone pary tragarzy tworzą pracujące ze sobą tragarze.
+
+5. **Znalezienie fabryki:**
+   - Użytkownik podaje punkt, który jest fabryką.
+   - Fabryka jest połączana z resztą punktów orientacyjnych, aby istniała droga do otoczki.
+   - Na podstawie połączeń tworzona jest sieć przepływowa.
+
+6. **Znalezienie maksymalnego przepływu:**
+   - Używany jest algorytm Edmonds-Karp do znalezienia maksymalnego przepływu w grafie.
+   - Maksymalny przepływ reprezentuje liczbę przeniesionych odcinków płotu.
+
+7. **Wyjście:**
+   - Wyświetlenie informacji o potrzebnej liczbie dni do zbudowania płotu, długości płotu oraz o maksymalnym przepływie.
+
 
 ---
 
@@ -8,7 +50,7 @@
 
 
 
-## Rozwiązanie problemu drugiego
+## [Rozwiązanie problemu drugiego](#problem2.cpp)
 
 #### 1. Opis problemu
 
@@ -50,7 +92,7 @@ Program ma za zadanie przetwarzać opowieść-melodię, zamieniając w niej okre
 
 
 
-## Rozwiązanie problemu trzeciego
+## [Rozwiązanie problemu trzeciego](#problem3.cpp)
 
 #### 1. Opis problemu
 
@@ -106,3 +148,9 @@ Celem jest ustalenie, który płaszczak będzie patrolował danego dnia i w jaki
 4. **Wyjście**:
    - Wyświetlenie grafiku pracy strażników z minimalną liczbą odsłuchań melodii.
 
+---
+## Zespół
+- Igor Ciżewski
+- Łukasz Czapski
+- Szymon Najdzion
+- Szymon Zarembski

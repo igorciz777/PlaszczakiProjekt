@@ -1,18 +1,9 @@
 var searchData=
 [
-  ['pierwszego_0',['Rozwiązanie problemu pierwszego',['../index.html#autotoc_md1',1,'']]],
-  ['plaszczak_1',['Plaszczak',['../struct_plaszczak.html',1,'']]],
-  ['plaszczaki_20projekt_2',['Dokumentacja techniczna projektu Plaszczaki Projekt',['../index.html',1,'']]],
-  ['problem2_2ecpp_3',['problem2.cpp',['../problem2_8cpp.html',1,'']]],
-  ['problem3_2ecpp_4',['problem3.cpp',['../problem3_8cpp.html',1,'']]],
-  ['problemu_5',['Problemu',['../index.html#autotoc_md4',1,'1. Opis problemu'],['../index.html#autotoc_md11',1,'1. Opis problemu']]],
-  ['problemu_20drugiego_6',['Rozwiązanie problemu drugiego',['../index.html#autotoc_md3',1,'']]],
-  ['problemu_20pierwszego_7',['Rozwiązanie problemu pierwszego',['../index.html#autotoc_md1',1,'']]],
-  ['problemu_20trzeciego_8',['Rozwiązanie problemu trzeciego',['../index.html#autotoc_md10',1,'']]],
-  ['projekt_9',['Dokumentacja techniczna projektu Plaszczaki Projekt',['../index.html',1,'']]],
-  ['projektu_20plaszczaki_20projekt_10',['Dokumentacja techniczna projektu Plaszczaki Projekt',['../index.html',1,'']]],
-  ['punkt_11',['Punkt',['../struct_punkt.html',1,'']]],
-  ['punkt2_12',['Punkt2',['../struct_punkt2.html',1,'']]],
-  ['punkt3_13',['Punkt3',['../struct_punkt3.html',1,'']]],
-  ['punktorientacyjny_14',['PunktOrientacyjny',['../struct_punkt_orientacyjny.html',1,'']]]
+  ['obliczodleglosc_0',['obliczOdleglosc',['../problem1_8cpp.html#a86df6747f2c3e87908f6b2d6e4224e9e',1,'problem1.cpp']]],
+  ['operator_3c_1',['operator&lt;',['../_huffman_8cpp.html#a5d277de5f8f3305f9d9d0de737ba2039',1,'operator&lt;(const WezelHuffmana &amp;a, const WezelHuffmana &amp;b):&#160;Huffman.cpp'],['../_huffman_8h.html#a5d277de5f8f3305f9d9d0de737ba2039',1,'operator&lt;(const WezelHuffmana &amp;a, const WezelHuffmana &amp;b):&#160;Huffman.cpp']]],
+  ['opis_20problemu_2',['Opis problemu',['../index.html#autotoc_md1',1,'1. Opis problemu'],['../index.html#autotoc_md6',1,'1. Opis problemu'],['../index.html#autotoc_md13',1,'1. Opis problemu']]],
+  ['opowiescmelodiainfo_3',['OpowiescMelodiaInfo',['../struct_opowiesc_melodia_info.html',1,'']]],
+  ['orientacja_4',['orientacja',['../problem1_8cpp.html#a5f9c8e0102568368c893a264e1d98404',1,'problem1.cpp']]],
+  ['otoczkajarvis_5',['OtoczkaJarvis',['../class_otoczka_jarvis.html',1,'']]]
 ];

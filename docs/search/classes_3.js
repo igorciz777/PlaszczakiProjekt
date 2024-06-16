@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['kmp_0',['KMP',['../class_k_m_p.html',1,'']]],
-  ['krawedz_1',['Krawedz',['../struct_krawedz.html',1,'']]]
+  ['huffman_0',['Huffman',['../class_huffman.html',1,'']]]
 ];

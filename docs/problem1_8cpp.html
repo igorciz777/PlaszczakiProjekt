@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Plaszczaki Projekt: Dokumentacja pliku src/problem1.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Plaszczaki Projekt
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Komponenty</a> &#124;
+<a href="#define-members">Definicje</a> &#124;
+<a href="#func-members">Funkcje</a> &#124;
+<a href="#var-members">Zmienne</a>  </div>
+  <div class="headertitle"><div class="title">Dokumentacja pliku problem1.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Rozwiązanie problemu 1.  
+<a href="#details">Więcej...</a></p>
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+<code>#include &lt;limits&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
+<code>#include &lt;climits&gt;</code><br />
+<code>#include &lt;cstring&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;queue&gt;</code><br />
+<code>#include &quot;<a class="el" href="_siec_przeplywowa_8h_source.html">include/SiecPrzeplywowa.h</a>&quot;</code><br />
+</div>
+<p><a href="problem1_8cpp_source.html">Idź do kodu źródłowego tego pliku.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Komponenty</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_plot_info.html">PlotInfo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_punkt.html">Punkt</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struktura <a class="el" href="struct_punkt.html" title="Struktura Punkt.">Punkt</a>.  <a href="struct_punkt.html#details">Więcej...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Definicje</h2></td></tr>
+<tr class="memitem:a392fb874e547e582e9c66a08a1f23326" id="r_a392fb874e547e582e9c66a08a1f23326"><td class="memItemLeft" align="right" valign="top"><a id="a392fb874e547e582e9c66a08a1f23326" name="a392fb874e547e582e9c66a08a1f23326"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX</b>&#160;&#160;&#160;10000</td></tr>
+<tr class="separator:a392fb874e547e582e9c66a08a1f23326"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funkcje</h2></td></tr>
+<tr class="memitem:a86df6747f2c3e87908f6b2d6e4224e9e" id="r_a86df6747f2c3e87908f6b2d6e4224e9e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86df6747f2c3e87908f6b2d6e4224e9e">obliczOdleglosc</a> (<a class="el" href="struct_punkt.html">Punkt</a> a, <a class="el" href="struct_punkt.html">Punkt</a> b)</td></tr>
+<tr class="memdesc:a86df6747f2c3e87908f6b2d6e4224e9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obliczanie odległości.  <br /></td></tr>
+<tr class="separator:a86df6747f2c3e87908f6b2d6e4224e9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f9c8e0102568368c893a264e1d98404" id="r_a5f9c8e0102568368c893a264e1d98404"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f9c8e0102568368c893a264e1d98404">orientacja</a> (<a class="el" href="struct_punkt.html">Punkt</a> a, <a class="el" href="struct_punkt.html">Punkt</a> b, <a class="el" href="struct_punkt.html">Punkt</a> c)</td></tr>
+<tr class="memdesc:a5f9c8e0102568368c893a264e1d98404"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orientacja.  <br /></td></tr>
+<tr class="separator:a5f9c8e0102568368c893a264e1d98404"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6d7acd45b9178a2e67f316403942488" id="r_aa6d7acd45b9178a2e67f316403942488"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa6d7acd45b9178a2e67f316403942488">stworzOtoczke</a> (<a class="el" href="struct_punkt.html">Punkt</a> punkty[], int n, double &amp;dlugosc_plotu, int &amp;wynik, vector&lt; int &gt; &amp;punktyOtoczki)</td></tr>
+<tr class="memdesc:aa6d7acd45b9178a2e67f316403942488"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stworzenie otoczki.  <br /></td></tr>
+<tr class="separator:aa6d7acd45b9178a2e67f316403942488"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cd1183bfd6676850e8f46010285319c" id="r_a2cd1183bfd6676850e8f46010285319c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2cd1183bfd6676850e8f46010285319c">wyszukiwanieWszerz</a> ()</td></tr>
+<tr class="memdesc:a2cd1183bfd6676850e8f46010285319c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wyszukiwanie w szerz.  <br /></td></tr>
+<tr class="separator:a2cd1183bfd6676850e8f46010285319c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afee39a36d1fd28e2e181d8a9ce3119b8" id="r_afee39a36d1fd28e2e181d8a9ce3119b8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afee39a36d1fd28e2e181d8a9ce3119b8">wyszukiwanieWGlab</a> (int u)</td></tr>
+<tr class="memdesc:afee39a36d1fd28e2e181d8a9ce3119b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wyszukiwanie w głąb.  <br /></td></tr>
+<tr class="separator:afee39a36d1fd28e2e181d8a9ce3119b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bbc642d581bd25a6111b1e362ea418b" id="r_a8bbc642d581bd25a6111b1e362ea418b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bbc642d581bd25a6111b1e362ea418b">algorytmHopcroftaKarpa</a> ()</td></tr>
+<tr class="memdesc:a8bbc642d581bd25a6111b1e362ea418b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Algorytm Hopcrofta-Karpa.  <br /></td></tr>
+<tr class="separator:a8bbc642d581bd25a6111b1e362ea418b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a847ba1768f218da4d3c3d55bf57fe909" id="r_a847ba1768f218da4d3c3d55bf57fe909"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a847ba1768f218da4d3c3d55bf57fe909">czyPunktNalezyDoOtoczki</a> (vector&lt; int &gt; punktyOtoczki, int p, bool &amp;jestRozny)</td></tr>
+<tr class="memdesc:a847ba1768f218da4d3c3d55bf57fe909"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprawdza czy punkt należy do otoczki.  <br /></td></tr>
+<tr class="separator:a847ba1768f218da4d3c3d55bf57fe909"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61f7456b07edc1fe15f848d8305187f7" id="r_a61f7456b07edc1fe15f848d8305187f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_plot_info.html">PlotInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61f7456b07edc1fe15f848d8305187f7">problem1_init</a> ()</td></tr>
+<tr class="memdesc:a61f7456b07edc1fe15f848d8305187f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicjalizacja problemu 1.  <br /></td></tr>
+<tr class="separator:a61f7456b07edc1fe15f848d8305187f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Zmienne</h2></td></tr>
+<tr class="memitem:a0bd0775376e5aa35c9ae8faf60c7173d" id="r_a0bd0775376e5aa35c9ae8faf60c7173d"><td class="memItemLeft" align="right" valign="top"><a id="a0bd0775376e5aa35c9ae8faf60c7173d" name="a0bd0775376e5aa35c9ae8faf60c7173d"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>MAKS</b> = 10000</td></tr>
+<tr class="separator:a0bd0775376e5aa35c9ae8faf60c7173d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dcfc72f871f867ac5e65482847897ec" id="r_a7dcfc72f871f867ac5e65482847897ec"><td class="memItemLeft" align="right" valign="top"><a id="a7dcfc72f871f867ac5e65482847897ec" name="a7dcfc72f871f867ac5e65482847897ec"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>skojarzeniaZPrzodu</b> [MAKS]</td></tr>
+<tr class="separator:a7dcfc72f871f867ac5e65482847897ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a242fec86c54ed4abd52f8ec30a61b7b0" id="r_a242fec86c54ed4abd52f8ec30a61b7b0"><td class="memItemLeft" align="right" valign="top"><a id="a242fec86c54ed4abd52f8ec30a61b7b0" name="a242fec86c54ed4abd52f8ec30a61b7b0"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>skojarzeniaZTylu</b> [MAKS]</td></tr>
+<tr class="separator:a242fec86c54ed4abd52f8ec30a61b7b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4255468f72779698bc4978031ac16f3" id="r_aa4255468f72779698bc4978031ac16f3"><td class="memItemLeft" align="right" valign="top"><a id="aa4255468f72779698bc4978031ac16f3" name="aa4255468f72779698bc4978031ac16f3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>odleglosc</b> [MAKS]</td></tr>
+<tr class="separator:aa4255468f72779698bc4978031ac16f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29d5aeae285c0aa6d8dba79ccadfb463" id="r_a29d5aeae285c0aa6d8dba79ccadfb463"><td class="memItemLeft" align="right" valign="top"><a id="a29d5aeae285c0aa6d8dba79ccadfb463" name="a29d5aeae285c0aa6d8dba79ccadfb463"></a>
+vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>listaSasiedztwa</b> [MAKS]</td></tr>
+<tr class="separator:a29d5aeae285c0aa6d8dba79ccadfb463"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Rozwiązanie problemu 1. </p>
+<p>Rozwiązanie problemu: Zbudować płot dookoła krainy wykorzystująć punkty orientacyjne. Dobranie tragrzy w taki sposób, aby ze sobą współpracowali. Ustalenie par tragarzy oraz drogi do dostarczenia odcinków w odpowiednie miejsce</p>
+<p>Rozwiązanie teoretyczne:</p><ol type="1">
+<li>Wczytaj punty orientacyjne.</li>
+<li>Na podstawie tych punktow zbuduj otoczkę.</li>
+<li>Zapytaj ilu jest tragarzy z rękoma z przodu i rękoma z tyłu.</li>
+<li>Zapytaj kto z kim się lubi i połącz tragarzy w pray tak aby było tych par najwięcej.</li>
+<li>Zapytaj który punkt spoza otoczki jest fabryką, a nastepnie połącz tą fabrykę z resztą punktów tak aby byla droga do otoczki.</li>
+</ol>
+<dl class="section see"><dt>Zobacz również</dt><dd><a class="el" href="_siec_przeplywowa_8h.html" title="Plik nagłówkowy dla implementacji sieci przepływowej.">SiecPrzeplywowa.h</a> </dd>
+<dd>
+<a class="el" href="_dobor_tragarzy_8h_source.html">DoborTragarzy.h</a> </dd></dl>
+</div><h2 class="groupheader">Dokumentacja funkcji</h2>
+<a id="a8bbc642d581bd25a6111b1e362ea418b" name="a8bbc642d581bd25a6111b1e362ea418b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bbc642d581bd25a6111b1e362ea418b">&#9670;&#160;</a></span>algorytmHopcroftaKarpa()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int algorytmHopcroftaKarpa </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Algorytm Hopcrofta-Karpa. </p>
+<p>Algorytm znajduje maksymalne skojarzenie w grafie dwudzielnym.</p>
+<dl class="section return"><dt>Zwraca</dt><dd>int - maksymalne skojarzenie </dd></dl>
+
+</div>
+</div>
+<a id="a847ba1768f218da4d3c3d55bf57fe909" name="a847ba1768f218da4d3c3d55bf57fe909"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a847ba1768f218da4d3c3d55bf57fe909">&#9670;&#160;</a></span>czyPunktNalezyDoOtoczki()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void czyPunktNalezyDoOtoczki </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; int &gt;</td>          <td class="paramname"><span class="paramname"><em>punktyOtoczki</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>p</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>jestRozny</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sprawdza czy punkt należy do otoczki. </p>
+<p>Funkcja sprawdza czy punkt należy do otoczki</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">punktyOtoczki</td><td>- punkty otoczki </td></tr>
+    <tr><td class="paramname">p</td><td>- punkt </td></tr>
+    <tr><td class="paramname">jestRozny</td><td>- zmienna pomocnicza </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a86df6747f2c3e87908f6b2d6e4224e9e" name="a86df6747f2c3e87908f6b2d6e4224e9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86df6747f2c3e87908f6b2d6e4224e9e">&#9670;&#160;</a></span>obliczOdleglosc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double obliczOdleglosc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_punkt.html">Punkt</a></td>          <td class="paramname"><span class="paramname"><em>a</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_punkt.html">Punkt</a></td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obliczanie odległości. </p>
+<p>Funkcja oblicza odległość między dwoma punktami</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>- punkt a </td></tr>
+    <tr><td class="paramname">b</td><td>- punkt b </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>double - odległość </dd></dl>
+
+</div>
+</div>
+<a id="a5f9c8e0102568368c893a264e1d98404" name="a5f9c8e0102568368c893a264e1d98404"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f9c8e0102568368c893a264e1d98404">&#9670;&#160;</a></span>orientacja()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long orientacja </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_punkt.html">Punkt</a></td>          <td class="paramname"><span class="paramname"><em>a</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_punkt.html">Punkt</a></td>          <td class="paramname"><span class="paramname"><em>b</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_punkt.html">Punkt</a></td>          <td class="paramname"><span class="paramname"><em>c</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Orientacja. </p>
+<p>Funkcja sprawdza orientacje punktow</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>- punkt a </td></tr>
+    <tr><td class="paramname">b</td><td>- punkt b </td></tr>
+    <tr><td class="paramname">c</td><td>- punkt c </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>long - 0 jeśli liniowe, 1 jeśli pasuje, 2 jeśli nie pasuje </dd></dl>
+
+</div>
+</div>
+<a id="a61f7456b07edc1fe15f848d8305187f7" name="a61f7456b07edc1fe15f848d8305187f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61f7456b07edc1fe15f848d8305187f7">&#9670;&#160;</a></span>problem1_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_plot_info.html">PlotInfo</a> problem1_init </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicjalizacja problemu 1. </p>
+<p>Funkcja rozwiązująca problem 1, zwracająca informacje o budowie plotu</p>
+<dl class="section return"><dt>Zwraca</dt><dd><a class="el" href="struct_plot_info.html">PlotInfo</a> - struktura z informacjami o budowie plotu </dd></dl>
+
+</div>
+</div>
+<a id="aa6d7acd45b9178a2e67f316403942488" name="aa6d7acd45b9178a2e67f316403942488"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6d7acd45b9178a2e67f316403942488">&#9670;&#160;</a></span>stworzOtoczke()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stworzOtoczke </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_punkt.html">Punkt</a></td>          <td class="paramname"><span class="paramname"><em>punkty</em>[], </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;</td>          <td class="paramname"><span class="paramname"><em>dlugosc_plotu</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;</td>          <td class="paramname"><span class="paramname"><em>wynik</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; int &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>punktyOtoczki</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stworzenie otoczki. </p>
+<p>Funkcja tworzy otoczke na podstawie punktow orientacyjnych za pomoca algorytmu Jarvisa</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">punkty</td><td>- punkty orientacyjne </td></tr>
+    <tr><td class="paramname">n</td><td>- ilosc punktow </td></tr>
+    <tr><td class="paramname">dlugosc_plotu</td><td>- dlugosc plotu </td></tr>
+    <tr><td class="paramname">wynik</td><td>- wynik </td></tr>
+    <tr><td class="paramname">punktyOtoczki</td><td>- punkty otoczki </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afee39a36d1fd28e2e181d8a9ce3119b8" name="afee39a36d1fd28e2e181d8a9ce3119b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afee39a36d1fd28e2e181d8a9ce3119b8">&#9670;&#160;</a></span>wyszukiwanieWGlab()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool wyszukiwanieWGlab </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>u</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wyszukiwanie w głąb. </p>
+<p>Funkcja przeszukuje graf w głąb</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u</td><td>- wierzchołek </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>true - jeśli znaleziono </dd>
+<dd>
+false - jeśli nie znaleziono </dd></dl>
+
+</div>
+</div>
+<a id="a2cd1183bfd6676850e8f46010285319c" name="a2cd1183bfd6676850e8f46010285319c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cd1183bfd6676850e8f46010285319c">&#9670;&#160;</a></span>wyszukiwanieWszerz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool wyszukiwanieWszerz </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wyszukiwanie w szerz. </p>
+<p>Funkcja przeszukuje graf w szerz</p>
+<dl class="section return"><dt>Zwraca</dt><dd>true - jeśli znaleziono </dd>
+<dd>
+false - jeśli nie znaleziono </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

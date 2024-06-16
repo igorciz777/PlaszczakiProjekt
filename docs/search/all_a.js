@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['i_20struktury_20danych_0',['2. Algorytmy i struktury danych',['../index.html#autotoc_md6',1,'']]]
+  ['huffman_0',['Huffman',['../class_huffman.html',1,'']]],
+  ['huffman_2ecpp_1',['Huffman.cpp',['../_huffman_8cpp.html',1,'']]],
+  ['huffman_2eh_2',['Huffman.h',['../_huffman_8h.html',1,'']]]
 ];

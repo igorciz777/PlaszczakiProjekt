@@ -77,6 +77,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Komponenty</a> &#124;
 <a href="#func-members">Funkcje</a>  </div>
   <div class="headertitle"><div class="title">Dokumentacja pliku problem2.cpp</div></div>
 </div><!--header-->
@@ -89,15 +90,23 @@ $(function() {
 <code>#include &quot;<a class="el" href="_huffman_8h_source.html">include/Huffman.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_tekst_8h_source.html">include/Tekst.h</a>&quot;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
-</div><table class="memberdecls">
+<code>#include &lt;climits&gt;</code><br />
+</div>
+<p><a href="problem2_8cpp_source.html">Idź do kodu źródłowego tego pliku.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Komponenty</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_opowiesc_melodia_info.html">OpowiescMelodiaInfo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Funkcje</h2></td></tr>
-<tr class="memitem:a7a86e093c49ef3bfe9fb2b8cda6bdbcd" id="r_a7a86e093c49ef3bfe9fb2b8cda6bdbcd"><td class="memItemLeft" align="right" valign="top"><a id="a7a86e093c49ef3bfe9fb2b8cda6bdbcd" name="a7a86e093c49ef3bfe9fb2b8cda6bdbcd"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>dekodujHuffman</b> (const std::string &amp;zakodowana_melodia, const std::string &amp;kody)</td></tr>
+<tr class="memitem:a7a86e093c49ef3bfe9fb2b8cda6bdbcd" id="r_a7a86e093c49ef3bfe9fb2b8cda6bdbcd"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a86e093c49ef3bfe9fb2b8cda6bdbcd">dekodujHuffman</a> (const std::string &amp;zakodowana_melodia, const std::string &amp;kody)</td></tr>
+<tr class="memdesc:a7a86e093c49ef3bfe9fb2b8cda6bdbcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funkcja dekodująca zakodowaną melodię za pomocą algorytmu Huffmana.  <br /></td></tr>
 <tr class="separator:a7a86e093c49ef3bfe9fb2b8cda6bdbcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4" id="r_ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top"><a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> ()</td></tr>
-<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad11c392006dd7711d9d0881aa5ae33de" id="r_ad11c392006dd7711d9d0881aa5ae33de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_opowiesc_melodia_info.html">OpowiescMelodiaInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad11c392006dd7711d9d0881aa5ae33de">problem2_init</a> ()</td></tr>
+<tr class="memdesc:ad11c392006dd7711d9d0881aa5ae33de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funkcja inicjalizująca problem 2.  <br /></td></tr>
+<tr class="separator:ad11c392006dd7711d9d0881aa5ae33de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
 <div class="textblock"><p>Rozwiązanie problemu 2. </p>
@@ -109,14 +118,76 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> ()</td></tr>
 <li>Jeśli są takie fragmenty, wykonać zamianę wszystkich fragmentów na poprawne za pomocą algorytmu Aho-Corasick.</li>
 <li>Skompresować opowieść-melodię za pomocą algorytmu Huffmana.</li>
 </ol>
-<p>Użyte biblioteki: </p><dl class="section see"><dt>Zobacz również</dt><dd><a class="el" href="_aho_corasick_8h.html" title="Plik nagłówkowy klasy AhoCorasick.">AhoCorasick.h</a> </dd>
+<dl class="section see"><dt>Zobacz również</dt><dd><a class="el" href="_aho_corasick_8h.html" title="Plik nagłówkowy klasy AhoCorasick.">AhoCorasick.h</a> </dd>
 <dd>
 <a class="el" href="_kmp_8h.html" title="Klasa reprezentująca algorytm KMP.">Kmp.h</a> </dd>
 <dd>
 <a class="el" href="_huffman_8h.html" title="Plik nagłówkowy dla implementacji kompresji algorytmem Huffmana.">Huffman.h</a> </dd>
 <dd>
 <a class="el" href="_tekst_8h.html" title="Plik nagłówkowy dla implementacji funkcji do obsługi tekstu.">Tekst.h</a> </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Dokumentacja funkcji</h2>
+<a id="a7a86e093c49ef3bfe9fb2b8cda6bdbcd" name="a7a86e093c49ef3bfe9fb2b8cda6bdbcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a86e093c49ef3bfe9fb2b8cda6bdbcd">&#9670;&#160;</a></span>dekodujHuffman()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string dekodujHuffman </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>zakodowana_melodia</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>kody</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Funkcja dekodująca zakodowaną melodię za pomocą algorytmu Huffmana. </p>
+<p>Funkcja dekoduje zakodowaną melodię za pomocą algorytmu Huffmana Wczytuje kody z pliku i tworzy mapę kodów Następnie dekoduje zakodowaną melodię</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">zakodowana_melodia</td><td>- zakodowana melodia </td></tr>
+    <tr><td class="paramname">kody</td><td>- kody Huffmana </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad11c392006dd7711d9d0881aa5ae33de" name="ad11c392006dd7711d9d0881aa5ae33de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad11c392006dd7711d9d0881aa5ae33de">&#9670;&#160;</a></span>problem2_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_opowiesc_melodia_info.html">OpowiescMelodiaInfo</a> problem2_init </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Funkcja inicjalizująca problem 2. </p>
+<p>Funkcja rozwiązująca problem 2</p>
+<p>Dane wejściowe:</p><ol type="1">
+<li>Opowieść-melodia</li>
+<li>Fragmenty, które niepokoją Heretyka i Informatyka</li>
+</ol>
+<p>Dane wyjściowe:</p><ol type="1">
+<li>Zakodowana melodia</li>
+<li>Kody Huffmana</li>
+<li>Współczynnik kompresji</li>
+</ol>
+<dl class="section return"><dt>Zwraca</dt><dd><a class="el" href="struct_opowiesc_melodia_info.html">OpowiescMelodiaInfo</a> - struktura przechowująca informacje o rozwiązaniu problemu </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Wygenerowano przez&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0

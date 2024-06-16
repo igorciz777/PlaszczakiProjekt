@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['siecprzeplywowa_0',['SiecPrzeplywowa',['../class_siec_przeplywowa.html',1,'SiecPrzeplywowa'],['../class_siec_przeplywowa.html#a82c040c997f30782f093740b7ab5253b',1,'SiecPrzeplywowa::SiecPrzeplywowa()']]],
-  ['siecprzeplywowa_2ecpp_1',['SiecPrzeplywowa.cpp',['../_siec_przeplywowa_8cpp.html',1,'']]],
-  ['siecprzeplywowa_2eh_2',['SiecPrzeplywowa.h',['../_siec_przeplywowa_8h.html',1,'']]],
-  ['struktura_20kodu_3',['3. Struktura kodu',['../index.html#autotoc_md8',1,'']]],
-  ['struktury_20danych_4',['Struktury danych',['../index.html#autotoc_md6',1,'2. Algorytmy i struktury danych'],['../index.html#autotoc_md15',1,'3. Struktury danych']]],
-  ['stworzlps_5',['stworzLPS',['../class_k_m_p.html#ab28fa355aab9ed3a0b7c06939fd05915',1,'KMP']]],
-  ['szukaj_6',['szukaj',['../class_aho_corasick.html#a4540cd3901faf02771e95a9bcfe4218c',1,'AhoCorasick']]]
+  ['ref_20problem1_20cpp_20rozwiązanie_20problemu_20pierwszego_0',['@ref &quot;problem1.cpp&quot; &quot;Rozwiązanie problemu pierwszego&quot;',['../index.html#autotoc_md0',1,'']]],
+  ['ref_20problem2_20cpp_20rozwiązanie_20problemu_20drugiego_1',['@ref &quot;problem2.cpp&quot; &quot;Rozwiązanie problemu drugiego&quot;',['../index.html#autotoc_md5',1,'']]],
+  ['ref_20problem3_20cpp_20rozwiązanie_20problemu_20trzeciego_2',['@ref &quot;problem3.cpp&quot; &quot;Rozwiązanie problemu trzeciego&quot;',['../index.html#autotoc_md12',1,'']]],
+  ['rozwiązanie_20problemu_20drugiego_3',['@ref &quot;problem2.cpp&quot; &quot;Rozwiązanie problemu drugiego&quot;',['../index.html#autotoc_md5',1,'']]],
+  ['rozwiązanie_20problemu_20pierwszego_4',['@ref &quot;problem1.cpp&quot; &quot;Rozwiązanie problemu pierwszego&quot;',['../index.html#autotoc_md0',1,'']]],
+  ['rozwiązanie_20problemu_20trzeciego_5',['@ref &quot;problem3.cpp&quot; &quot;Rozwiązanie problemu trzeciego&quot;',['../index.html#autotoc_md12',1,'']]]
 ];

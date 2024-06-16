@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Plaszczaki Projekt: Dokumentacja techniczna projektu Plaszczaki Projekt</title>
+<title>Plaszczaki Projekt: Dokumentacja techniczna projektu &quot;Plaszczaki Projekt&quot;</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -72,20 +72,69 @@ $(function() {
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Dokumentacja techniczna projektu Plaszczaki Projekt </div></div>
+  <div class="headertitle"><div class="title">Dokumentacja techniczna projektu "Plaszczaki Projekt" </div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_mainpage"></a> </p>
-<h1><a class="anchor" id="autotoc_md1"></a>
-Rozwiązanie problemu pierwszego</h1>
+<h1><a class="anchor" id="autotoc_md0"></a>
+<a class="el" href="problem1_8cpp.html">Rozwiązanie problemu pierwszego</a></h1>
+<h3><a class="anchor" id="autotoc_md1"></a>
+1. Opis problemu</h3>
+<p>Płaszczaki żyją w świecie dwuwymiarowym, zwanym Krainą, który jest ograniczony punktami orientacyjnymi. Aby chronić piękną opowieść-melodię zapisaną na Stronie, postanowiono zbudować płot wokół Krainy, wykorzystując punkty orientacyjne. W procesie budowy zaangażowane są dwa rodzaje tragarzy, którzy przenoszą odcinki długości 1, tworzące płot.</p>
+<h3><a class="anchor" id="autotoc_md2"></a>
+2.Algorytmy i struktury danych</h3>
+<ul>
+<li><a class="el" href="problem1_8cpp.html">Jarvis March</a>: Używany do znalezienia otoczki wypukłej punktów orientacyjnych.</li>
+<li><a class="el" href="class_siec_przeplywowa.html">Edmonds-Karp</a>: Używany do znalezienia maksymalnego przepływu w grafie.</li>
+<li><a class="el" href="problem1_8cpp.html">Hopcroft-Karp</a>: Używany do znalezienia maksymalnego skojarzenia w grafie dwudzielnym, użyte do połączenia pracujących ze sobą tragarzy.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md3"></a>
+3. Struktura kodu</h3>
+<p><b>Funkcja główna:</b></p><ol type="1">
+<li><b>Wczytanie punktów orientacyjnych:</b><ul>
+<li>Użytkownik podaje liczbę punktów orientacyjnych.</li>
+<li>Użytkownik podaje współrzędne punktów orientacyjnych.</li>
+<li>Na podstawie punktów orientacyjnych tworzona jest otoczka wypukła.</li>
+</ul>
+</li>
+<li><b>Wczytanie liczby tragarzy:</b><ul>
+<li>Użytkownik podaje liczbę tragarzy z rękoma z przodu i z tyłu.</li>
+</ul>
+</li>
+<li><b>Wczytanie preferencji tragarzy:</b><ul>
+<li>Użytkownik podaje, kto z kim będzie pracował.</li>
+<li>Na podstawie preferencji tworzone są pary tragarzy, którzy będą pracować ze sobą.</li>
+</ul>
+</li>
+<li><b>Połączenie tragarzy:</b><ul>
+<li>Używany jest algorytm Hopcroft-Karp do znalezienia maksymalnego skojarzenia w grafie dwudzielnym.</li>
+<li>Połączone pary tragarzy tworzą pracujące ze sobą tragarze.</li>
+</ul>
+</li>
+<li><b>Znalezienie fabryki:</b><ul>
+<li>Użytkownik podaje punkt, który jest fabryką.</li>
+<li>Fabryka jest połączana z resztą punktów orientacyjnych, aby istniała droga do otoczki.</li>
+<li>Na podstawie połączeń tworzona jest sieć przepływowa.</li>
+</ul>
+</li>
+<li><b>Znalezienie maksymalnego przepływu:</b><ul>
+<li>Używany jest algorytm Edmonds-Karp do znalezienia maksymalnego przepływu w grafie.</li>
+<li>Maksymalny przepływ reprezentuje liczbę przeniesionych odcinków płotu.</li>
+</ul>
+</li>
+<li><b>Wyjście:</b><ul>
+<li>Wyświetlenie informacji o potrzebnej liczbie dni do zbudowania płotu, długości płotu oraz o maksymalnym przepływie.</li>
+</ul>
+</li>
+</ol>
 <hr  />
-<h1><a class="anchor" id="autotoc_md3"></a>
-Rozwiązanie problemu drugiego</h1>
-<h3><a class="anchor" id="autotoc_md4"></a>
+<h1><a class="anchor" id="autotoc_md5"></a>
+<a class="el" href="problem2_8cpp.html">Rozwiązanie problemu drugiego</a></h1>
+<h3><a class="anchor" id="autotoc_md6"></a>
 1. Opis problemu</h3>
 <p>Program ma za zadanie przetwarzać opowieść-melodię, zamieniając w niej określone fragmenty tekstu. Standardowo zamienia „poli” na „boli”, a jeśli zostaną zgłoszone dodatkowe fragmenty do zamiany, to zamienia również te fragmenty. Po dokonaniu zamian, melodia jest kompresowana za pomocą algorytmu Huffmana w celu oszczędzenia miejsca.</p>
 <hr  />
-<h3><a class="anchor" id="autotoc_md6"></a>
+<h3><a class="anchor" id="autotoc_md8"></a>
 2. Algorytmy i struktury danych</h3>
 <ul>
 <li><a class="el" href="class_aho_corasick.html">Aho-Corasick</a>: Używany do jednoczesnego wyszukiwania wielu wzorców w tekście.</li>
@@ -93,7 +142,7 @@ Rozwiązanie problemu drugiego</h1>
 <li><b><a class="el" href="class_huffman.html">Huffman</a></b>: Używany do kompresji tekstu.</li>
 </ul>
 <hr  />
-<h3><a class="anchor" id="autotoc_md8"></a>
+<h3><a class="anchor" id="autotoc_md10"></a>
 3. Struktura kodu</h3>
 <p><b>Funkcja główna:</b></p>
 <ol type="1">
@@ -116,21 +165,21 @@ Rozwiązanie problemu drugiego</h1>
 </li>
 </ol>
 <hr  />
-<h1><a class="anchor" id="autotoc_md10"></a>
-Rozwiązanie problemu trzeciego</h1>
-<h3><a class="anchor" id="autotoc_md11"></a>
+<h1><a class="anchor" id="autotoc_md12"></a>
+<a class="el" href="problem3_8cpp.html">Rozwiązanie problemu trzeciego</a></h1>
+<h3><a class="anchor" id="autotoc_md13"></a>
 1. Opis problemu</h3>
 <p>Strażnicy, zwani płaszczakami, mają za zadanie raz dziennie patrolować płot chroniący krainę. Patrolowanie odbywa się zgodnie z ruchem wskazówek zegara po punktach orientacyjnych o różnej jasności. Płaszczak musi się zatrzymać po przejściu określonej liczby punktów, aby się rozejrzeć, i zachowuje energię tylko wtedy, gdy poprzedni punkt zatrzymania był jaśniejszy od bieżącego. Gdy punkt bieżący jest ciemniejszy lub równie jasny jak poprzedni, płaszczak traci całą energię i musi odpocząć, słuchając melodii.</p>
 <p>Celem jest ustalenie, który płaszczak będzie patrolował danego dnia i w jakim punkcie orientacyjnym powinien rozpocząć trasę, aby liczba odsłuchań melodii była minimalna.</p>
 <hr  />
-<h3><a class="anchor" id="autotoc_md13"></a>
+<h3><a class="anchor" id="autotoc_md15"></a>
 2. Wymagania</h3>
 <ul>
 <li>Ustalanie grafiku pracy strażników na siedem dni.</li>
 <li>Minimalizacja liczby odsłuchań melodii przez każdego strażnika.</li>
 </ul>
 <hr  />
-<h3><a class="anchor" id="autotoc_md15"></a>
+<h3><a class="anchor" id="autotoc_md17"></a>
 3. Struktury danych</h3>
 <ul>
 <li><b><a class="el" href="struct_plaszczak.html" title="Struktura Plaszczak.">Plaszczak</a></b><ul>
@@ -147,7 +196,7 @@ Rozwiązanie problemu trzeciego</h1>
 </li>
 </ul>
 <hr  />
-<h3><a class="anchor" id="autotoc_md17"></a>
+<h3><a class="anchor" id="autotoc_md19"></a>
 4. Algorytm</h3>
 <ol type="1">
 <li><b>Wczytywanie danych</b>:<ul>
@@ -175,10 +224,19 @@ Rozwiązanie problemu trzeciego</h1>
 </ul>
 </li>
 <li><b>Wyjście</b>:<ul>
-<li>Wyświetlenie grafiku pracy strażników z minimalną liczbą odsłuchań melodii. </li>
+<li>Wyświetlenie grafiku pracy strażników z minimalną liczbą odsłuchań melodii.</li>
 </ul>
 </li>
 </ol>
+<hr  />
+ <h1><a class="anchor" id="autotoc_md21"></a>
+Zespół</h1>
+<ul>
+<li>Igor Ciżewski</li>
+<li>Łukasz Czapski</li>
+<li>Szymon Najdzion</li>
+<li>Szymon Zarembski </li>
+</ul>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"/>
 </div><!-- contents -->

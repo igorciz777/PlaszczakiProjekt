@@ -89,21 +89,21 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="_siec_przeplywowa_8h.html">SiecPrzeplywowa.h</a>&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="foldopen" id="foldopen00012" data-start="{" data-end="}">
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_siec_przeplywowa.html#a82c040c997f30782f093740b7ab5253b">   12</a></span><a class="code hl_function" href="class_siec_przeplywowa.html#a82c040c997f30782f093740b7ab5253b">SiecPrzeplywowa::SiecPrzeplywowa</a>(<span class="keywordtype">int</span> n){</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_siec_przeplywowa.html#a17c1df69d2000775d2ee830bacabc265">   12</a></span><a class="code hl_function" href="class_siec_przeplywowa.html#a17c1df69d2000775d2ee830bacabc265">SiecPrzeplywowa::SiecPrzeplywowa</a>(lli n){</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    this-&gt;n = n;</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    this-&gt;graf = std::vector&lt;std::vector&lt;Krawedz&gt;&gt;(n);</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    this-&gt;poprzednik = std::vector&lt;int&gt;(n);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    this-&gt;poprzednik = std::vector&lt;lli&gt;(n);</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>}</div>
 </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_siec_przeplywowa.html#ab4ab3c9f9a7580c21905e7bd36d8b7b4">   18</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_siec_przeplywowa.html#ab4ab3c9f9a7580c21905e7bd36d8b7b4">SiecPrzeplywowa::dodajWierzcholek</a>(<span class="keywordtype">int</span> v){</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_siec_przeplywowa.html#a0a5ef41d61fc6df2d1515fe3e08eedd0">   18</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_siec_przeplywowa.html#a0a5ef41d61fc6df2d1515fe3e08eedd0">SiecPrzeplywowa::dodajWierzcholek</a>(lli v){</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    this-&gt;graf[v] = std::vector&lt;Krawedz&gt;();</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>}</div>
 </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="foldopen" id="foldopen00022" data-start="{" data-end="}">
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_siec_przeplywowa.html#ab21c7b44b2081a6c1d184b1488b8e4b3">   22</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_siec_przeplywowa.html#ab21c7b44b2081a6c1d184b1488b8e4b3">SiecPrzeplywowa::dodajKrawedz</a>(<span class="keywordtype">int</span> u, <span class="keywordtype">int</span> v, <span class="keywordtype">int</span> przepustowosc){</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_siec_przeplywowa.html#a1b68b30bef7b02c7b8ce4546adf0875f">   22</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_siec_przeplywowa.html#a1b68b30bef7b02c7b8ce4546adf0875f">SiecPrzeplywowa::dodajKrawedz</a>(lli u, lli v, lli przepustowosc){</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_struct" href="struct_krawedz.html">Krawedz</a> k1 = <a class="code hl_struct" href="struct_krawedz.html">Krawedz</a>();</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    k1.cel = v;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    k1.przepustowosc = przepustowosc;</div>
@@ -120,23 +120,23 @@ $(function() { codefold.init(0); });
 </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_siec_przeplywowa.html#a89c2b1d053647a16c6ced28d9f0e13f8">   37</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="class_siec_przeplywowa.html#a89c2b1d053647a16c6ced28d9f0e13f8">SiecPrzeplywowa::edmondsKarp</a>(<span class="keywordtype">int</span> s, <span class="keywordtype">int</span> t, std::vector&lt;std::vector&lt;int&gt;&gt; &amp;sciezki_out){</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">int</span> maxPrzeplyw = 0;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">int</span> przeplyw = 0;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">while</span>(przeplyw = bfs(s, t)){</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_siec_przeplywowa.html#a497f3d8f59675866faa1f91a7895441c">   37</a></span>lli <a class="code hl_function" href="class_siec_przeplywowa.html#a497f3d8f59675866faa1f91a7895441c">SiecPrzeplywowa::edmondsKarp</a>(lli s, lli t, std::vector&lt;std::vector&lt;lli&gt;&gt; &amp;sciezki_out){</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    lli maxPrzeplyw = 0;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    lli przeplyw = 0;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">while</span>((przeplyw = bfs(s, t))){</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        maxPrzeplyw += przeplyw;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordtype">int</span> v = t;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        std::vector&lt;int&gt; sciezka;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        lli v = t;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        std::vector&lt;lli&gt; sciezka;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">while</span>(v != s){</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <span class="keywordtype">int</span> u = this-&gt;poprzednik[v];</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            lli u = this-&gt;poprzednik[v];</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            sciezka.push_back(v);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; this-&gt;graf[u].size(); i++){</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <span class="keywordflow">for</span>(llu i = 0; i &lt; this-&gt;graf[u].size(); i++){</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                <span class="keywordflow">if</span>(this-&gt;graf[u][i].cel == v){</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                    this-&gt;graf[u][i].przeplyw += przeplyw;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                    <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                }</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            }</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; this-&gt;graf[v].size(); i++){</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <span class="keywordflow">for</span>(llu i = 0; i &lt; this-&gt;graf[v].size(); i++){</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                <span class="keywordflow">if</span>(this-&gt;graf[v][i].cel == u){</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                    this-&gt;graf[v][i].przeplyw -= przeplyw;</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                    <span class="keywordflow">break</span>;</div>
@@ -153,22 +153,22 @@ $(function() { codefold.init(0); });
 </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">int</span> SiecPrzeplywowa::bfs(<span class="keywordtype">int</span> s, <span class="keywordtype">int</span> t){</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>lli SiecPrzeplywowa::bfs(lli s, lli t){</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    std::vector&lt;bool&gt; odwiedzone = std::vector&lt;bool&gt;(this-&gt;n);</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    std::vector&lt;int&gt; przeplyw = std::vector&lt;int&gt;(this-&gt;n);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; this-&gt;n; i++){</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    std::vector&lt;lli&gt; przeplyw = std::vector&lt;lli&gt;(this-&gt;n);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordflow">for</span>(lli i = 0; i &lt; this-&gt;n; i++){</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        odwiedzone[i] = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        przeplyw[i] = 0;</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    }</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    std::vector&lt;int&gt; kolejka = std::vector&lt;int&gt;();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    std::vector&lt;lli&gt; kolejka = std::vector&lt;lli&gt;();</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    kolejka.push_back(s);</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    odwiedzone[s] = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    przeplyw[s] = INF;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    przeplyw[s] = INT_MAX;</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordflow">while</span>(!kolejka.empty()){</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordtype">int</span> u = kolejka[0];</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        lli u = kolejka[0];</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        kolejka.erase(kolejka.begin());</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; this-&gt;graf[u].size(); i++){</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="keywordtype">int</span> v = this-&gt;graf[u][i].cel;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordflow">for</span>(llu i = 0; i &lt; this-&gt;graf[u].size(); i++){</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            lli v = this-&gt;graf[u][i].cel;</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            <span class="keywordflow">if</span>(!odwiedzone[v] &amp;&amp; this-&gt;graf[u][i].przepustowosc - this-&gt;graf[u][i].przeplyw &gt; 0){</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                this-&gt;poprzednik[v] = u;</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                przeplyw[v] = std::min(przeplyw[u], this-&gt;graf[u][i].przepustowosc - this-&gt;graf[u][i].przeplyw);</div>
@@ -184,10 +184,10 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>}</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
 <div class="ttc" id="a_siec_przeplywowa_8h_html"><div class="ttname"><a href="_siec_przeplywowa_8h.html">SiecPrzeplywowa.h</a></div><div class="ttdoc">Plik nagłówkowy dla implementacji sieci przepływowej.</div></div>
-<div class="ttc" id="aclass_siec_przeplywowa_html_a82c040c997f30782f093740b7ab5253b"><div class="ttname"><a href="class_siec_przeplywowa.html#a82c040c997f30782f093740b7ab5253b">SiecPrzeplywowa::SiecPrzeplywowa</a></div><div class="ttdeci">SiecPrzeplywowa(int n)</div><div class="ttdoc">Konstruktor klasy.</div><div class="ttdef"><b>Definition</b> SiecPrzeplywowa.cpp:12</div></div>
-<div class="ttc" id="aclass_siec_przeplywowa_html_a89c2b1d053647a16c6ced28d9f0e13f8"><div class="ttname"><a href="class_siec_przeplywowa.html#a89c2b1d053647a16c6ced28d9f0e13f8">SiecPrzeplywowa::edmondsKarp</a></div><div class="ttdeci">int edmondsKarp(int s, int t, std::vector&lt; std::vector&lt; int &gt; &gt; &amp;sciezki_out)</div><div class="ttdoc">Algorytm Edmondsa-Karpa znajdujący maksymalny przepływ w grafie.</div><div class="ttdef"><b>Definition</b> SiecPrzeplywowa.cpp:37</div></div>
-<div class="ttc" id="aclass_siec_przeplywowa_html_ab21c7b44b2081a6c1d184b1488b8e4b3"><div class="ttname"><a href="class_siec_przeplywowa.html#ab21c7b44b2081a6c1d184b1488b8e4b3">SiecPrzeplywowa::dodajKrawedz</a></div><div class="ttdeci">void dodajKrawedz(int u, int v, int przepustowosc)</div><div class="ttdoc">Dodaje krawędź do grafu.</div><div class="ttdef"><b>Definition</b> SiecPrzeplywowa.cpp:22</div></div>
-<div class="ttc" id="aclass_siec_przeplywowa_html_ab4ab3c9f9a7580c21905e7bd36d8b7b4"><div class="ttname"><a href="class_siec_przeplywowa.html#ab4ab3c9f9a7580c21905e7bd36d8b7b4">SiecPrzeplywowa::dodajWierzcholek</a></div><div class="ttdeci">void dodajWierzcholek(int v)</div><div class="ttdoc">Dodaje wierzchołek do grafu.</div><div class="ttdef"><b>Definition</b> SiecPrzeplywowa.cpp:18</div></div>
+<div class="ttc" id="aclass_siec_przeplywowa_html_a0a5ef41d61fc6df2d1515fe3e08eedd0"><div class="ttname"><a href="class_siec_przeplywowa.html#a0a5ef41d61fc6df2d1515fe3e08eedd0">SiecPrzeplywowa::dodajWierzcholek</a></div><div class="ttdeci">void dodajWierzcholek(lli v)</div><div class="ttdoc">Dodaje wierzchołek do grafu.</div><div class="ttdef"><b>Definition</b> SiecPrzeplywowa.cpp:18</div></div>
+<div class="ttc" id="aclass_siec_przeplywowa_html_a17c1df69d2000775d2ee830bacabc265"><div class="ttname"><a href="class_siec_przeplywowa.html#a17c1df69d2000775d2ee830bacabc265">SiecPrzeplywowa::SiecPrzeplywowa</a></div><div class="ttdeci">SiecPrzeplywowa(lli n)</div><div class="ttdoc">Konstruktor klasy.</div><div class="ttdef"><b>Definition</b> SiecPrzeplywowa.cpp:12</div></div>
+<div class="ttc" id="aclass_siec_przeplywowa_html_a1b68b30bef7b02c7b8ce4546adf0875f"><div class="ttname"><a href="class_siec_przeplywowa.html#a1b68b30bef7b02c7b8ce4546adf0875f">SiecPrzeplywowa::dodajKrawedz</a></div><div class="ttdeci">void dodajKrawedz(lli u, lli v, lli przepustowosc)</div><div class="ttdoc">Dodaje krawędź do grafu.</div><div class="ttdef"><b>Definition</b> SiecPrzeplywowa.cpp:22</div></div>
+<div class="ttc" id="aclass_siec_przeplywowa_html_a497f3d8f59675866faa1f91a7895441c"><div class="ttname"><a href="class_siec_przeplywowa.html#a497f3d8f59675866faa1f91a7895441c">SiecPrzeplywowa::edmondsKarp</a></div><div class="ttdeci">lli edmondsKarp(lli s, lli t, std::vector&lt; std::vector&lt; lli &gt; &gt; &amp;sciezki_out)</div><div class="ttdoc">Algorytm Edmondsa-Karpa znajdujący maksymalny przepływ w grafie.</div><div class="ttdef"><b>Definition</b> SiecPrzeplywowa.cpp:37</div></div>
 <div class="ttc" id="astruct_krawedz_html"><div class="ttname"><a href="struct_krawedz.html">Krawedz</a></div><div class="ttdoc">Struktura przechowująca krawędź w grafie.</div><div class="ttdef"><b>Definition</b> JarvisMarch.cpp:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
