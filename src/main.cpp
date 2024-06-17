@@ -23,11 +23,11 @@ void printInfo(){
     std::cout << "Aktualne statystyki Krainy Plaszczakow:" << std::endl;
     std::cout << "-Informacje o plocie: " << std::endl;
     if(plot_info_global.poprawny){
-        std::cout << "\t-Ilosc odcinkow plotu: " << plot_info_global.ilosc_odcinkow_plotu << std::endl;
+        std::cout << "\t-Liczba wierzcholkow plotu: " << plot_info_global.ilosc_odcinkow_plotu << std::endl;
         std::cout << "\t-Dlugosc plotu: " << plot_info_global.dlugosc_plotu << std::endl;
-        std::cout << "\t-Ilosc tragarzy z rekoma z przodu: " << plot_info_global.ilosc_tragarzy_z_przodu << std::endl;
-        std::cout << "\t-Ilosc tragarzy z rekoma z tylu: " << plot_info_global.ilosc_tragarzy_z_tylu << std::endl;
-        std::cout << "\t-Ilosc par tragarzy wspolpracujacych: " << plot_info_global.ilosc_par << std::endl;
+        std::cout << "\t-Liczba tragarzy z rekoma z przodu: " << plot_info_global.ilosc_tragarzy_z_przodu << std::endl;
+        std::cout << "\t-Liczba tragarzy z rekoma z tylu: " << plot_info_global.ilosc_tragarzy_z_tylu << std::endl;
+        std::cout << "\t-Liczba par tragarzy wspolpracujacych: " << plot_info_global.ilosc_par << std::endl;
         std::cout << "\t-Maksymalny przeplyw: " << plot_info_global.maksymalny_przeplyw << std::endl;
         std::cout << "\t-Dni do zbudowania: " << plot_info_global.dni_do_zbudowania << std::endl;
     }else{
