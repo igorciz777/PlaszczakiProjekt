@@ -15,7 +15,6 @@
  * 5. Zapytaj który punkt spoza otoczki jest fabryką, a nastepnie połącz tą fabrykę z resztą punktów tak aby byla droga do otoczki.
  * 
  * @see SiecPrzeplywowa.h
- * @see DoborTragarzy.h
 */
 
 #include <iostream>
