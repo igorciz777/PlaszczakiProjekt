@@ -12,13 +12,18 @@ Uruchom w głównym katalogu
 
 #### Main
 ```terminal
-  g++ -Wall -Wextra .\src\main.cpp .\src\include\*.cpp -o main
+  g++ .\src\main.cpp .\src\include\*.cpp -o main
 ```
 
 ### Testy jednostkowe
 Uruchom w głównym katalogu
+#### Testy głównych problemów
 ```terminal
-  g++ -Iinclude .\tests\tests.cpp .\src\include\*.cpp -o test
+  g++ .\tests\main_tests.cpp .\src\include\*.cpp -o main_tests
+```
+#### Testy plików include
+```terminal
+  g++ .\tests\lib_tests.cpp .\src\include\*.cpp -o lib_tests
 ```
 
 ## Użyte technologie
