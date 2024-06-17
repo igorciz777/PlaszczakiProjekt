@@ -4,8 +4,8 @@
 #include "../src/include/AhoCorasick.h"
 #include "../src/include/Huffman.h"
 #include "../src/include/Kmp.h"
-#include "../src/include/SiecPrzeplywowa.h"
 #include "../src/include/Tekst.h"
+#include "../src/problem1.cpp"
 
 #include <iostream>
 
@@ -105,8 +105,49 @@ TEST_CASE("Huffman") {
     }
 }
 
-TEST_CASE("SiecPrzeplywowa") {
-    
+TEST_CASE("Edmonds-Karp") {
+    SUBCASE("Test sieci nr1"){ //Źródło przykladu - Introduction to Algorithms CLRS
+        SiecPrzeplywowa siec(6);
+        siec.dodajKrawedz(0, 1, 16);
+        siec.dodajKrawedz(0, 2, 13);
+        siec.dodajKrawedz(1, 2, 10);
+        siec.dodajKrawedz(1, 3, 12);
+        siec.dodajKrawedz(2, 1, 4);
+        siec.dodajKrawedz(2, 4, 14);
+        siec.dodajKrawedz(3, 2, 9);
+        siec.dodajKrawedz(3, 5, 20);
+        siec.dodajKrawedz(4, 3, 7);
+        siec.dodajKrawedz(4, 5, 4);
+        std::vector<std::vector<long long>> sciezki;
+        long long result = siec.edmondsKarp(0, 5, sciezki);
+        CHECK(result == 23);
+    }
+    SUBCASE("Test sieci nr2"){
+        SiecPrzeplywowa siec(6);
+        siec.dodajKrawedz(0, 1, 10);
+        siec.dodajKrawedz(0, 2, 10);
+        siec.dodajKrawedz(1, 3, 4);
+        siec.dodajKrawedz(1, 4, 8);
+        siec.dodajKrawedz(2, 4, 9);
+        siec.dodajKrawedz(3, 5, 10);
+        siec.dodajKrawedz(4, 3, 6);
+        siec.dodajKrawedz(4, 5, 10);
+        std::vector<std::vector<long long>> sciezki;
+        long long result = siec.edmondsKarp(0, 5, sciezki);
+        CHECK(result == 19);
+    }
+    SUBCASE("Test sieci nr3"){
+        SiecPrzeplywowa siec(6);
+        siec.dodajKrawedz(0, 1, 10);
+        siec.dodajKrawedz(0, 2, 10);
+        siec.dodajKrawedz(1, 3, 10);
+        siec.dodajKrawedz(2, 4, 10);
+        siec.dodajKrawedz(3, 5, 10);
+        siec.dodajKrawedz(4, 5, 10);
+        std::vector<std::vector<long long>> sciezki;
+        long long result = siec.edmondsKarp(0, 5, sciezki);
+        CHECK(result == 20);
+    }
 }
 
 TEST_CASE("Tekst") {
@@ -119,12 +160,32 @@ TEST_CASE("Tekst") {
         std::string text = "test";
         Tekst::zamienFragment(text, 0, std::make_pair("te", "abc"));
         CHECK(text == "abcst");
-    }
-    
+    }   
 }
 
-TEST_CASE("Problem 1"){
-    SUBCASE("Dane 1"){
-        
+TEST_CASE("Jarvis March"){
+    SUBCASE("Test otoczki nr1"){
+        Punkt punkty[] = {{0, 3}, {2, 2}, {1, 1}, {2, 1}, {3, 0}, {0, 0}, {3, 3}};
+        double dlugosc_plotu = 0;
+        int wynik = 0;
+        std::vector<int> punktyOtoczki;
+        stworzOtoczke(punkty, 7, dlugosc_plotu, wynik, punktyOtoczki);
+        CHECK(wynik == 4);
+    }
+    SUBCASE("Test otoczki nr2"){
+        Punkt punkty[] = {{0, 3}, {2, 2}, {1, 1}, {2, 1}, {3, 0}, {0, 0}, {3, 3}, {1, 2}};
+        double dlugosc_plotu = 0;
+        int wynik = 0;
+        std::vector<int> punktyOtoczki;
+        stworzOtoczke(punkty, 8, dlugosc_plotu, wynik, punktyOtoczki);
+        CHECK(wynik == 4);
+    }
+    SUBCASE("Test otoczki nr3"){
+        Punkt punkty[] = {{0, 3}, {2, 2}, {1, 1}, {2, 1}, {3, 0}, {0, 0}, {3, 3}, {1, -1}, {1, 4}};
+        double dlugosc_plotu = 0;
+        int wynik = 0;
+        std::vector<int> punktyOtoczki;
+        stworzOtoczke(punkty, 9, dlugosc_plotu, wynik, punktyOtoczki);
+        CHECK(wynik == 6);
     }
 }
